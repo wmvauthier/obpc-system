@@ -1,9 +1,9 @@
 {
     "env": {
-        "MYSQL_USER": "root",
-        "MYSQL_PASSWORD": "root",
-        "MYSQL_DATABASE": "obpc",
-        "MYSQL_HOST": "localhost",
+        "MYSQL_USER": "bf0baa330612ad",
+        "MYSQL_PASSWORD": "cef27e70",
+        "MYSQL_DATABASE": "heroku_4cd67c5c93b3547",
+        "MYSQL_HOST": "us-cdbr-iron-east-01.cleardb.net",
         "MYSQL_PORT": 3306,
 
         "JWT_KEY" : "pentecostal"
