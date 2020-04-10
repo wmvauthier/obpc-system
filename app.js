@@ -27,6 +27,12 @@ app.use((req, res, next) => {
 
 })
 
+app.use('/', (req, res, next) => {
+    res.status(200).send({
+        mensagem: 'OBPC-SYSTEM : Online'
+    })
+});
+
 app.use('/pessoas', rotaPessoas);
 app.use('/igrejas', rotaIgrejas);
 app.use('/usuarios', rotaUsuarios);
