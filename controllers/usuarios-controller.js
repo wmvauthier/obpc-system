@@ -50,12 +50,12 @@ exports.login = (req, res, next) => {
             if (error) { return res.status(500).send({ error: error }) }
 
             if (results.length < 1) {
-                return res.status(401).send({ mensagem: "Falha na Autenticação" , line: "53", req: req});
+                return res.status(401).send({ mensagem: "Mais de um usuário"});
             }
 
             bcrypt.compare(req.body.senha, results[0].senha, (err, result) => {
                 if (err) {
-                    return res.status(401).send({ mensagem: "Falha na Autenticação" , line: "58", req: req});
+                    return res.status(401).send({ mensagem: "Senha errada"});
                 }
                 if (result) {
 
@@ -74,7 +74,7 @@ exports.login = (req, res, next) => {
                     });
 
                 }
-                return res.status(401).send({ mensagem: "Falha na Autenticação" , line: "77", req: req});
+                return res.status(401).send({ mensagem: "Erro no BCrypt"});
             });
 
         });
