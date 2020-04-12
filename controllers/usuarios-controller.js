@@ -44,23 +44,18 @@ exports.register = (req, res, next) => {
 
 exports.login = (req, res, next) => {
     mysql.getConnection((error, conn) => {
-
-        let rr = JSON.parse(req);
-
-        if (conn) { return res.status(200).send({ req: req, res: res, reqppp: rr, login: req.body.login, senha: req.body.senha }) }
-
         if (error) { return res.status(500).send({ error: error }) }
         conn.query(`SELECT * FROM usuarios WHERE login = ?`, [req.body.login], (error, results, fields) => {
             conn.release();
             if (error) { return res.status(500).send({ error: error }) }
 
             if (results.length < 1) {
-                return res.status(401).send({ mensagem: "Falha na Autenticação", requis: req.body, item: results });
+                return res.status(401).send({ mensagem: "Falha na Autenticação" , line: "53", req: req});
             }
 
             bcrypt.compare(req.body.senha, results[0].senha, (err, result) => {
                 if (err) {
-                    return res.status(401).send({ mensagem: "Falha na Autenticação", requis: req.body, item: results });
+                    return res.status(401).send({ mensagem: "Falha na Autenticação" , line: "58", req: req});
                 }
                 if (result) {
 
@@ -79,7 +74,7 @@ exports.login = (req, res, next) => {
                     });
 
                 }
-                return res.status(401).send({ mensagem: "Falha na Autenticação", requis: req.body, item: results });
+                return res.status(401).send({ mensagem: "Falha na Autenticação" , line: "77", req: req});
             });
 
         });
