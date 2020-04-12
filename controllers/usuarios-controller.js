@@ -46,7 +46,7 @@ exports.login = (req, res, next) => {
     mysql.getConnection((error, conn) => {
 
         if (conn) {
-            return res.status(200).send({ resp: req.body })
+            return res.status(200).send({ resp: req.body.login })
         }
 
         if (error) { return res.status(500).send({ error: error }) }
