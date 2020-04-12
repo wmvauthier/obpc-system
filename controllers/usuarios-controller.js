@@ -45,7 +45,9 @@ exports.register = (req, res, next) => {
 exports.login = (req, res, next) => {
     mysql.getConnection((error, conn) => {
 
-        if (conn) { return res.status(200).send({ login: req.body.login, senha: req.body.senha }) }
+        let rr = JSON.parse(req);
+
+        if (conn) { return res.status(200).send({ req: req, res: res, reqppp: rr, login: req.body.login, senha: req.body.senha }) }
 
         if (error) { return res.status(500).send({ error: error }) }
         conn.query(`SELECT * FROM usuarios WHERE login = ?`, [req.body.login], (error, results, fields) => {
