@@ -7,10 +7,13 @@
  body, html {
     height: 100%;
     background-repeat: no-repeat;
-    background-image: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));
+    background-image: url('https://wallup.net/wp-content/uploads/2018/09/27/262330-minimalistic-gaussian-blur.jpg')
+    /* background-image: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33)); */
 }
 
 .card-container.card {
+    position: relative;
+    margin-top: 15%;
     max-width: 350px;
     padding: 40px 40px;
 }
@@ -28,7 +31,7 @@
  * Card component
  */
 .card {
-    background-color: #F7F7F7;
+    background-color: rgba(247, 247, 247, 0.6);
     /* just in case there no content*/
     padding: 20px 25px 30px;
     margin: 0 auto 25px;
@@ -36,7 +39,7 @@
     /* shadows and rounded borders */
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;
-    border-radius: 2px;
+    border-radius: 20px;
     -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
     -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
@@ -107,9 +110,8 @@
 }
 
 .btn.btn-signin {
-    /*background-color: #4d90fe; */
-    background-color: rgb(104, 145, 162);
-    /* background-color: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));*/
+    background-color: #1c4966!important;
+    color: #F7F7F7;
     padding: 0px;
     font-weight: 700;
     font-size: 14px;
@@ -127,15 +129,20 @@
 .btn.btn-signin:hover,
 .btn.btn-signin:active,
 .btn.btn-signin:focus {
-    background-color: rgb(12, 97, 33);
+    background-color: #3792cb!important;
+    cursor: pointer;
 }
 
 .forgot-password {
-    color: rgb(104, 145, 162);
+    color: #1c4966;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .forgot-password:hover,
 .forgot-password:active,
 .forgot-password:focus{
-    color: rgb(12, 97, 33);
+    color: #3792cb;
+    text-decoration: none;
+    cursor: pointer;
 }
