@@ -46,7 +46,9 @@ exports.login = (req, res, next) => {
     mysql.getConnection((error, conn) => {
         if (error) { return res.status(500).send({ error: error }) }
 
-        conn.query('SELECT * FROM usuarios WHERE login = ', [req.body.login], (error, results, fields) => {
+        const sql = `SELECT * FROM usuarios WHERE login = ${req.body.login}`;
+
+        conn.query(sql, (error, results, fields) => {
             conn.release();
             if (error) { return res.status(500).send({ error: error }) }
 

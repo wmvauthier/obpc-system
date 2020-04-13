@@ -20,6 +20,8 @@ $("#formLogin").submit(function (event) {
     $("#messageFormLogin").html(result.mensagem);
     $("#validationFormLogin").show();
 
+    console.log(data);
+
     console.log(result);
 });
 

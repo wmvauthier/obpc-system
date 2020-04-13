@@ -1,5 +1,5 @@
-var URL_API = 'https://obpc-system.herokuapp.com';
-// var URL_API = 'localhost:3000';
+// var URL_API = 'https://obpc-system.herokuapp.com';
+var URL_API = 'localhost:3000';
 
 function httpGet(theUrl) {
     theUrl = URL_API + theUrl
