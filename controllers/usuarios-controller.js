@@ -53,12 +53,12 @@ exports.login = (req, res, next) => {
             if (error) { return res.status(500).send({ error: error }) }
 
             if (results.length < 1) {
-                return res.status(401).send({ mensagem: "Usuário ou Senha incorretos" });
+                return res.status(401).send({ title: "Acesso negado", class: "alert alert-danger", mensagem: "Usuário ou Senha incorretos" });
             }
 
             bcrypt.compare(req.body.senha, results[0].senha, (err, result) => {
                 if (err) {
-                    return res.status(401).send({ mensagem: "Usuário ou Senha incorretos" });
+                    return res.status(401).send({ title: "Acesso negado", class: "alert alert-danger", mensagem: "Usuário ou Senha incorretos" });
                 }
                 if (result) {
 
@@ -79,7 +79,7 @@ exports.login = (req, res, next) => {
                     });
 
                 }
-                return res.status(401).send({ mensagem: "Usuário ou Senha incorretos" });
+                return res.status(401).send({ title: "Acesso negado", class: "alert alert-danger", mensagem: "Usuário ou Senha incorretos" });
             });
 
         });

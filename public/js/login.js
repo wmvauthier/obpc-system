@@ -12,16 +12,17 @@ $("#formLogin").submit(function (event) {
     var result = httpPost('/usuarios/login', data);
 
     if (result.token) {
-        $("#validationTitleFormLogin").html('Sucesso');
+        $('#validationFormLogin').addClass(result.class);
     } else {
-        $("#validationTitleFormLogin").html('Erro');
+        $('#validationFormLogin').addClass(result.class);
     }
 
+    $("#validationTitleFormLogin").html(result.title);
     $("#messageFormLogin").html(result.mensagem);
     $("#validationFormLogin").show();
 
     console.log(data);
     console.log(result);
-    console.log(result.error.sql);
+
 });
 
