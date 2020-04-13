@@ -55,12 +55,12 @@ exports.login = (req, res, next) => {
             if (error) { return res.status(500).send({ error: error }) }
 
             if (results.length < 1) {
-                return res.status(401).send({ mensagem: "Usuário não encontrado", normalSQL: sql, forcedSQL: forcedSQL, returnStr: returnStr, requisition: req });
+                return res.status(401).send({ mensagem: "Usuário não encontrado", normalSQL: sql, forcedSQL: forcedSQL, returnStr: returnStr });
             }
 
             bcrypt.compare(req.body.senha, results[0].senha, (err, result) => {
                 if (err) {
-                    return res.status(401).send({ mensagem: "Senha errada", normalSQL: sql, forcedSQL: forcedSQL, returnStr: returnStr, requisition: req });
+                    return res.status(401).send({ mensagem: "Senha errada", normalSQL: sql, forcedSQL: forcedSQL, returnStr: returnStr });
                 }
                 if (result) {
 
@@ -79,7 +79,7 @@ exports.login = (req, res, next) => {
                     });
 
                 }
-                return res.status(401).send({ mensagem: "Erro no BCrypt", normalSQL: sql, forcedSQL: forcedSQL, returnStr: returnStr, requisition: req });
+                return res.status(401).send({ mensagem: "Erro no BCrypt", normalSQL: sql, forcedSQL: forcedSQL, returnStr: returnStr });
             });
 
         });
