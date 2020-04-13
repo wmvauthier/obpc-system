@@ -21,7 +21,7 @@ $("#formLogin").submit(function (event) {
     $("#validationFormLogin").show();
 
     console.log(data);
-
     console.log(result);
+    console.log(result.error.sql);
 });
 
