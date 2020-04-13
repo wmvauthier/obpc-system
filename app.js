@@ -7,6 +7,14 @@ app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+/* setar as variáveis 'view engine' e 'views' do express */
+app.set('view engine', 'ejs');
+app.set('views', './views');
+
+/* configurar o middleware express.static */
+app.use(express.static('./public'));
+
+const rotaPages = require('./routes/pages');
 const rotaPessoas = require('./routes/pessoas');
 const rotaIgrejas = require('./routes/igrejas');
 const rotaUsuarios = require('./routes/usuarios');
@@ -22,24 +30,23 @@ app.use((req, res, next) => {
 
 })
 
+/* CHAMADAS ROUTES FRONTEND */
+app.get('/', (req, res, next) => { res.render('login.ejs')});
+app.use('/pages', rotaPages);
+
+/* CHAMADAS ROUTES BACKEND */
 app.use('/pessoas', rotaPessoas);
 app.use('/igrejas', rotaIgrejas);
 app.use('/usuarios', rotaUsuarios);
 
-app.use((req, res, next) => {
-    const erro = new Error('Não encontrado');
-    erro.status = 404;
-    next(erro);
+app.use(function (req, res, next) {
+    res.status(404).render('errors/404');
+    next();
 });
 
-app.use((error, req, res, next) => {
-    res.status(error.status || 500);
-    return res.send({
-        erro: {
-            mensagem: error.message
-        }
-    })
+app.use(function (err, req, res, next) {
+    res.status(500).render('errors/500');
+    next();
 });
-
 
 module.exports = app;

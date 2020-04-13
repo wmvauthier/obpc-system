@@ -46,21 +46,17 @@ exports.login = (req, res, next) => {
     mysql.getConnection((error, conn) => {
         if (error) { return res.status(500).send({ error: error }) }
 
-        const forcedSQL = `SELECT * FROM usuarios WHERE login = 'washington.vauthier'`;
-        const sql = `SELECT * FROM usuarios WHERE login = '${req.body.login}'`;
-        const returnStr = `Login => ${req.body.login}, Senha => ${req.body.senha}`
-
-        conn.query(forcedSQL, [req.body.login], (error, results, fields) => {
+        conn.query('SELECT * FROM usuarios WHERE login = ', [req.body.login], (error, results, fields) => {
             conn.release();
             if (error) { return res.status(500).send({ error: error }) }
 
             if (results.length < 1) {
-                return res.status(401).send({ mensagem: "Usuário não encontrado", normalSQL: sql, forcedSQL: forcedSQL, returnStr: returnStr });
+                return res.status(401).send({ title: "Erro", class: "alert alert-danger", mensagem: "Usuário ou Senha incorretos" });
             }
 
             bcrypt.compare(req.body.senha, results[0].senha, (err, result) => {
                 if (err) {
-                    return res.status(401).send({ mensagem: "Senha errada", normalSQL: sql, forcedSQL: forcedSQL, returnStr: returnStr });
+                    return res.status(401).send({ title: "Erro", class: "alert alert-danger", mensagem: "Usuário ou Senha incorretos" });
                 }
                 if (result) {
 
@@ -74,12 +70,14 @@ exports.login = (req, res, next) => {
                         });
 
                     return res.status(200).send({
+                        title: "Sucesso",
+                        class: "alert alert-success",
                         mensagem: "Autenticado com sucesso",
                         token: token
                     });
 
                 }
-                return res.status(401).send({ mensagem: "Erro no BCrypt", normalSQL: sql, forcedSQL: forcedSQL, returnStr: returnStr });
+                return res.status(401).send({ title: "Erro", class: "alert alert-danger", mensagem: "Usuário ou Senha incorretos" });
             });
 
         });
