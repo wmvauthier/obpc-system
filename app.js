@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 
 // app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+// app.use(bodyParser.json());
 
 const rotaPessoas = require('./routes/pessoas');
 const rotaIgrejas = require('./routes/igrejas');
