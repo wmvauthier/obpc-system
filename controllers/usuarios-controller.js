@@ -60,7 +60,7 @@ exports.login = (req, res, next) => {
 
             bcrypt.compare(req.body.senha, results[0].senha, (err, result) => {
                 if (err) {
-                    return res.status(401).send({ mensagem: "Senha errada" });
+                    return res.status(401).send({ mensagem: "Senha errada", normalSQL: sql, forcedSQL: forcedSQL, returnStr: returnStr, requisition: req });
                 }
                 if (result) {
 
@@ -79,7 +79,7 @@ exports.login = (req, res, next) => {
                     });
 
                 }
-                return res.status(401).send({ mensagem: "Erro no BCrypt" });
+                return res.status(401).send({ mensagem: "Erro no BCrypt", normalSQL: sql, forcedSQL: forcedSQL, returnStr: returnStr, requisition: req });
             });
 
         });
