@@ -1,4 +1,7 @@
 $(document).ready(function name(params) {
+    if (localStorage.getItem('token') || sessionStorage.getItem('token')) {
+        window.location.href = "./home";
+    }
     $("#validationFormLogin").hide(200);
 });
 
@@ -17,6 +20,12 @@ $("#formLogin").submit(function (event) {
     if (result.token) {
         $('#validationFormLogin').addClass(result.class);
         $('#validationFormLogin').removeClass('alert-danger');
+        if ($('#rememberFormLogin').is(":checked")) {
+            localStorage.setItem('token', result.token);
+        } else {
+            sessionStorage.setItem('token', result.token);
+        }
+        window.location.href = "./home";
     } else {
         $('#validationFormLogin').addClass(result.class);
         $('#validationFormLogin').removeClass('alert-success');
@@ -25,9 +34,6 @@ $("#formLogin").submit(function (event) {
     $("#validationTitleFormLogin").html(result.title);
     $("#messageFormLogin").html(result.mensagem);
     $("#validationFormLogin").show(200);
-
-    console.log(data);
-    console.log(result);
 
 });
 

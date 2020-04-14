@@ -32,6 +32,7 @@ app.use((req, res, next) => {
 
 /* CHAMADAS ROUTES FRONTEND */
 app.get('/', (req, res, next) => { res.render('login.ejs')});
+app.get('/home', (req, res, next) => { res.render('home.ejs')});
 app.use('/pages', rotaPages);
 
 /* CHAMADAS ROUTES BACKEND */

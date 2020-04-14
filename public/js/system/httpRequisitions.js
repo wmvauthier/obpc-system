@@ -1,6 +1,12 @@
 var URL_API = 'https://obpc-system.herokuapp.com';
 // var URL_API = 'localhost:3000';
 
+function checkToken() {
+    if (!localStorage.getItem('token') && !sessionStorage.getItem('token')) {
+        window.location.href = "./";
+    }
+}
+
 function httpGet(theUrl) {
     theUrl = URL_API + theUrl
     var xmlHttp = new XMLHttpRequest();
@@ -9,7 +15,7 @@ function httpGet(theUrl) {
     return JSON.parse(xmlHttp.responseText);
 }
 
-function httpPost(theUrl,data) {
+function httpPost(theUrl, data) {
     theUrl = URL_API + theUrl
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open("POST", theUrl, false); // false for synchronous request
@@ -18,7 +24,7 @@ function httpPost(theUrl,data) {
     return JSON.parse(xmlHttp.responseText);
 }
 
-function httpPut(theUrl,data) {
+function httpPut(theUrl, data) {
     theUrl = URL_API + theUrl
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open("PUT", theUrl, false); // false for synchronous request
