@@ -1,6 +1,12 @@
 var URL_API = 'https://obpc-system.herokuapp.com';
 // var URL_API = 'localhost:3000';
 
+$('#logoutButton').click(function () {
+    localStorage.clear();
+    sessionStorage.clear();
+    window.location.reload();
+});
+
 function checkToken() {
     if (!localStorage.getItem('token') && !sessionStorage.getItem('token')) {
         window.location.href = "./";

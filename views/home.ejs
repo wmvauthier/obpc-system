@@ -20,17 +20,37 @@
     <div class="d-flex" id="wrapper">
 
         <div class="bg-light border-right" id="sidebar-wrapper">
-            <div class="sidebar-heading">OBPC - System </div>
+            <div class="sidebar-heading"><b>OBPC - System</b></div>
             <div class="list-group list-group-flush">
-                <a href="#" class="list-group-item list-group-item-action bg-light">Dashboard</a>
+                <a href="./home" class="list-group-item list-group-item-action bg-light">Resumo</a>
                 <a href="#" class="list-group-item list-group-item-action bg-light">Shortcuts</a>
                 <a href="#" class="list-group-item list-group-item-action bg-light">Overview</a>
                 <a href="#" class="list-group-item list-group-item-action bg-light">Events</a>
                 <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
                 <a href="#" class="list-group-item list-group-item-action bg-light">Status</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">
-                    <button class="btn btn-primary">Logout</button>
-                </a>
+                <button class="btn btn-primary" data-toggle="modal" data-backdrop="static"
+                    data-target="#myModal">Logout</button>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Logout</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p style="text-align: left;">Deseja mesmo sair do sistema?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="logoutButton" type="button" class="btn btn-danger" data-dismiss="modal">Sim</button>
+                        <button type="button" class="btn btn-success" data-dismiss="modal">Não</button>
+                    </div>
+                </div>
+
             </div>
         </div>
 
@@ -93,8 +113,9 @@
                             </p>
                             <p>Change data slide for slides per click Ex:data-slide="1"</p>
                         </div>
-                        
+
                     </div>
+
                 </div>
 
             </div>

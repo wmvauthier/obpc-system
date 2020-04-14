@@ -1,4 +1,7 @@
 $(document).ready(function () {
+
+    checkToken();
+
     var result = httpGet('/igrejas');
 
     result.igrejas.forEach(igreja => {
