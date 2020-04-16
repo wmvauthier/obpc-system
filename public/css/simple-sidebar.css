@@ -12,11 +12,19 @@ body {
 }
 
 .list-group-item {
-  /* background-color: red!important; */
+  border: none!important;
+}
+
+.bg-light{
+  background-color: #1c4966!important;
+  color: #F7F7F7;
 }
 
 #sidebar-wrapper {
-  /* background-color: red!important; */
+  background-color: #1c4966!important;
+  border: none!important;
+  position: relative;
+  height: 90%;
   min-height: 100vh;
   margin-left: -15rem;
   -webkit-transition: margin .25s ease-out;

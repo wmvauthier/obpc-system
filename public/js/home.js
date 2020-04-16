@@ -2,12 +2,12 @@ $(document).ready(function () {
 
     checkToken();
 
-    var result = httpGet('/igrejas');
+    var result = httpGet('/igrejas/api');
 
     result.igrejas.forEach(igreja => {
         createChurch(igreja);
     });
-})
+});
 
 function createChurch(igreja) {
 
@@ -32,7 +32,7 @@ function createChurch(igreja) {
                     </span>
                     <div
                         class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
-                        <div class="h3 font-weight-bold">CAT.<sup class="small">A</sup>
+                        <div class="h5 font-weight-bold">CAT.<sup class="small">A</sup>
                         </div>
                     </div>
                 </div>
@@ -53,7 +53,7 @@ function createChurch(igreja) {
                     </span>
                     <div
                         class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
-                        <div class="h3 font-weight-bold"><sup class="small">R$</sup>200,10
+                        <div class="h5 font-weight-bold"><sup class="small">R$</sup>200,10
                         </div>
                     </div>
                 </div>
@@ -77,7 +77,7 @@ function createChurch(igreja) {
                     </span>
                     <div
                         class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
-                        <div class="h3 font-weight-bold">76<sup class="small">%</sup>
+                        <div class="h5 font-weight-bold">76<sup class="small">%</sup>
                         </div>
                     </div>
                 </div>
@@ -97,7 +97,7 @@ function createChurch(igreja) {
                     </span>
                     <div
                         class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
-                        <div class="h3 font-weight-bold">12<sup class="small">%</sup>
+                        <div class="h5 font-weight-bold">12<sup class="small">%</sup>
                         </div>
                     </div>
                 </div>
@@ -105,9 +105,7 @@ function createChurch(igreja) {
             </div>
 
         </div>
-        <p>₹ 1</p>
-        <p>₹ 6000</p>
-        <p>50% off</p>
+
     </div>
 </div>
 

@@ -23,12 +23,8 @@
             <div class="sidebar-heading"><b>OBPC - System</b></div>
             <div class="list-group list-group-flush">
                 <a href="./home" class="list-group-item list-group-item-action bg-light">Resumo</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">Shortcuts</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">Overview</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">Events</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">Status</a>
-                <button class="btn btn-primary" data-toggle="modal" data-backdrop="static"
+                <a href="./igrejas" class="list-group-item list-group-item-action bg-light">Igrejas</a>
+                <button class="btn btn-danger" data-toggle="modal" data-backdrop="static"
                     data-target="#myModal">Logout</button>
             </div>
         </div>
@@ -59,7 +55,9 @@
             <div class="container-fluid">
 
                 <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-                    <button class="btn btn-primary" id="menu-toggle">Menu</button>
+                    <button class="btn" id="menu-toggle">
+                        <i class="large material-icons">menu</i>
+                    </button>
 
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -89,11 +87,12 @@
                             </li>
                         </ul>
                     </div>
+
                 </nav>
 
-                <div class="container">
+                <div class="container multiCarouselRow">
                     <div class="row">
-                        <div class="MultiCarousel" data-items="1,1,3,3" data-slide="1" id="MultiCarousel"
+                        <div class="MultiCarousel" data-items="2,2,2,5" data-slide="1" id="MultiCarousel"
                             data-interval="1000">
                             <div id="resumeMultiCarousel-inner" class="MultiCarousel-inner">
 
@@ -103,20 +102,42 @@
                                     <button class="btn btn-primary rightLst">></button>
                         </div>
                     </div>
-                    <div class="row">
 
-                        <div class="col-md-12 text-center">
-                            <br /><br /><br />
-                            <hr />
-                            <p>Settings</p>
-                            <p>Change data items for xs,sm,md and lg display items respectively. Ex:data-items="1,3,5,6"
-                            </p>
-                            <p>Change data slide for slides per click Ex:data-slide="1"</p>
-                        </div>
+                </div>
 
+                <div class="row">
+
+                    <div class="col-md-12 text-center">
+                        <br /><br /><br />
+                        <hr />
                     </div>
 
                 </div>
+
+                <!-- <div class="row">
+
+                    <div class="col-md-12 text-center">
+
+                        <div class="card shortcutCards">
+                            Atalhos
+
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2">
+                                    <div class="card">
+                                        A
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <p>Settings</p>
+                        <p>Change data items for xs,sm,md and lg display items respectively. Ex:data-items="1,3,5,6"
+                        </p>
+                        <p>Change data slide for slides per click Ex:data-slide="1"</p>
+                    </div>
+
+                </div> -->
 
             </div>
 
@@ -130,13 +151,12 @@
 <link href="css/simple-sidebar.css" rel="stylesheet">
 <link href="css/multi_carousel.css" rel="stylesheet">
 <link href="css/gauge.css" rel="stylesheet">
-
+<link href="css/general.css" rel="stylesheet">
 
 <script src="js/home.js"></script>
 <script src="js/system/simple-sidebar.js"></script>
 <script src="js/system/multi_carousel.js"></script>
 <script src="js/system/gauge.js"></script>
-
 
 <script src="js/system/httpRequisitions.js"></script>
 

@@ -1,3 +1,11 @@
+body, html {
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-image: url('https://wallup.net/wp-content/uploads/2018/09/27/262330-minimalistic-gaussian-blur.jpg')
+    /* background-image: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33)); */
+}
+
 .card-container.card {
     position: relative;
     margin-top: 15%;
