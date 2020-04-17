@@ -3,6 +3,7 @@ $(document).ready(function () {
     checkToken();
 
     var result = httpGet('/igrejas/api');
+    activateButtonsCarousel(result.igrejas.length);
 
     result.igrejas.forEach(igreja => {
         createChurch(igreja);
@@ -110,5 +111,27 @@ function createChurch(igreja) {
 </div>
 
 `));
+
+}
+
+function activateButtonsCarousel(qtd) {
+
+    var bodyWidth = $('body').width();
+    var dataCarousel = $('.MultiCarousel')[0];
+    var data = dataCarousel.getAttribute('data-items');
+    console.log(bodyWidth);
+    console.log(data);
+    console.log(qtd);
+
+    if ((bodyWidth >= 1200 && qtd < data[6]) ||
+        (bodyWidth >= 992 && qtd < data[4]) ||
+        (bodyWidth >= 768 && qtd < data[2]) ||
+            (qtd < data[0])){
+        $('.leftLst').addClass('hidden');
+        $('.rightLst').addClass('hidden');
+    } else {
+        $('.leftLst').removeClass('hidden');
+        $('.rightLst').removeClass('hidden');
+    }
 
 }

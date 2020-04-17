@@ -10,6 +10,7 @@
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://unpkg.com/material-components-web@v4.0.0/dist/material-components-web.min.css" rel="stylesheet">
     <script src="https://unpkg.com/material-components-web@v4.0.0/dist/material-components-web.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <title>OBPC System</title>
 
@@ -17,10 +18,41 @@
 
 <body>
 
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        <button class="btn" id="menu-toggle">
+            <i class="large material-icons">menu</i>
+        </button>
+
+        <div><b>OBPC System</b></div>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Admin
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </nav>
+
     <div class="d-flex" id="wrapper">
 
         <div class="bg-light border-right" id="sidebar-wrapper">
-            <div class="sidebar-heading"><b>OBPC - System</b></div>
+            <!-- <div class="sidebar-heading"><b>OBPC - System</b></div> -->
             <div class="list-group list-group-flush">
                 <a href="./home" class="list-group-item list-group-item-action bg-light">Resumo</a>
                 <a href="./igrejas" class="list-group-item list-group-item-action bg-light">Igrejas</a>
@@ -54,85 +86,168 @@
 
             <div class="container-fluid">
 
-                <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-                    <button class="btn" id="menu-toggle">
-                        <i class="large material-icons">menu</i>
-                    </button>
-
-                    <button class="navbar-toggler" type="button" data-toggle="collapse"
-                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Link</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Dropdown
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-                </nav>
-
-                <div class="row cards-container">
+                <div class="row cards-container" style="padding-right: 15px;">
 
                     <!--   First Card -->
-                    <div class="card-container col-xs-6 co-sm-6 col-md-6 col-lg-3">
-                        <div class="card">
+
+                    <div class="card-container col-xs-6 col-sm-6 col-md-4 col-lg-2">
+                        <div class="card snippetCard">
                             <div class="front">
-                                <img src="https://api.adorable.io/avatars/150/1">
+                                <div class="card-counter primary">
+                                    <i class="fa fa-user"></i>
+                                    <span class="count-numbers"><b>12</b></span>
+                                    <span class="count-name">Membros</span>
+                                </div>
                             </div>
                             <div class="back">
-                                <img src="https://api.adorable.io/avatars/150/2">
+                                <div class="center-me">
+                                    <div class="row">
+                                        <button class="btn btnBackCards btn-success">
+                                            <i class="fa fa-user"></i>
+                                            Novo Membro
+                                        </button>
+                                    </div>
+                                    <div class="row">
+                                        <button class="btn btnBackCards btn-info">
+                                            <i class="fa fa-list"></i>
+                                            Listar Membros
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="card-container col-xs-6 co-sm-6 col-md-6 col-lg-3">
-                        <div class="card">
+                    <div class="card-container col-xs-6 col-sm-6 col-md-4 col-lg-2">
+                        <div class="card snippetCard">
                             <div class="front">
-                                <img src="https://api.adorable.io/avatars/150/1">
+                                <div class="card-counter info">
+                                    <i class="fa fa-users"></i>
+                                    <span class="count-numbers"><b>12</b></span>
+                                    <span class="count-name">Congregados</span>
+                                </div>
                             </div>
                             <div class="back">
-                                <img src="https://api.adorable.io/avatars/150/2">
+                                <div class="center-me">
+                                    <div class="row">
+                                        <button class="btn btnBackCards btn-success">
+                                            <i class="fa fa-users"></i>
+                                            Novo Congregado
+                                        </button>
+                                    </div>
+                                    <div class="row">
+                                        <button class="btn btnBackCards btn-info">
+                                            <i class="fa fa-list"></i>
+                                            Listar Congregados
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="card-container col-xs-6 co-sm-6 col-md-6 col-lg-3">
-                        <div class="card">
+                    <div class="card-container col-xs-6 col-sm-6 col-md-4 col-lg-2">
+                        <div class="card snippetCard">
                             <div class="front">
-                                <img src="https://api.adorable.io/avatars/150/1">
+                                <div class="card-counter success">
+                                    <i class="fa fa-user-circle"></i>
+                                    <span class="count-numbers"><b>12</b></span>
+                                    <span class="count-name">Obreiros</span>
+                                </div>
                             </div>
                             <div class="back">
-                                <img src="https://api.adorable.io/avatars/150/2">
+                                <div class="center-me">
+                                    <div class="row">
+                                        <button class="btn btnBackCards btn-success">
+                                            <i class="fa fa-user-circle"></i>
+                                            Novo Obreiro
+                                        </button>
+                                    </div>
+                                    <div class="row">
+                                        <button class="btn btnBackCards btn-info">
+                                            <i class="fa fa-list"></i>
+                                            Listar Obreiros
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="card-container col-xs-6 co-sm-6 col-md-6 col-lg-3">
-                        <div class="card">
+                    <div class="card-container col-xs-6 col-sm-6 col-md-4 col-lg-2">
+                        <div class="card snippetCard">
                             <div class="front">
-                                <img src="https://api.adorable.io/avatars/150/1">
+                                <div class="card-counter warning">
+                                    <i class="fa fa-gift"></i>
+                                    <span class="count-numbers"><b>12</b></span>
+                                    <span class="count-name">Aniversariantes</span>
+                                </div>
                             </div>
                             <div class="back">
-                                <img src="https://api.adorable.io/avatars/150/2">
+                                <div class="center-me">
+                                    <div class="row">
+                                        <button class="btn btnBackCards btn-info">
+                                            <i class="fa fa-list"></i>
+                                            Listar Aniversariantes
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-container col-xs-6 col-sm-6 col-md-4 col-lg-2">
+                        <div class="card snippetCard">
+                            <div class="front">
+                                <div class="card-counter danger">
+                                    <i class="fa fa-street-view"></i>
+                                    <span class="count-numbers"><b>12</b></span>
+                                    <span class="count-name">Afastados</span>
+                                </div>
+                            </div>
+                            <div class="back">
+                                <div class="center-me">
+                                    <div class="row">
+                                        <button class="btn btnBackCards btn-success">
+                                            <i class="fa fa-street-view"></i>
+                                            Novo Afastado
+                                        </button>
+                                    </div>
+                                    <div class="row">
+                                        <button class="btn btnBackCards btn-info">
+                                            <i class="fa fa-list"></i>
+                                            Listar Afastados
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-container col-xs-6 col-sm-6 col-md-4 col-lg-2">
+                        <div class="card snippetCard">
+                            <div class="front">
+                                <div class="card-counter dark">
+                                    <i class="fa fa-user-times"></i>
+                                    <span class="count-numbers"><b>12</b></span>
+                                    <span class="count-name">Disciplinados</span>
+                                </div>
+                            </div>
+                            <div class="back">
+                                <div class="center-me">
+                                    <div class="row">
+                                        <button class="btn btnBackCards btn-danger">
+                                            <i class="fa fa-user-times"></i>
+                                            Disciplinar
+                                        </button>
+                                    </div>
+                                    <div class="row">
+                                        <button class="btn btnBackCards btn-info">
+                                            <i class="fa fa-list"></i>
+                                            Listar Disciplinados
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -142,15 +257,7 @@
                 <div class="row">
 
                     <div class="col-md-12 text-center">
-
-                        <br /><br /><br />
                         <hr />
-
-                        <div class="card shortcutCards">
-                            Atalhos
-
-                        </div>
-
                     </div>
 
                 </div>
@@ -159,11 +266,10 @@
 
         </div>
 
-    </div>
-
 </body>
 
 <link href="css/igrejas.css" rel="stylesheet">
+<link href="css/snippetCards.css" rel="stylesheet">
 <link href="css/rotatingCards.css" rel="stylesheet">
 <link href="css/simple-sidebar.css" rel="stylesheet">
 <link href="css/general.css" rel="stylesheet">
