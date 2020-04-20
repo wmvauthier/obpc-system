@@ -15,6 +15,7 @@ function checkToken() {
 
 function httpGet(theUrl) {
     theUrl = URL_API + theUrl
+    console.log(theUrl);
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open("GET", theUrl, false); // false for synchronous request
     xmlHttp.send(null);
@@ -23,6 +24,7 @@ function httpGet(theUrl) {
 
 function httpPost(theUrl, data) {
     theUrl = URL_API + theUrl
+    console.log(theUrl);
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open("POST", theUrl, false); // false for synchronous request
     xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -32,6 +34,7 @@ function httpPost(theUrl, data) {
 
 function httpPut(theUrl, data) {
     theUrl = URL_API + theUrl
+    console.log(theUrl);
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open("PUT", theUrl, false); // false for synchronous request
     xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -40,6 +43,7 @@ function httpPut(theUrl, data) {
 
 function httpDelete(theUrl) {
     theUrl = URL_API + theUrl
+    console.log(theUrl);
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.open("DELETE", theUrl, false); // false for synchronous request
     xmlHttp.send(null);

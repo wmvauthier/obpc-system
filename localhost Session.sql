@@ -18,5 +18,3 @@ CREATE TABLE igrejas (
     rede_social_youtube varchar(255),
     imagem_igreja varchar(500)
 );
-
-drop table igrejas;
