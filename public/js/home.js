@@ -119,9 +119,6 @@ function activateButtonsCarousel(qtd) {
     var bodyWidth = $('body').width();
     var dataCarousel = $('.MultiCarousel')[0];
     var data = dataCarousel.getAttribute('data-items');
-    console.log(bodyWidth);
-    console.log(data);
-    console.log(qtd);
 
     if ((bodyWidth >= 1200 && qtd < data[6]) ||
         (bodyWidth >= 992 && qtd < data[4]) ||

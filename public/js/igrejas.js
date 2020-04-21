@@ -107,7 +107,6 @@ function preUpdateChurch(id) {
     var data = id.getAttribute("dataID");
     var response = httpGet(`/igrejas/api/${data}`);
     response = response.igrejas[0];
-    console.log(response);
 
     $('#id_igrejaUpd').val(response.id_igreja);
     $('#nomeUpd').val(response.nome);
@@ -134,7 +133,6 @@ function preDeleteChurch(id) {
     var data = id.getAttribute("dataID");
     var response = httpGet(`/igrejas/api/${data}`);
     response = response.igrejas[0];
-    console.log(response);
 
     $('#nomeDel').html(response.nome);
     $('#id_igrejaDel').val(response.id_igreja);
@@ -144,9 +142,9 @@ function preDeleteChurch(id) {
 
 function DAOdeleteChurch() {
 
-    var id = $('#id_userDel').val();
-    httpDelete(`http://${IP_DO_SERVIDOR}:3000/user/${id}`);
-    DAOgetAllUsers();
+    var id = $('#id_igrejaDel').val();
+    httpDelete(`/igrejas/api/${id}`);
+    DAOgetAllChurchs();
     $('#deleteChurchModal').modal('hide');
 
 }
@@ -158,7 +156,6 @@ function fillChurchTable(table, data) {
     data.forEach(function (church) {
         createChurchToChurchTable(table, church);
     });
-
 
 }
 
@@ -175,7 +172,7 @@ function createChurchToChurchTable(table, church) {
 
     td1.innerHTML = church.id_igreja;
     td2.innerHTML = church.nome;
-    td3.innerHTML = church.area;
+    td3.innerHTML = church.regiao;
     td4.innerHTML = church.pastor;
     td5.innerHTML = church.classificacao;
     td6.innerHTML = `<button class="btn btn-rounded btn-warning" dataID="${church.id_igreja}" 
@@ -208,13 +205,9 @@ function createChurchToChurchTable(table, church) {
 }
 
 function cleanRegisterChurchForm() {
-    $('#registerUserForm')[0].reset();
+    $('#registerChurchForm')[0].reset();
 }
 
 function cleanUpdateChurchForm() {
-    $('#nomeUpd').val("");
-    $('#cargoUpd').val("");
-    $('#user_loginUpd').val("");
-    $('#user_senhaUpd').val("");
-    $('#nivel_acessoUpd').val("");
+    $('#updateChurchForm')[0].reset();
 }
