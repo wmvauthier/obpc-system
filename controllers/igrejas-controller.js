@@ -74,14 +74,17 @@ exports.updateIgreja = (req, res, next) => {
         if (error) { return res.status(500).send({ error: error }) }
 
         conn.query(
-            `UPDATE igrejas SET
-            nome = ?,
-            pastor = ?
-            WHERE id_igreja = ?`,
+            `UPDATE igrejas SET 
+            nome = ?, endereco = ?, endereco_numero = ?, endereco_complemento = ?, endereco_bairro = ?, endereco_cidade = ?,
+                endereco_estado = ?, endereco_pais = ?, endereco_telefone = ?, pastor = ?, regiao = ?, classificacao = ?,
+                sede = ?, rede_social_instagram = ?, rede_social_facebook = ?, rede_social_youtube = ?, imagem_igreja = ?
+                WHERE id_igreja = ?`,
             [
-                req.body.nome,
-                req.body.pastor,
-                req.body.id_igreja
+                req.body.nome, req.body.endereco, req.body.endereco_numero, req.body.endereco_complemento,
+                req.body.endereco_bairro, req.body.endereco_cidade, req.body.endereco_estado, req.body.endereco_pais,
+                req.body.endereco_telefone, req.body.pastor, req.body.regiao, req.body.classificacao,
+                req.body.sede, req.body.rede_social_instagram, req.body.rede_social_facebook, req.body.rede_social_youtube,
+                req.body.imagem_igreja, req.body.id_igreja
             ],
             (error, result, field) => {
 

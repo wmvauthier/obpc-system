@@ -63,15 +63,31 @@ function DAOregisterChurch() {
 
 function DAOupdateChurch() {
 
-    var id = $('#id_userUpd').val();
+    var id = $('#id_igrejaUpd').val();
     var nome = $('#nomeUpd').val();
-    var cargo = $('#cargoUpd').val();
-    var user_login = $('#user_loginUpd').val();
-    var user_senha = $('#user_senhaUpd').val();
-    var nivel_acesso = $('#nivel_acessoUpd').val();
+    var endereco = $('#enderecoUpd').val();
+    var endereco_numero = $('#endereco_numeroUpd').val();
+    var endereco_complemento = $('#endereco_complementoUpd').val();
+    var endereco_pais = $('#endereco_paisUpd').val();
+    var endereco_estado = $('#endereco_estadoUpd').val();
+    var endereco_cidade = $('#endereco_cidadeUpd').val();
+    var endereco_bairro = $('#endereco_bairroUpd').val();
+    var endereco_telefone = $('#endereco_telefoneUpd').val();
+    var pastor = $('#pastorUpd').val();
+    var regiao = $('#regiaoUpd').val();
+    var classificacao = $('#classificacaoUpd').val();
+    var sede = $('#sedeUpd').val();
+    var rede_social_instagram = $('#rede_social_instagramUpd').val();
+    var rede_social_facebook = $('#rede_social_facebookUpd').val();
+    var rede_social_youtube = $('#rede_social_youtubeUpd').val();
 
-    var url = `http://${IP_DO_SERVIDOR}:3000/user/${id}`;
-    var data = `id_user=${id}&nome=${nome}&cargo=${cargo}&user_login=${user_login}&user_senha=${user_senha}&nivel_acesso=${nivel_acesso}`;
+    var url = `/igrejas/api`;
+    var data = `id_igreja=${id}&nome=${nome}&endereco=${endereco}&endereco_numero=${endereco_numero}&endereco_complemento=${endereco_complemento}
+    &endereco_pais=${endereco_pais}&endereco_estado=${endereco_estado}&endereco_cidade=${endereco_cidade}
+    &endereco_bairro=${endereco_bairro}&endereco_telefone=${endereco_telefone}&pastor=${pastor}
+    &regiao=${regiao}&classificacao=${classificacao}&sede=${sede}
+    &rede_social_instagram=${rede_social_instagram}&rede_social_facebook=${rede_social_facebook}
+    &rede_social_youtube=${rede_social_youtube}`;
 
     httpPut(url, data);
 
@@ -87,28 +103,41 @@ function preRegisterChurch() {
 
 function preUpdateChurch(id) {
 
-    cleanUpdateUserForm();
+    cleanUpdateChurchForm();
     var data = id.getAttribute("dataID");
-    var response = httpGet(`http://${IP_DO_SERVIDOR}:3000/user/${data}`);
+    var response = httpGet(`/igrejas/api/${data}`);
+    response = response.igrejas[0];
+    console.log(response);
 
-    $('#id_churchUpd').val(response.id_user);
+    $('#id_igrejaUpd').val(response.id_igreja);
     $('#nomeUpd').val(response.nome);
-    $('#cargoUpd').val(response.cargo);
-    $('#user_loginUpd').val(response.user_login);
-    $('#user_senhaUpd').val(response.user_senha);
-    $('#nivel_acessoUpd').val(response.nivel_acesso);
+    $('#enderecoUpd').val(response.endereco);
+    $('#endereco_numeroUpd').val(response.endereco_numero);
+    $('#endereco_paisUpd').val(response.endereco_pais);
+    $('#endereco_cidadeUpd').val(response.endereco_cidade);
+    $('#endereco_bairroUpd').val(response.endereco_bairro);
+    $('#endereco_telefoneUpd').val(response.endereco_telefone);
+    $('#pastorUpd').val(response.pastor);
+    $('#regiaoUpd').val(response.regiao);
+    $('#classificacaoUpd').val(response.classificacao);
+    $('#sedeUpd').val(response.sede);
+    $('#rede_social_instagramUpd').val(response.rede_social_instagram);
+    $('#rede_social_facebookUpd').val(response.rede_social_facebook);
+    $('#rede_social_youtubeUpd').val(response.rede_social_youtube);
     $('#updateChurchModal').modal('show');
 
 }
 
 function preDeleteChurch(id) {
 
-    cleanUpdateUserForm();
+    cleanUpdateChurchForm();
     var data = id.getAttribute("dataID");
-    var response = httpGet(`http://${IP_DO_SERVIDOR}:3000/user/${data}`);
+    var response = httpGet(`/igrejas/api/${data}`);
+    response = response.igrejas[0];
+    console.log(response);
 
     $('#nomeDel').html(response.nome);
-    $('#id_userDel').val(response.id_user);
+    $('#id_igrejaDel').val(response.id_igreja);
     $('#deleteChurchModal').modal('show');
 
 }
@@ -172,6 +201,7 @@ function createChurchToChurchTable(table, church) {
     tr.appendChild(td3);
     tr.appendChild(td4);
     tr.appendChild(td5);
+    tr.appendChild(td6);
 
     table.appendChild(tr);
 

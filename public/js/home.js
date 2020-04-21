@@ -2,12 +2,12 @@ $(document).ready(function () {
 
     checkToken();
 
-    // var result = httpGet('/igrejas/api');
-    // activateButtonsCarousel(result.igrejas.length);
+    var result = httpGet('/igrejas/api');
+    activateButtonsCarousel(result.igrejas.length);
 
-    // result.igrejas.forEach(igreja => {
-    //     createChurch(igreja);
-    // });
+    result.igrejas.forEach(igreja => {
+        createChurch(igreja);
+    });
 });
 
 function createChurch(igreja) {

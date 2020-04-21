@@ -8,7 +8,7 @@ exports.getPastores = (req, res, next) =>{
         if (error) { return res.status(500).send({ error: error }) }
 
         conn.query(
-            `SELECT * FROM usuarios WHERE cargo = 'pastor';`,
+            `SELECT * FROM usuarios WHERE cargo in (1,2,3);`,
             (error, result, field) => {
                 conn.release();
                 if (error) { return res.status(500).send({ error: error }) }

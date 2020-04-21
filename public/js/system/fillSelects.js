@@ -52,7 +52,7 @@ function fillSelectState() {
 function fillSelectClassification() {
     $(".selectClassification").html(`
         <option disabled selected></option>
-        <option value="1">Sede</option>
+        <option value="1">Igreja</option>
         <option value="2">Congregação</option>
     `);
 };

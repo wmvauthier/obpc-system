@@ -102,38 +102,92 @@
                         <h4 class="modal-title">Insira as Novas Informações do Usuário</h4>
                     </div>
                     <div class="modal-body">
-                        <form id="updateUserForm">
-                            <div class="form-group">
-                                <label for="id" class="col-form-label">ID</label>
-                                <input id="id_userUpd" disabled type="text" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="nome" class="col-form-label">Nome</label>
-                                <input id="nomeUpd" type="text" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="cargo" class="col-form-label">Cargo</label>
-                                <input id="cargoUpd" type="text" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="user_login" class="col-form-label">Login</label>
-                                <input id="user_loginUpd" type="text" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="user_senha" class="col-form-label">Senha</label>
-                                <input id="user_senhaUpd" type="password" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="nivel_acesso" class="col-form-label">Nível de Acesso</label>
-                                <select id="nivel_acessoUpd" class="form-control">
-                                    <option disabled selected>Selecione o Nível de Acesso</option>
-                                    <option>Link</option>
-                                </select>
-                            </div>
-                        </form>
+                            <form id="updateChurchForm">
+                                <div class="form-group">
+                                    <label for="id" class="col-form-label">ID</label>
+                                    <input id="id_igrejaUpd" disabled type="text" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="nome" class="col-form-label">Nome</label>
+                                    <input id="nomeUpd" type="text" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="endereco" class="col-form-label">Endereço</label>
+                                    <input id="enderecoUpd" type="text" class="form-control" required>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4 form-group">
+                                        <label for="endereco_numero" class="col-form-label">Número</label>
+                                        <input id="endereco_numeroUpd" type="number" min="0" class="form-control">
+                                    </div>
+                                    <div class="col-4 form-group">
+                                        <label for="endereco_complemento" class="col-form-label">Complemento</label>
+                                        <input id="endereco_complementoUpd" type="text" class="form-control">
+                                    </div>
+                                    <div class="col-4 form-group">
+                                        <label for="endereco_pais" class="col-form-label">País</label>
+                                        <select id="endereco_paisUpd" class="form-control selectCountry" required>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-3 form-group">
+                                        <label for="endereco_estado" class="col-form-label">Estado</label>
+                                        <select id="endereco_estadoUpd" class="form-control selectState" required>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-6 col-md-3 form-group">
+                                        <label for="endereco_cidade" class="col-form-label">Cidade</label>
+                                        <input id="endereco_cidadeUpd" class="form-control" required>
+                                    </div>
+                                    <div class="col-sm-6 col-md-3 form-group">
+                                        <label for="endereco_bairro" class="col-form-label">Bairro</label>
+                                        <input id="endereco_bairroUpd" type="text" class="form-control" required>
+                                    </div>
+                                    <div class="col-sm-6 col-md-3 form-group">
+                                        <label for="endereco_telefone" class="col-form-label">Contato</label>
+                                        <input id="endereco_telefoneUpd" type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="pastor" class="col-form-label">Pastor</label>
+                                    <select id="pastorUpd" class="form-control selectPastor" required>
+                                    </select>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6 form-group">
+                                        <label for="regiao" class="col-form-label">Região</label>
+                                        <select id="regiaoUpd" class="form-control selectRegiao" required></select>
+                                    </div>
+                                    <div class="col-6 form-group">
+                                        <label for="classificacao" class="col-form-label">Classificação</label>
+                                        <select id="classificacaoUpd" class="form-control selectClassification" required>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="sede" class="col-form-label">Sede</label>
+                                    <select id="sedeUpd" class="form-control selectSede">
+                                    </select>
+                                </div>
+                                <div class="row">
+                                    <div class="col-4 form-group">
+                                        <label for="rede_social_instagram" class="col-form-label">Instagram</label>
+                                        <input id="rede_social_instagramUpd" type="text" class="form-control">
+                                    </div>
+                                    <div class="col-4 form-group">
+                                        <label for="rede_social_facebook" class="col-form-label">Facebook</label>
+                                        <input id="rede_social_facebookUpd" type="text" class="form-control">
+                                    </div>
+                                    <div class="col-4 form-group">
+                                        <label for="rede_social_youtube" class="col-form-label">Youtube</label>
+                                        <input id="rede_social_youtubeUpd" type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </form>
                     </div>
                     <div class="modal-footer">
-                        <button id="btnDAOUpdateUser" type="button" class="btn btn-rounded btn-success">Alterar</button>
+                        <button id="btnDAOUpdateChurch" type="button" class="btn btn-rounded btn-success">Alterar</button>
                         <button type="button" class="btn btn-rounded btn-danger" data-dismiss="modal">Cancelar</button>
                     </div>
                 </div>
@@ -151,7 +205,7 @@
                         <h4 class="modal-title">Insira as Informações da Nova Igreja</h4>
                     </div>
                     <div class="modal-body">
-                        <form id="registerUserForm">
+                        <form id="registerChurchForm">
                             <div class="form-group">
                                 <label for="nome" class="col-form-label">Nome</label>
                                 <input id="nome" type="text" class="form-control" required>
@@ -248,12 +302,12 @@
                 <!-- Modal content-->
                 <div class="modal-content">
                     <div class="modal-body">
-                        <h4>Você deseja mesmo excluir este Usuário?</h4>
+                        <h4>Você deseja mesmo excluir esta Igreja?</h4>
                         <h5 id="nomeDel" class="centeredX"></h5>
-                        <input id="id_userDel" class="invisible" />
+                        <input id="id_igrejaDel" class="invisible" />
                     </div>
                     <div class="modal-footer">
-                        <button id="btnDAODeleteUser" type="button" class="btn btn-rounded btn-success">Sim</button>
+                        <button id="btnDAODeleteChurch" type="button" class="btn btn-rounded btn-success">Sim</button>
                         <button type="button" class="btn btn-rounded btn-danger" data-dismiss="modal">Não</button>
                     </div>
                 </div>
