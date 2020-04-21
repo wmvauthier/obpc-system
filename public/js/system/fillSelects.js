@@ -52,32 +52,31 @@ function fillSelectState() {
 function fillSelectClassification() {
     $(".selectClassification").html(`
         <option disabled selected></option>
-        <option value="1">Igreja</option>
-        <option value="2">Congregação</option>
+        <option value="Igreja">Igreja</option>
+        <option value="Congregação">Congregação</option>
     `);
 };
 
 function fillSelectPastor() {
-
     $(".selectPastor").html(`
         <option disabled selected></option>
-        <option value="1">Sede</option>
-        <option value="2">Congregação</option>
+        <option value="Pastor 1">Pastor 1</option>
+        <option value="Pastor 2">Pastor 2</option>
     `);
 };
 
 function fillSelectRegiao() {
     $(".selectRegiao").html(`
         <option disabled selected></option>
-        <option value="1">Sede</option>
-        <option value="2">Congregação</option>
+        <option value="Região 1">Região 1</option>
+        <option value="Região 2">Região 2</option>
     `);
 };
 
 function fillSelectSede() {
     $(".selectSede").html(`
         <option disabled selected></option>
-        <option value="1">Sede</option>
-        <option value="2">Congregação</option>
+        <option value="Igreja Sede 1">Igreja Sede 1</option>
+        <option value="Igreja Sede 2">Igreja Sede 2</option>
     `);
 };

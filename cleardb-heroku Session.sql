@@ -20,3 +20,4 @@ CREATE TABLE igrejas (
 );
 
 drop table igrejas;
+select * from igrejas;

@@ -1,6 +1,6 @@
 $(document).ready(function () {
-    checkToken();
-    DAOgetAllChurchs();
+    // checkToken();
+    // DAOgetAllChurchs();
 });
 
 var churchTableBody = $("#churchTableBody")[0];
@@ -46,12 +46,7 @@ function DAOregisterChurch() {
     var rede_social_youtube = $('#rede_social_youtube').val();
 
     var url = `/igrejas/api`;
-    var data = `nome=${nome}&endereco=${endereco}&endereco_numero=${endereco_numero}&endereco_complemento=${endereco_complemento}
-    &endereco_pais=${endereco_pais}&endereco_estado=${endereco_estado}&endereco_cidade=${endereco_cidade}
-    &endereco_bairro=${endereco_bairro}&endereco_telefone=${endereco_telefone}&pastor=${pastor}
-    &regiao=${regiao}&classificacao=${classificacao}&sede=${sede}
-    &rede_social_instagram=${rede_social_instagram}&rede_social_facebook=${rede_social_facebook}
-    &rede_social_youtube=${rede_social_youtube}`;
+    var data = `nome=${nome}&endereco=${endereco}&endereco_numero=${endereco_numero}&endereco_complemento=${endereco_complemento}&endereco_pais=${endereco_pais}&endereco_estado=${endereco_estado}&endereco_cidade=${endereco_cidade}&endereco_bairro=${endereco_bairro}&endereco_telefone=${endereco_telefone}&pastor=${pastor}&regiao=${regiao}&classificacao=${classificacao}&sede=${sede}&rede_social_instagram=${rede_social_instagram}&rede_social_facebook=${rede_social_facebook}&rede_social_youtube=${rede_social_youtube}`;
 
     var response = httpPost(url, data);
 
@@ -82,12 +77,7 @@ function DAOupdateChurch() {
     var rede_social_youtube = $('#rede_social_youtubeUpd').val();
 
     var url = `/igrejas/api`;
-    var data = `id_igreja=${id}&nome=${nome}&endereco=${endereco}&endereco_numero=${endereco_numero}&endereco_complemento=${endereco_complemento}
-    &endereco_pais=${endereco_pais}&endereco_estado=${endereco_estado}&endereco_cidade=${endereco_cidade}
-    &endereco_bairro=${endereco_bairro}&endereco_telefone=${endereco_telefone}&pastor=${pastor}
-    &regiao=${regiao}&classificacao=${classificacao}&sede=${sede}
-    &rede_social_instagram=${rede_social_instagram}&rede_social_facebook=${rede_social_facebook}
-    &rede_social_youtube=${rede_social_youtube}`;
+    var data = `id_igreja=${id}&nome=${nome}&endereco=${endereco}&endereco_numero=${endereco_numero}&endereco_complemento=${endereco_complemento}&endereco_pais=${endereco_pais}&endereco_estado=${endereco_estado}&endereco_cidade=${endereco_cidade}&endereco_bairro=${endereco_bairro}&endereco_telefone=${endereco_telefone}&pastor=${pastor}&regiao=${regiao}&classificacao=${classificacao}&sede=${sede}&rede_social_instagram=${rede_social_instagram}&rede_social_facebook=${rede_social_facebook}&rede_social_youtube=${rede_social_youtube}`;
 
     httpPut(url, data);
 
@@ -112,6 +102,8 @@ function preUpdateChurch(id) {
     $('#nomeUpd').val(response.nome);
     $('#enderecoUpd').val(response.endereco);
     $('#endereco_numeroUpd').val(response.endereco_numero);
+    $('#endereco_complementoUpd').val(response.endereco_complemento);
+    $('#endereco_estadoUpd').val(response.endereco_estado);
     $('#endereco_paisUpd').val(response.endereco_pais);
     $('#endereco_cidadeUpd').val(response.endereco_cidade);
     $('#endereco_bairroUpd').val(response.endereco_bairro);
@@ -169,6 +161,8 @@ function createChurchToChurchTable(table, church) {
     var td4 = document.createElement("td");
     var td5 = document.createElement("td");
     var td6 = document.createElement("td");
+
+    console.log(church);
 
     td1.innerHTML = church.id_igreja;
     td2.innerHTML = church.nome;
