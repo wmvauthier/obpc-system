@@ -1,12 +1,18 @@
-const pastores = httpGet('/igrejas/api');
+// const pastores = httpGet('/igrejas/api');
 
 $(document).ready(function () {
     fillSelectCoutry();
     fillSelectState();
     fillSelectClassification();
-    fillSelectSede();
-    fillSelectRegiao();
+    fillSelectChurch();
     fillSelectPastor();
+    fillSelectRegiao();
+    fillSelectSede();
+    fillSelectCargo();
+    fillSelectSituacao();
+    fillSelectTipoRecebimento();
+    fillSelectDepartamento();
+    fillSelectTipoMembro();
 });
 
 function fillSelectCoutry() {
@@ -57,6 +63,14 @@ function fillSelectClassification() {
     `);
 };
 
+function fillSelectChurch() {
+    $(".selectChurch").html(`
+        <option disabled selected></option>
+        <option value="Pastor 1">Pastor 1</option>
+        <option value="Pastor 2">Pastor 2</option>
+    `);
+};
+
 function fillSelectPastor() {
     $(".selectPastor").html(`
         <option disabled selected></option>
@@ -78,5 +92,58 @@ function fillSelectSede() {
         <option disabled selected></option>
         <option value="Igreja Sede 1">Igreja Sede 1</option>
         <option value="Igreja Sede 2">Igreja Sede 2</option>
+    `);
+};
+
+function fillSelectCargo() {
+    $(".selectCargo").html(`
+        <option disabled selected></option>
+        <option value="Nenhum">Nenhum</option>
+        <option value="Auxiliar">Auxiliar</option>
+        <option value="Líder de Dept.">Líder de Dept.</option>
+        <option value="Diácono">Diácono</option>
+        <option value="Presbítero">Presbítero</option>
+        <option value="Pastor">Pastor</option>
+    `);
+};
+
+function fillSelectSituacao() {
+    $(".selectSituacao").html(`
+        <option disabled selected></option>
+        <option value="Ativo">Ativo</option>
+        <option value="Inativo">Inativo</option>
+        <option value="Afastado">Afastado</option>
+        <option value="Disciplinado">Disciplinado</option>
+    `);
+};
+
+function fillSelectTipoRecebimento() {
+    $(".selectTipoRecebimento").html(`
+        <option disabled selected></option>
+        <option value="Igreja Sede 1">Igreja Sede 1</option>
+        <option value="Igreja Sede 2">Igreja Sede 2</option>
+    `);
+};
+
+function fillSelectDepartamento() {
+    $(".selectDepartamento").html(`
+        <option disabled selected></option>
+        <option value="Nenhum">Nenhum</option>
+        <option value="Menibrac">Menibrac</option>
+        <option value="Adobrac">Adobrac</option>
+        <option value="Jubrac">Jubrac</option>
+        <option value="Ufebrac">Ufebrac</option>
+        <option value="Umasbrac">Umasbrac</option>
+    `);
+};
+
+function fillSelectTipoMembro() {
+    $(".selectTipoMembro").html(`
+        <option disabled selected></option>
+        <option value="Membro">Membro</option>
+        <option value="Congregado">Congregado</option>
+        <option value="Obreiro">Obreiro</option>
+        <option value="Pastor">Pastor</option>
+        <option value="Convenção">Convenção</option>
     `);
 };

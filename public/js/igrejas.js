@@ -1,6 +1,8 @@
 $(document).ready(function () {
-    // checkToken();
-    // DAOgetAllChurchs();
+    $('#churchDataTable').show();
+    $('#personDataTable').hide();
+    checkToken();
+    DAOgetAllChurchs();
 });
 
 var churchTableBody = $("#churchTableBody")[0];
@@ -19,6 +21,35 @@ $("#btnDAOUpdateChurch").click(function () {
 
 $("#btnDAORegisterChurch").click(function () {
     DAOregisterChurch();
+});
+
+$(".personDataTableShow").click(function () {
+    $('#churchDataTable').hide();
+    $('#personDataTable').show();
+});
+
+$("#memberDataTableShow").click(function () {
+    $("#personDataTableTitle").html('Lista de Membros');
+});
+
+$("#congregDataTableShow").click(function () {
+    $("#personDataTableTitle").html('Lista de Congregados');
+});
+
+$("#obreirosDataTableShow").click(function () {
+    $("#personDataTableTitle").html('Lista de Obreiros');
+});
+
+$("#anivDataTableShow").click(function () {
+    $("#personDataTableTitle").html('Lista de Aniversariantes');
+});
+
+$("#afastDataTableShow").click(function () {
+    $("#personDataTableTitle").html('Lista de Afastados');
+});
+
+$("#disciplinDataTableShow").click(function () {
+    $("#personDataTableTitle").html('Lista de Disciplinados');
 });
 
 function DAOgetAllChurchs() {
