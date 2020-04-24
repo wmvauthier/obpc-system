@@ -1,4 +1,5 @@
-// const pastores = httpGet('/igrejas/api');
+var igrejas = httpGet('/igrejas/api/onlyIgrejas').igrejas;
+var congregacoes = httpGet('/igrejas/api/onlyCongregations').igrejas;
 
 $(document).ready(function () {
     fillSelectCoutry();
@@ -13,6 +14,15 @@ $(document).ready(function () {
     fillSelectTipoRecebimento();
     fillSelectDepartamento();
     fillSelectTipoMembro();
+
+    obj_igrejas.forEach(element => {
+        if (element.classificacao == 'Igreja') {
+            igrejas.push(element);
+        } else {
+            congregacoes.push(element);
+        }
+    });
+
 });
 
 function fillSelectCoutry() {
@@ -64,11 +74,18 @@ function fillSelectClassification() {
 };
 
 function fillSelectChurch() {
-    $(".selectChurch").html(`
-        <option disabled selected></option>
-        <option value="Pastor 1">Pastor 1</option>
-        <option value="Pastor 2">Pastor 2</option>
-    `);
+    var fill = '<option disabled selected></option>';
+    igrejas.forEach(element => {
+        fill += `<option value="${element.nome}">${element.nome}</option>`;
+    });
+
+    for (let i = 0; i < igrejas.length; i++) {
+        console.log(igrejas[i]);
+    }
+
+    console.log(igrejas);
+
+    $(".selectChurch").html(fill);
 };
 
 function fillSelectPastor() {
@@ -88,11 +105,12 @@ function fillSelectRegiao() {
 };
 
 function fillSelectSede() {
-    $(".selectSede").html(`
-        <option disabled selected></option>
-        <option value="Igreja Sede 1">Igreja Sede 1</option>
-        <option value="Igreja Sede 2">Igreja Sede 2</option>
-    `);
+    var fill = '<option disabled selected></option>';
+
+    igrejas.forEach(element => {
+        fill += `<option value="${element.nome}">${element.nome}</option>`;
+    });
+    $(".selectSede").html(fill);
 };
 
 function fillSelectCargo() {
@@ -120,8 +138,10 @@ function fillSelectSituacao() {
 function fillSelectTipoRecebimento() {
     $(".selectTipoRecebimento").html(`
         <option disabled selected></option>
-        <option value="Igreja Sede 1">Igreja Sede 1</option>
-        <option value="Igreja Sede 2">Igreja Sede 2</option>
+        <option value="Acolhimento">Acolhimento</option>
+        <option value="Batismo">Batismo</option>
+        <option value="Conversão">Conversão</option>
+        <option value="Transferência">Transferência</option>
     `);
 };
 
@@ -134,6 +154,7 @@ function fillSelectDepartamento() {
         <option value="Jubrac">Jubrac</option>
         <option value="Ufebrac">Ufebrac</option>
         <option value="Umasbrac">Umasbrac</option>
+        <option value="Grupo de Louvor">Grupo de Louvor</option>
     `);
 };
 

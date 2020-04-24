@@ -1,5 +1,37 @@
 const mysql = require('../mysql').pool;
 
+exports.getOnlyIgrejas = (req, res, next) => {
+    mysql.getConnection((error, conn) => {
+
+        if (error) { return res.status(500).send({ error: error }) }
+
+        conn.query(
+            `SELECT * FROM igrejas WHERE classificacao = 'Igreja';`,
+            (error, result, field) => {
+                conn.release();
+                if (error) { return res.status(500).send({ error: error }) }
+                res.status(200).send({ igrejas: result })
+            }
+        );
+    })
+}
+
+exports.getOnlyCongregations = (req, res, next) => {
+    mysql.getConnection((error, conn) => {
+
+        if (error) { return res.status(500).send({ error: error }) }
+
+        conn.query(
+            `SELECT * FROM igrejas WHERE classificacao = 'Congregação';`,
+            (error, result, field) => {
+                conn.release();
+                if (error) { return res.status(500).send({ error: error }) }
+                res.status(200).send({ igrejas: result })
+            }
+        );
+    })
+}
+
 exports.getIgrejas = (req, res, next) => {
     mysql.getConnection((error, conn) => {
 

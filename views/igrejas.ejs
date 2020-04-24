@@ -201,7 +201,7 @@
                     <!-- Modal content-->
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h4 class="modal-title">Insira as Novas Informações do Usuário</h4>
+                            <h4 class="modal-title">Insira as Novas Informações da Igreja</h4>
                         </div>
                         <div class="modal-body">
                             <form id="updateChurchForm">
@@ -328,7 +328,7 @@
                     <!-- Modal content-->
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h4 class="modal-title">Insira as Informações da Nova Pessoa</h4>
+                            <h4 id="personModalTitle" class="modal-title"></h4>
                         </div>
                         <div class="modal-body">
                             <form id="personChurchForm">
@@ -524,7 +524,8 @@
                             <div class="back">
                                 <div class="center-me">
                                     <div class="row">
-                                        <button class="btn btnBackCards btn-success">
+                                        <button id="memberModalShow" class="btn btnBackCards btn-success" data-toggle="modal"
+                                        data-target="#registerPersonModal" data-backdrop="static">
                                             <i class="fa fa-user"></i>
                                             Novo Membro
                                         </button>
@@ -552,7 +553,8 @@
                             <div class="back">
                                 <div class="center-me">
                                     <div class="row">
-                                        <button class="btn btnBackCards btn-success">
+                                        <button id="congregModalShow" class="btn btnBackCards btn-success" data-toggle="modal"
+                                        data-target="#registerPersonModal" data-backdrop="static">
                                             <i class="fa fa-users"></i>
                                             Novo Congregado
                                         </button>
@@ -580,7 +582,8 @@
                             <div class="back">
                                 <div class="center-me">
                                     <div class="row">
-                                        <button class="btn btnBackCards btn-success">
+                                        <button id="obreirosModalShow" class="btn btnBackCards btn-success" data-toggle="modal"
+                                        data-target="#registerPersonModal" data-backdrop="static">
                                             <i class="fa fa-user-circle"></i>
                                             Novo Obreiro
                                         </button>
@@ -630,7 +633,8 @@
                             <div class="back">
                                 <div class="center-me">
                                     <div class="row">
-                                        <button class="btn btnBackCards btn-danger">
+                                        <button id="afastModalShow" class="btn btnBackCards btn-danger" data-toggle="modal"
+                                        data-target="#registerPersonModal" data-backdrop="static">
                                             <i class="fa fa-street-view"></i>
                                             Novo Afastado
                                         </button>
@@ -658,7 +662,8 @@
                             <div class="back">
                                 <div class="center-me">
                                     <div class="row">
-                                        <button class="btn btnBackCards btn-danger">
+                                        <button id="disciplinModalShow" class="btn btnBackCards btn-danger" data-toggle="modal"
+                                        data-target="#registerPersonModal" data-backdrop="static">
                                             <i class="fa fa-user-times"></i>
                                             Disciplinar
                                         </button>
@@ -766,6 +771,7 @@
 <link href="css/general.css" rel="stylesheet">
 
 <script src="js/igrejas.js"></script>
+<script src="js/pessoas.js"></script>
 <script src="js/system/simple-sidebar.js"></script>
 
 <script src="js/system/httpRequisitions.js"></script>

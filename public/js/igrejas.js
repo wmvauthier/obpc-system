@@ -23,35 +23,6 @@ $("#btnDAORegisterChurch").click(function () {
     DAOregisterChurch();
 });
 
-$(".personDataTableShow").click(function () {
-    $('#churchDataTable').hide();
-    $('#personDataTable').show();
-});
-
-$("#memberDataTableShow").click(function () {
-    $("#personDataTableTitle").html('Lista de Membros');
-});
-
-$("#congregDataTableShow").click(function () {
-    $("#personDataTableTitle").html('Lista de Congregados');
-});
-
-$("#obreirosDataTableShow").click(function () {
-    $("#personDataTableTitle").html('Lista de Obreiros');
-});
-
-$("#anivDataTableShow").click(function () {
-    $("#personDataTableTitle").html('Lista de Aniversariantes');
-});
-
-$("#afastDataTableShow").click(function () {
-    $("#personDataTableTitle").html('Lista de Afastados');
-});
-
-$("#disciplinDataTableShow").click(function () {
-    $("#personDataTableTitle").html('Lista de Disciplinados');
-});
-
 function DAOgetAllChurchs() {
     var response = httpGet('/igrejas/api');
     fillChurchTable(churchTableBody, response.igrejas);
@@ -192,8 +163,6 @@ function createChurchToChurchTable(table, church) {
     var td4 = document.createElement("td");
     var td5 = document.createElement("td");
     var td6 = document.createElement("td");
-
-    console.log(church);
 
     td1.innerHTML = church.id_igreja;
     td2.innerHTML = church.nome;
