@@ -3,7 +3,7 @@
 
 <head>
 
-    <!-- Bootstrap core JavaScript -->
+    <!-- Bootstrap Core JavaScript -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -158,11 +158,11 @@
                                     </div>
                                     <div class="col-6 form-group">
                                         <label for="classificacao" class="col-form-label">Classificação</label>
-                                        <select id="classificacao" class="form-control selectClassification">
+                                        <select id="classificacao" onchange="validate()" class="form-control selectClassification">
                                         </select>
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group sedeArea">
                                     <label for="sede" class="col-form-label">Sede</label>
                                     <select id="sede" class="form-control selectSede">
                                     </select>
@@ -263,12 +263,12 @@
                                     </div>
                                     <div class="col-6 form-group">
                                         <label for="classificacao" class="col-form-label">Classificação</label>
-                                        <select id="classificacaoUpd" class="form-control selectClassification"
+                                        <select id="classificacaoUpd" onchange="validate()" class="form-control selectClassification"
                                             required>
                                         </select>
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group sedeAreaUpd">
                                     <label for="sede" class="col-form-label">Sede</label>
                                     <select id="sedeUpd" class="form-control selectSede">
                                     </select>
@@ -349,7 +349,7 @@
                                     </div>
                                     <div class="col-4 form-group">
                                         <label for="data_nascimento" class="col-form-label">Dt. de Nascimento</label>
-                                        <input id="data_nascimento" type="date" data-date-format="DD MMMM YYYY" class="form-control">
+                                        <input id="data_nascimento" onchange="validate()" type="date" data-date-format="DD MMMM YYYY" class="form-control">
                                     </div>
                                 </div>
                                 <div class="row">
@@ -400,7 +400,7 @@
                                 </div>
                                 <h5>Filiação</h5>
                                 <hr>
-                                <div class="row">
+                                <div class="row conjugeArea">
                                     <div class="col-sm-12 col-md-12 col-12 form-group">
                                         <label for="nome_conjuge" class="col-form-label">Nome do Cônjuge</label>
                                         <input id="nome_conjuge" class="form-control" required>
@@ -416,7 +416,7 @@
                                         <input id="nome_mae" class="form-control" required>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div class="row responsavelArea">
                                     <div class="col-sm-6 col-md-6 col-6 form-group">
                                         <label for="nome_responsavel" class="col-form-label">Nome do Responsável</label>
                                         <input id="nome_responsavel" class="form-control" required>
@@ -507,7 +507,7 @@
 
             <div class="container-fluid">
 
-                <!-- Sinppet Cards -->
+                <!-- Snippet Cards -->
                 <div class="row cards-container" style="padding-right: 15px;">
 
                     <!--   First Card -->
@@ -776,5 +776,7 @@
 
 <script src="js/system/httpRequisitions.js"></script>
 <script src="js/system/fillSelects.js"></script>
+<script src="js/system/validations.js"></script>
+<script src="js/system/utilities.js"></script>
 
 </html>

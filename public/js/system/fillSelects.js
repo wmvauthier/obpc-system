@@ -1,8 +1,9 @@
-var igrejas = httpGet('/igrejas/api/onlyIgrejas').igrejas;
-var congregacoes = httpGet('/igrejas/api/onlyCongregations').igrejas;
+var igrejas = httpGet('/igrejas/api').igrejas;
+var onlyIgrejas = httpGet('/igrejas/api/onlyIgrejas').igrejas;
+var onlyCongregacoes = httpGet('/igrejas/api/onlyCongregations').igrejas;
 
 $(document).ready(function () {
-    fillSelectCoutry();
+    fillSelectCountry();
     fillSelectState();
     fillSelectClassification();
     fillSelectChurch();
@@ -14,18 +15,9 @@ $(document).ready(function () {
     fillSelectTipoRecebimento();
     fillSelectDepartamento();
     fillSelectTipoMembro();
-
-    obj_igrejas.forEach(element => {
-        if (element.classificacao == 'Igreja') {
-            igrejas.push(element);
-        } else {
-            congregacoes.push(element);
-        }
-    });
-
 });
 
-function fillSelectCoutry() {
+function fillSelectCountry() {
     $(".selectCountry").html(`
         <option disabled selected></option>
         <option value='BR'>Brasil</option>
@@ -78,13 +70,6 @@ function fillSelectChurch() {
     igrejas.forEach(element => {
         fill += `<option value="${element.nome}">${element.nome}</option>`;
     });
-
-    for (let i = 0; i < igrejas.length; i++) {
-        console.log(igrejas[i]);
-    }
-
-    console.log(igrejas);
-
     $(".selectChurch").html(fill);
 };
 
@@ -106,8 +91,7 @@ function fillSelectRegiao() {
 
 function fillSelectSede() {
     var fill = '<option disabled selected></option>';
-
-    igrejas.forEach(element => {
+    onlyIgrejas.forEach(element => {
         fill += `<option value="${element.nome}">${element.nome}</option>`;
     });
     $(".selectSede").html(fill);
