@@ -79,7 +79,6 @@ $("#disciplinModalShow").click(function () {
 
 function DAOgetAllPersons(spec) {
     var response = httpGet('/pessoas/api/' + spec);
-    console.log(response);
     fillPersonTable(personTableBody, response.pessoas);
 }
 
@@ -157,7 +156,7 @@ function DAOupdatePerson() {
     var tipo_de_recebimento = $('#tipo_de_recebimentoUpd').val();
 
     var url = `/pessoas/api`;
-    var data = `id_pessoa=${id}nome=${nome}&endereco=${endereco}&endereco_numero=${endereco_numero}&endereco_complemento=${endereco_complemento}&endereco_pais=${endereco_pais}&endereco_estado=${endereco_estado}&endereco_cidade=${endereco_cidade}&endereco_bairro=${endereco_bairro}&endereco_telefone=${endereco_telefone}&nome_pai=${nome_pai}&nome_mae=${nome_mae}&nome_conjuge=${nome_conjuge}&nome_responsavel=${nome_responsavel}&contato_responsavel=${contato_responsavel}&data_nascimento=${data_nascimento}&cpf=${cpf}&rg=${rg}&igreja=${igreja}&tipo=${tipo}&cargo=${cargo}&departamento=${departamento}&situacao=${situacao}&profissao=${profissao}&data_conversao=${data_conversao}&igreja_conversao=${igreja_conversao}&data_batismo=${data_batismo}&igreja_batismo=${igreja_batismo}&tipo_de_recebimento=${tipo_de_recebimento}`
+    var data = `id_pessoa=${id}&nome=${nome}&endereco=${endereco}&endereco_numero=${endereco_numero}&endereco_complemento=${endereco_complemento}&endereco_pais=${endereco_pais}&endereco_estado=${endereco_estado}&endereco_cidade=${endereco_cidade}&endereco_bairro=${endereco_bairro}&endereco_telefone=${endereco_telefone}&nome_pai=${nome_pai}&nome_mae=${nome_mae}&nome_conjuge=${nome_conjuge}&nome_responsavel=${nome_responsavel}&contato_responsavel=${contato_responsavel}&data_nascimento=${data_nascimento}&cpf=${cpf}&rg=${rg}&igreja=${igreja}&tipo=${tipo}&cargo=${cargo}&departamento=${departamento}&situacao=${situacao}&profissao=${profissao}&data_conversao=${data_conversao}&igreja_conversao=${igreja_conversao}&data_batismo=${data_batismo}&igreja_batismo=${igreja_batismo}&tipo_de_recebimento=${tipo_de_recebimento}`
 
     httpPut(url, data);
 

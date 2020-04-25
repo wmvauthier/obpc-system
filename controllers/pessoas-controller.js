@@ -188,7 +188,7 @@ exports.updatePessoa = (req, res, next) => {
                 req.body.endereco_pais, req.body.endereco_telefone, req.body.igreja,
                 req.body.tipo, req.body.cargo, req.body.departamento, req.body.situacao, req.body.profissao,
                 req.body.data_conversao, req.body.igreja_conversao, req.body.data_batismo, req.body.igreja_batismo,
-                req.body.req.body.tipo_de_recebimento, req.body.id_pessoa
+                req.body.tipo_de_recebimento, req.body.id_pessoa
             ],
             (error, result, field) => {
 
