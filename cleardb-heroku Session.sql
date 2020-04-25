@@ -57,4 +57,4 @@ drop table pessoas;
 select
     *
 from
-    pessoas;
+    pessoas where tipo = 'Obreiro';

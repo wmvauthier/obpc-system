@@ -86,6 +86,7 @@ $("#disciplinModalShow").click(function () {
 function DAOgetAllPersons() {
     var spec = localStorage.getItem('dataTableShow');
     var response = httpGet('/pessoas/api/' + spec);
+    console.log(response);
     fillPersonTable(personTableBody, response.pessoas);
 }
 

@@ -41,6 +41,7 @@ exports.getOnlyObreiros = (req, res, next) => {
             `SELECT * FROM pessoas WHERE tipo = 'Obreiro';`,
             (error, result, field) => {
                 conn.release();
+                console.log(result);
                 if (error) { return res.status(500).send({ error: error }) }
                 res.status(200).send({ pessoas: result })
             }

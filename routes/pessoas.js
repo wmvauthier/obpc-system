@@ -5,10 +5,10 @@ const PessoasController = require('../controllers/pessoas-controller');
 
 router.get('/api/onlyMembros', login.opcional, PessoasController.getOnlyMembros);
 router.get('/api/onlyCongregados', login.opcional, PessoasController.getOnlyCongregados);
-router.get('/api/getOnlyObreiros', login.opcional, PessoasController.getOnlyObreiros);
-router.get('/api/getOnlyAniv', login.opcional, PessoasController.getOnlyAniv);
-router.get('/api/getOnlyDisciplinados', login.opcional, PessoasController.getOnlyDisciplinados);
-router.get('/api/getOnlyAfastados', login.opcional, PessoasController.getOnlyAfastados);
+router.get('/api/onlyObreiros', login.opcional, PessoasController.getOnlyObreiros);
+router.get('/api/onlyAniv', login.opcional, PessoasController.getOnlyAniv);
+router.get('/api/onlyDisciplinados', login.opcional, PessoasController.getOnlyDisciplinados);
+router.get('/api/onlyAfastados', login.opcional, PessoasController.getOnlyAfastados);
 
 router.get('/api/getPessoasIgreja/:igreja', login.opcional, PessoasController.getPessoasIgreja);
 
