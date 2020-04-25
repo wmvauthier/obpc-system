@@ -141,7 +141,7 @@ exports.insertPessoa = (req, res, next) => {
                 data_nascimento, cpf, rg, endereco, endereco_numero, endereco_bairro, endereco_cidade,
                 endereco_estado, endereco_pais, endereco_telefone, igreja, tipo, cargo, departamento,
                 situacao, profissao, data_conversao, igreja_conversao, data_batismo, igreja_batismo, tipo_de_recebimento) 
-                VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`,
+                VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`,
             [
                 req.body.imagem_pessoa, req.body.nome, req.body.nome_pai, req.body.nome_mae,
                 req.body.nome_conjuge, req.body.nome_responsavel, req.body.contato_responsavel,

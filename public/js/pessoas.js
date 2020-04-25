@@ -1,6 +1,5 @@
 $(document).ready(function () {
     checkToken();
-    //DAOgetAllPersons();
 });
 
 $("#btnPreRegisterPerson").click(function () {
@@ -25,26 +24,32 @@ $(".personDataTableShow").click(function () {
 });
 
 $("#memberDataTableShow").click(function () {
+    DAOgetAllPersons('onlyMembros');
     $("#personDataTableTitle").html('Lista de Membros');
 });
 
 $("#congregDataTableShow").click(function () {
+    DAOgetAllPersons('onlyCongregados');
     $("#personDataTableTitle").html('Lista de Congregados');
 });
 
 $("#obreirosDataTableShow").click(function () {
+    DAOgetAllPersons('onlyObreiros');
     $("#personDataTableTitle").html('Lista de Obreiros');
 });
 
 $("#anivDataTableShow").click(function () {
+    DAOgetAllPersons('onlyAniversariantes');
     $("#personDataTableTitle").html('Lista de Aniversariantes');
 });
 
 $("#afastDataTableShow").click(function () {
+    DAOgetAllPersons('onlyAfastados');
     $("#personDataTableTitle").html('Lista de Afastados');
 });
 
 $("#disciplinDataTableShow").click(function () {
+    DAOgetAllPersons('onlyDisciplinados');
     $("#personDataTableTitle").html('Lista de Disciplinados');
 });
 
@@ -72,8 +77,8 @@ $("#disciplinModalShow").click(function () {
     $("#personModalTitle").html('');
 });
 
-function DAOgetAllPersons() {
-    var response = httpGet('/pessoas/api');
+function DAOgetAllPersons(spec) {
+    var response = httpGet('/pessoas/api/' + spec);
     console.log(response);
     fillPersonTable(personTableBody, response.pessoas);
 }
