@@ -64,6 +64,38 @@ exports.getOnlyAniv = (req, res, next) => {
     })
 }
 
+exports.getOnlyDisciplinados = (req, res, next) => {
+    mysql.getConnection((error, conn) => {
+
+        if (error) { return res.status(500).send({ error: error }) }
+
+        conn.query(
+            `SELECT * FROM pessoas WHERE situacao = 'Disciplinado';`,
+            (error, result, field) => {
+                conn.release();
+                if (error) { return res.status(500).send({ error: error }) }
+                res.status(200).send({ igrejas: result })
+            }
+        );
+    })
+}
+
+exports.getOnlyAfastados = (req, res, next) => {
+    mysql.getConnection((error, conn) => {
+
+        if (error) { return res.status(500).send({ error: error }) }
+
+        conn.query(
+            `SELECT * FROM pessoas WHERE situacao = 'Afastado';`,
+            (error, result, field) => {
+                conn.release();
+                if (error) { return res.status(500).send({ error: error }) }
+                res.status(200).send({ igrejas: result })
+            }
+        );
+    })
+}
+
 exports.getPessoasIgreja = (req, res, next) => {
     mysql.getConnection((error, conn) => {
 

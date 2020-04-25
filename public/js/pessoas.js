@@ -3,6 +3,22 @@ $(document).ready(function () {
     DAOgetAllPersons();
 });
 
+$("#btnPreRegisterPerson").click(function () {
+    preRegisterPerson();
+});
+
+$("#btnDAODeletePerson").click(function () {
+    DAOdeletePerson();
+});
+
+$("#btnDAOUpdatePerson").click(function () {
+    DAOupdatePerson();
+});
+
+$("#btnDAORegisterPerson").click(function () {
+    DAOregisterPerson();
+});
+
 $(".personDataTableShow").click(function () {
     $('#churchDataTable').hide();
     $('#personDataTable').show();
@@ -64,6 +80,14 @@ function DAOgetAllPersons() {
 function DAOregisterPerson() {
 
     var nome = $('#nome').val();
+    var nome_pai = $('#nome_pai').val();
+    var nome_mae = $('#nome_mae').val();
+    var nome_conjuge = $('#nome_conjuge').val();
+    var nome_responsavel = $('#nome_responsavel').val();
+    var contato_responsavel = $('#contato_responsavel').val();
+    var data_nascimento = $('#data_nascimento').val();
+    var cpf = $('#cpf').val();
+    var rg = $('#rg').val();
     var endereco = $('#endereco').val();
     var endereco_numero = $('#endereco_numero').val();
     var endereco_complemento = $('#endereco_complemento').val();
@@ -72,17 +96,20 @@ function DAOregisterPerson() {
     var endereco_cidade = $('#endereco_cidade').val();
     var endereco_bairro = $('#endereco_bairro').val();
     var endereco_telefone = $('#endereco_telefone').val();
-    var pastor = $('#pastor').val();
-    var regiao = $('#regiao').val();
-    var classificacao = $('#classificacao').val();
-    var sede = $('#sede').val();
-    var rede_social_instagram = $('#rede_social_instagram').val();
-    var rede_social_facebook = $('#rede_social_facebook').val();
-    var rede_social_youtube = $('#rede_social_youtube').val();
+    var igreja = $('#igreja').val();
+    var tipo = $('#tipo').val();
+    var cargo = $('#cargo').val();
+    var departamento = $('#rg').val();
+    var situacao = $('#situacao').val();
+    var profissao = $('#profissao').val();
+    var data_conversao = $('#data_conversao').val();
+    var igreja_conversao = $('#igreja_conversao').val();
+    var data_batismo = $('#data_batismo').val();
+    var igreja_batismo = $('#igreja_batismo').val();
+    var tipo_de_recebimento = $('#tipo_de_recebimento').val();
 
-    var url = `/igrejas/api`;
-    var data = `nome=${nome}&endereco=${endereco}&endereco_numero=${endereco_numero}&endereco_complemento=${endereco_complemento}&endereco_pais=${endereco_pais}&endereco_estado=${endereco_estado}&endereco_cidade=${endereco_cidade}&endereco_bairro=${endereco_bairro}&endereco_telefone=${endereco_telefone}&pastor=${pastor}&regiao=${regiao}&classificacao=${classificacao}&sede=${sede}&rede_social_instagram=${rede_social_instagram}&rede_social_facebook=${rede_social_facebook}&rede_social_youtube=${rede_social_youtube}`;
-
+    var url = `/pessoas/api`;
+    var data = `nome=${nome}&endereco=${endereco}&endereco_numero=${endereco_numero}&endereco_complemento=${endereco_complemento}&endereco_pais=${endereco_pais}&endereco_estado=${endereco_estado}&endereco_cidade=${endereco_cidade}&endereco_bairro=${endereco_bairro}&endereco_telefone=${endereco_telefone}&nome_pai=${nome_pai}&nome_mae=${nome_mae}&nome_conjuge=${nome_conjuge}&nome_responsavel=${nome_responsavel}&contato_responsavel=${contato_responsavel}&data_nascimento=${data_nascimento}&cpf=${cpf}&rg=${rg}&igreja=${igreja}&tipo=${tipo}&cargo=${cargo}&departamento=${departamento}&situacao=${situacao}&profissao=${profissao}&data_conversao=${data_conversao}&igreja_conversao=${igreja_conversao}&data_batismo=${data_batismo}&igreja_batismo=${igreja_batismo}&tipo_de_recebimento=${tipo_de_recebimento}`
     var response = httpPost(url, data);
 
     createPersonToPersonTable(personTableBody, response);
@@ -93,8 +120,16 @@ function DAOregisterPerson() {
 
 function DAOupdatePerson() {
 
-    var id = $('#id_igrejaUpd').val();
+    var id = $('#id_pessoaUpd').val();
     var nome = $('#nomeUpd').val();
+    var nome_pai = $('#nome_paiUpd').val();
+    var nome_mae = $('#nome_maeUpd').val();
+    var nome_conjuge = $('#nome_conjugeUpd').val();
+    var nome_responsavel = $('#nome_responsavelUpd').val();
+    var contato_responsavel = $('#contato_responsavelUpd').val();
+    var data_nascimento = $('#data_nascimentoUpd').val();
+    var cpf = $('#cpfUpd').val();
+    var rg = $('#rgUpd').val();
     var endereco = $('#enderecoUpd').val();
     var endereco_numero = $('#endereco_numeroUpd').val();
     var endereco_complemento = $('#endereco_complementoUpd').val();
@@ -103,16 +138,20 @@ function DAOupdatePerson() {
     var endereco_cidade = $('#endereco_cidadeUpd').val();
     var endereco_bairro = $('#endereco_bairroUpd').val();
     var endereco_telefone = $('#endereco_telefoneUpd').val();
-    var pastor = $('#pastorUpd').val();
-    var regiao = $('#regiaoUpd').val();
-    var classificacao = $('#classificacaoUpd').val();
-    var sede = $('#sedeUpd').val();
-    var rede_social_instagram = $('#rede_social_instagramUpd').val();
-    var rede_social_facebook = $('#rede_social_facebookUpd').val();
-    var rede_social_youtube = $('#rede_social_youtubeUpd').val();
+    var igreja = $('#igrejaUpd').val();
+    var tipo = $('#tipoUpd').val();
+    var cargo = $('#cargoUpd').val();
+    var departamento = $('#rgUpd').val();
+    var situacao = $('#situacaoUpd').val();
+    var profissao = $('#profissaoUpd').val();
+    var data_conversao = $('#data_conversaoUpd').val();
+    var igreja_conversao = $('#igreja_conversaoUpd').val();
+    var data_batismo = $('#data_batismoUpd').val();
+    var igreja_batismo = $('#igreja_batismoUpd').val();
+    var tipo_de_recebimento = $('#tipo_de_recebimentoUpd').val();
 
-    var url = `/igrejas/api`;
-    var data = `id_igreja=${id}&nome=${nome}&endereco=${endereco}&endereco_numero=${endereco_numero}&endereco_complemento=${endereco_complemento}&endereco_pais=${endereco_pais}&endereco_estado=${endereco_estado}&endereco_cidade=${endereco_cidade}&endereco_bairro=${endereco_bairro}&endereco_telefone=${endereco_telefone}&pastor=${pastor}&regiao=${regiao}&classificacao=${classificacao}&sede=${sede}&rede_social_instagram=${rede_social_instagram}&rede_social_facebook=${rede_social_facebook}&rede_social_youtube=${rede_social_youtube}`;
+    var url = `/ pessoas / api`;
+    var data = `id_pessoa=${id}nome=${nome}&endereco=${endereco}&endereco_numero=${endereco_numero}&endereco_complemento=${endereco_complemento}&endereco_pais=${endereco_pais}&endereco_estado=${endereco_estado}&endereco_cidade=${endereco_cidade}&endereco_bairro=${endereco_bairro}&endereco_telefone=${endereco_telefone}&nome_pai=${nome_pai}&nome_mae=${nome_mae}&nome_conjuge=${nome_conjuge}&nome_responsavel=${nome_responsavel}&contato_responsavel=${contato_responsavel}&data_nascimento=${data_nascimento}&cpf=${cpf}&rg=${rg}&igreja=${igreja}&tipo=${tipo}&cargo=${cargo}&departamento=${departamento}&situacao=${situacao}&profissao=${profissao}&data_conversao=${data_conversao}&igreja_conversao=${igreja_conversao}&data_batismo=${data_batismo}&igreja_batismo=${igreja_batismo}&tipo_de_recebimento=${tipo_de_recebimento}`
 
     httpPut(url, data);
 
@@ -130,26 +169,38 @@ function preUpdatePerson(id) {
 
     cleanUpdatePersonForm();
     var data = id.getAttribute("dataID");
-    var response = httpGet(`/pessoas/api/${data}`);
+    var response = httpGet(`/ pessoas / api / ${data} `);
     response = response.igrejas[0];
 
-    $('#id_igrejaUpd').val(response.id_igreja);
+    $('#id_pessoaUpd').val(response.id_pessoa);
     $('#nomeUpd').val(response.nome);
+    $('#nome_paiUpd').val(response.nome_pai);
+    $('#nome_maeUpd').val(response.nome_mae);
+    $('#nome_conjugeUpd').val(response.nome_conjuge);
+    $('#nome_responsavelUpd').val(response.nome_responsavel);
+    $('#contato_responsavelUpd').val(response.contato_responsavel);
+    $('#data_nascimentoUpd').val(response.data_nascimento);
+    $('#cpfUpd').val(response.cpf);
+    $('#rgUpd').val(response.rg);
     $('#enderecoUpd').val(response.endereco);
     $('#endereco_numeroUpd').val(response.endereco_numero);
     $('#endereco_complementoUpd').val(response.endereco_complemento);
-    $('#endereco_estadoUpd').val(response.endereco_estado);
     $('#endereco_paisUpd').val(response.endereco_pais);
+    $('#endereco_estadoUpd').val(response.endereco_estado);
     $('#endereco_cidadeUpd').val(response.endereco_cidade);
     $('#endereco_bairroUpd').val(response.endereco_bairro);
     $('#endereco_telefoneUpd').val(response.endereco_telefone);
-    $('#pastorUpd').val(response.pastor);
-    $('#regiaoUpd').val(response.regiao);
-    $('#classificacaoUpd').val(response.classificacao);
-    $('#sedeUpd').val(response.sede);
-    $('#rede_social_instagramUpd').val(response.rede_social_instagram);
-    $('#rede_social_facebookUpd').val(response.rede_social_facebook);
-    $('#rede_social_youtubeUpd').val(response.rede_social_youtube);
+    $('#igrejaUpd').val(response.igreja);
+    $('#tipoUpd').val(response.tipo);
+    $('#cargoUpd').val(response.cargo);
+    $('#rgUpd').val(response.rg);
+    $('#situacaoUpd').val(response.situacao);
+    $('#profissaoUpd').val(response.profissao);
+    $('#data_conversaoUpd').val(response.data_conversao);
+    $('#igreja_conversaoUpd').val(response.igreja_conversao);
+    $('#data_batismoUpd').val(response.data_batismo);
+    $('#igreja_batismoUpd').val(response.igreja_batismo);
+    $('#tipo_de_recebimentoUpd').val(response.tipo_de_recebimento);
     $('#updatePersonModal').modal('show');
 
 }
@@ -158,11 +209,11 @@ function preDeletePerson(id) {
 
     cleanUpdatePersonForm();
     var data = id.getAttribute("dataID");
-    var response = httpGet(`/igrejas/api/${data}`);
+    var response = httpGet(`/ pessoas / api / ${data} `);
     response = response.igrejas[0];
 
     $('#nomeDel').html(response.nome);
-    $('#id_igrejaDel').val(response.id_igreja);
+    $('#id_pessoaDel').val(response.id_pessoa);
     $('#deletePersonModal').modal('show');
 
 }
@@ -170,7 +221,7 @@ function preDeletePerson(id) {
 function DAOdeletePerson() {
 
     var id = $('#id_igrejaDel').val();
-    httpDelete(`/igrejas/api/${id}`);
+    httpDelete(`/pessoas/api/${id} `);
     DAOgetAllPersons();
     $('#deletePersonModal').modal('hide');
 
@@ -196,29 +247,37 @@ function createPersonToPersonTable(table, person) {
     var td4 = document.createElement("td");
     var td5 = document.createElement("td");
     var td6 = document.createElement("td");
+    var td7 = document.createElement("td");
+    var td8 = document.createElement("td");
+    var td9 = document.createElement("td");
 
-    td1.innerHTML = person.id_igreja;
+    td1.innerHTML = person.id_pessoa;
     td2.innerHTML = church.nome;
-    td3.innerHTML = church.regiao;
-    td4.innerHTML = church.pastor;
-    td5.innerHTML = church.classificacao;
-    td6.innerHTML = `<button class="btn btn-rounded btn-warning" dataID="${person.id_igreja}" 
-                        data-toggle="modal" data-target="#updatePersonModal"
-                        data-backdrop="static" onclick="preUpdatePerson(this)">
-                        Editar</button>
-                     <button class="btn btn-rounded btn-danger" dataID="${person.id_igreja}"
-                        data-toggle="modal" data-target="#deletePersonModal"
-                        data-backdrop="static" onclick="preDeletePerson(this)">
-                        Excluir</button>`;
+    td3.innerHTML = church.igreja;
+    td4.innerHTML = church.classificacao;
+    td5.innerHTML = church.cargo;
+    td6.innerHTML = church.situacao;
+    td7.innerHTML = church.departamento;
+    td8.innerHTML = church.classificacao;
+    td9.innerHTML = `< button class="btn btn-rounded btn-warning" dataID = "${person.id_igreja}"
+    data - toggle="modal" data - target="#updatePersonModal"
+    data - backdrop="static" onclick = "preUpdatePerson(this)" >
+        Editar</button >
+            <button class="btn btn-rounded btn-danger" dataID="${person.id_igreja}"
+                data-toggle="modal" data-target="#deletePersonModal"
+                data-backdrop="static" onclick="preDeletePerson(this)">
+                Excluir</button>`;
 
     td1.setAttribute("data-title", "ID");
     td2.setAttribute("data-title", "Nome");
-    td3.setAttribute("data-title", "Área");
-    td4.setAttribute("data-title", "Pastor");
-    td5.setAttribute("data-title", "Classificação");
-    td6.setAttribute("data-title", "Ações");
-
-    td6.style = "text-align: center;"
+    td3.setAttribute("data-title", "Igreja");
+    td4.setAttribute("data-title", "Classificação");
+    td5.setAttribute("data-title", "Cargo");
+    td6.setAttribute("data-title", "Situação");
+    td7.setAttribute("data-title", "Departamento");
+    td8.setAttribute("data-title", "Classificação");
+    td9.setAttribute("data-title", "Ações");
+    td9.style = "text-align: center;"
 
     tr.appendChild(td1);
     tr.appendChild(td2);
@@ -226,6 +285,9 @@ function createPersonToPersonTable(table, person) {
     tr.appendChild(td4);
     tr.appendChild(td5);
     tr.appendChild(td6);
+    tr.appendChild(td7);
+    tr.appendChild(td8);
+    tr.appendChild(td9);
 
     table.appendChild(tr);
 
