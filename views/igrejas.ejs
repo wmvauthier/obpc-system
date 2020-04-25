@@ -685,6 +685,27 @@
                 </div>
             </div>
 
+            <!-- Modal para Exclusão de Igrejas -->
+            <div class="modal fade" id="deletePersonModal" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <h4>Você deseja mesmo excluir esta Pessoa?</h4>
+                            <h5 id="nomePessoaDel" class="centeredX"></h5>
+                            <input id="id_pessoaDel" class="invisible" />
+                        </div>
+                        <div class="modal-footer">
+                            <button id="btnDAODeletePerson" type="button"
+                                class="btn btn-rounded btn-success">Sim</button>
+                            <button type="button" class="btn btn-rounded btn-danger" data-dismiss="modal">Não</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
 
         <div id="page-content-wrapper">
@@ -701,7 +722,7 @@
                             <div class="front">
                                 <div class="card-counter primary">
                                     <i class="fa fa-user"></i>
-                                    <span class="count-numbers"><b>12</b></span>
+                                    <span class="count-numbers"><b id="snippetCardMembroCounter"></b></span>
                                     <span class="count-name">Membros</span>
                                 </div>
                             </div>
@@ -730,7 +751,7 @@
                             <div class="front">
                                 <div class="card-counter info">
                                     <i class="fa fa-users"></i>
-                                    <span class="count-numbers"><b>12</b></span>
+                                    <span class="count-numbers"><b id="snippetCardCongregadoCounter"></b></span>
                                     <span class="count-name">Congregados</span>
                                 </div>
                             </div>
@@ -759,7 +780,7 @@
                             <div class="front">
                                 <div class="card-counter success">
                                     <i class="fa fa-user-circle"></i>
-                                    <span class="count-numbers"><b>12</b></span>
+                                    <span class="count-numbers"><b id="snippetCardObreiroCounter"></b></span>
                                     <span class="count-name">Obreiros</span>
                                 </div>
                             </div>
@@ -788,7 +809,7 @@
                             <div class="front">
                                 <div class="card-counter warning">
                                     <i class="fa fa-gift"></i>
-                                    <span class="count-numbers"><b>12</b></span>
+                                    <span class="count-numbers"><b id="snippetCardAnivCounter"></b></span>
                                     <span class="count-name">Aniversariantes</span>
                                 </div>
                             </div>
@@ -810,7 +831,7 @@
                             <div class="front">
                                 <div class="card-counter danger">
                                     <i class="fa fa-street-view"></i>
-                                    <span class="count-numbers"><b>12</b></span>
+                                    <span class="count-numbers"><b id="snippetCardAfastadoCounter"></b></span>
                                     <span class="count-name">Afastados</span>
                                 </div>
                             </div>
@@ -839,7 +860,7 @@
                             <div class="front">
                                 <div class="card-counter dark">
                                     <i class="fa fa-user-times"></i>
-                                    <span class="count-numbers"><b>12</b></span>
+                                    <span class="count-numbers"><b id="snippetCardDisciplinCounter"></b></span>
                                     <span class="count-name">Disciplinados</span>
                                 </div>
                             </div>

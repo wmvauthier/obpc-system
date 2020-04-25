@@ -1,5 +1,6 @@
 $(document).ready(function () {
     checkToken();
+    fillPersonCounters();
 });
 
 $("#btnPreRegisterPerson").click(function () {
@@ -83,10 +84,26 @@ $("#disciplinModalShow").click(function () {
     $("#personModalTitle").html('');
 });
 
+function fillPersonCounters() {
+    var membros = httpGet('/pessoas/api/onlyMembros');
+    var congregados = httpGet('/pessoas/api/onlyCongregados');
+    var obreiros = httpGet('/pessoas/api/onlyObreiros');
+    // var aniversariantes = httpGet('/pessoas/api/onlyAniversariantes');
+    var afastados = httpGet('/pessoas/api/onlyAfastados');
+    var disciplinados = httpGet('/pessoas/api/onlyDisciplinados');
+
+    $("#snippetCardMembroCounter").html(membros.pessoas.length);
+    $("#snippetCardCongregadoCounter").html(congregados.pessoas.length);
+    $("#snippetCardObreiroCounter").html(obreiros.pessoas.length);
+    // $("#snippetCardMemberCounter").html(aniversariantes.pessoas.length);
+    $("#snippetCardAnivCounter").html('0');
+    $("#snippetCardAfastadoCounter").html(afastados.pessoas.length);
+    $("#snippetCardDisciplinCounter").html(disciplinados.pessoas.length);
+}
+
 function DAOgetAllPersons() {
     var spec = localStorage.getItem('dataTableShow');
     var response = httpGet('/pessoas/api/' + spec);
-    console.log(response);
     fillPersonTable(personTableBody, response.pessoas);
 }
 
@@ -222,10 +239,9 @@ function preDeletePerson(id) {
 
     cleanUpdatePersonForm();
     var data = id.getAttribute("dataID");
-    var response = httpGet(`/pessoas/api/${data} `);
-    response = response.igrejas[0];
-
-    $('#nomeDel').html(response.nome);
+    var response = httpGet(`/pessoas/api/${data}`);
+    response = response.pessoas[0];
+    $('#nomePessoaDel').html(response.nome);
     $('#id_pessoaDel').val(response.id_pessoa);
     $('#deletePersonModal').modal('show');
 
@@ -233,8 +249,8 @@ function preDeletePerson(id) {
 
 function DAOdeletePerson() {
 
-    var id = $('#id_igrejaDel').val();
-    httpDelete(`/pessoas/api/${id} `);
+    var id = $('#id_pessoaDel').val();
+    httpDelete(`/pessoas/api/${id}`);
     DAOgetAllPersons();
     $('#deletePersonModal').modal('hide');
 
