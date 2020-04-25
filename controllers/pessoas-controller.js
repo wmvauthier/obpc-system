@@ -10,7 +10,7 @@ exports.getOnlyMembros = (req, res, next) => {
             (error, result, field) => {
                 conn.release();
                 if (error) { return res.status(500).send({ error: error }) }
-                res.status(200).send({ igrejas: result })
+                res.status(200).send({ pessoas: result })
             }
         );
     })
@@ -26,7 +26,7 @@ exports.getOnlyCongregados = (req, res, next) => {
             (error, result, field) => {
                 conn.release();
                 if (error) { return res.status(500).send({ error: error }) }
-                res.status(200).send({ igrejas: result })
+                res.status(200).send({ pessoas: result })
             }
         );
     })
@@ -42,7 +42,7 @@ exports.getOnlyObreiros = (req, res, next) => {
             (error, result, field) => {
                 conn.release();
                 if (error) { return res.status(500).send({ error: error }) }
-                res.status(200).send({ igrejas: result })
+                res.status(200).send({ pessoas: result })
             }
         );
     })
@@ -58,7 +58,7 @@ exports.getOnlyAniv = (req, res, next) => {
             (error, result, field) => {
                 conn.release();
                 if (error) { return res.status(500).send({ error: error }) }
-                res.status(200).send({ igrejas: result })
+                res.status(200).send({ pessoas: result })
             }
         );
     })
@@ -74,7 +74,7 @@ exports.getOnlyDisciplinados = (req, res, next) => {
             (error, result, field) => {
                 conn.release();
                 if (error) { return res.status(500).send({ error: error }) }
-                res.status(200).send({ igrejas: result })
+                res.status(200).send({ pessoas: result })
             }
         );
     })
@@ -90,7 +90,7 @@ exports.getOnlyAfastados = (req, res, next) => {
             (error, result, field) => {
                 conn.release();
                 if (error) { return res.status(500).send({ error: error }) }
-                res.status(200).send({ igrejas: result })
+                res.status(200).send({ pessoas: result })
             }
         );
     })
