@@ -1,6 +1,6 @@
 $(document).ready(function () {
     checkToken();
-    DAOgetAllPersons();
+    //DAOgetAllPersons();
 });
 
 $("#btnPreRegisterPerson").click(function () {
@@ -74,6 +74,7 @@ $("#disciplinModalShow").click(function () {
 
 function DAOgetAllPersons() {
     var response = httpGet('/pessoas/api');
+    console.log(response);
     fillPersonTable(personTableBody, response.pessoas);
 }
 
@@ -252,13 +253,13 @@ function createPersonToPersonTable(table, person) {
     var td9 = document.createElement("td");
 
     td1.innerHTML = person.id_pessoa;
-    td2.innerHTML = church.nome;
-    td3.innerHTML = church.igreja;
-    td4.innerHTML = church.classificacao;
-    td5.innerHTML = church.cargo;
-    td6.innerHTML = church.situacao;
-    td7.innerHTML = church.departamento;
-    td8.innerHTML = church.classificacao;
+    td2.innerHTML = person.nome;
+    td3.innerHTML = person.igreja;
+    td4.innerHTML = person.classificacao;
+    td5.innerHTML = person.cargo;
+    td6.innerHTML = person.situacao;
+    td7.innerHTML = person.departamento;
+    td8.innerHTML = person.classificacao;
     td9.innerHTML = `< button class="btn btn-rounded btn-warning" dataID = "${person.id_igreja}"
     data - toggle="modal" data - target="#updatePersonModal"
     data - backdrop="static" onclick = "preUpdatePerson(this)" >

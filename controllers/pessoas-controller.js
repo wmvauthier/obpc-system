@@ -137,16 +137,20 @@ exports.insertPessoa = (req, res, next) => {
 
         conn.query(
             `INSERT INTO pessoas 
-            (nome, endereco, endereco_numero, endereco_complemento, endereco_bairro, endereco_cidade,
-                endereco_estado, endereco_pais, endereco_telefone, pastor, regiao, classificacao,
-                sede, rede_social_instagram, rede_social_facebook, rede_social_youtube, imagem_igreja) 
-                VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`,
+            (imagem_pessoa, nome, nome_pai, nome_mae, nome_conjuge, nome_responsavel, contato_responsavel,
+                data_nascimento, cpf, rg, endereco, endereco_numero, endereco_bairro, endereco_cidade,
+                endereco_estado, endereco_pais, endereco_telefone, igreja, tipo, cargo, departamento,
+                situacao, profissao, data_conversao, igreja_conversao, data_batismo, igreja_batismo, tipo_de_recebimento) 
+                VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)`,
             [
-                req.body.nome, req.body.endereco, req.body.endereco_numero, req.body.endereco_complemento,
-                req.body.endereco_bairro, req.body.endereco_cidade, req.body.endereco_estado, req.body.endereco_pais,
-                req.body.endereco_telefone, req.body.pastor, req.body.regiao, req.body.classificacao,
-                req.body.sede, req.body.rede_social_instagram, req.body.rede_social_facebook, req.body.rede_social_youtube,
-                req.body.imagem_igreja
+                req.body.imagem_pessoa, req.body.nome, req.body.nome_pai, req.body.nome_mae,
+                req.body.nome_conjuge, req.body.nome_responsavel, req.body.contato_responsavel,
+                req.body.data_nascimento, req.body.cpf, req.body.rg, req.body.endereco, req.body.endereco_numero,
+                req.body.endereco_bairro, req.body.endereco_cidade, req.body.endereco_estado,
+                req.body.endereco_pais, req.body.endereco_telefone, req.body.igreja,
+                req.body.tipo, req.body.cargo, req.body.departamento, req.body.situacao, req.body.profissao,
+                req.body.data_conversao, req.body.igreja_conversao, req.body.data_batismo, req.body.igreja_batismo,
+                req.body.req.body.tipo_de_recebimento
             ],
             (error, result, field) => {
 
@@ -171,16 +175,20 @@ exports.updatePessoa = (req, res, next) => {
 
         conn.query(
             `UPDATE pessoas SET 
-            nome = ?, endereco = ?, endereco_numero = ?, endereco_complemento = ?, endereco_bairro = ?, endereco_cidade = ?,
-                endereco_estado = ?, endereco_pais = ?, endereco_telefone = ?, pastor = ?, regiao = ?, classificacao = ?,
-                sede = ?, rede_social_instagram = ?, rede_social_facebook = ?, rede_social_youtube = ?, imagem_igreja = ?
+            imagem_pessoa = ?, nome = ?, nome_pai = ?, nome_mae = ?, nome_conjuge = ?, nome_responsavel = ?, contato_responsavel = ?,
+                data_nascimento = ?, cpf = ?, rg = ?, endereco = ?, endereco_numero = ?, endereco_bairro = ?, endereco_cidade = ?,
+                endereco_estado = ?, endereco_pais = ?, endereco_telefone = ?, igreja = ?, tipo = ?, cargo = ?, departamento = ?,
+                situacao = ?, profissao = ?, data_conversao = ?, igreja_conversao = ?, data_batismo = ?, igreja_batismo = ?, tipo_de_recebimento = ?
                 WHERE id_pessoa = ?`,
             [
-                req.body.nome, req.body.endereco, req.body.endereco_numero, req.body.endereco_complemento,
-                req.body.endereco_bairro, req.body.endereco_cidade, req.body.endereco_estado, req.body.endereco_pais,
-                req.body.endereco_telefone, req.body.pastor, req.body.regiao, req.body.classificacao,
-                req.body.sede, req.body.rede_social_instagram, req.body.rede_social_facebook, req.body.rede_social_youtube,
-                req.body.imagem_igreja, req.body.id_igreja
+                req.body.imagem_pessoa, req.body.nome, req.body.nome_pai, req.body.nome_mae,
+                req.body.nome_conjuge, req.body.nome_responsavel, req.body.contato_responsavel,
+                req.body.data_nascimento, req.body.cpf, req.body.rg, req.body.endereco, req.body.endereco_numero,
+                req.body.endereco_bairro, req.body.endereco_cidade, req.body.endereco_estado,
+                req.body.endereco_pais, req.body.endereco_telefone, req.body.igreja,
+                req.body.tipo, req.body.cargo, req.body.departamento, req.body.situacao, req.body.profissao,
+                req.body.data_conversao, req.body.igreja_conversao, req.body.data_batismo, req.body.igreja_batismo,
+                req.body.req.body.tipo_de_recebimento, req.body.id_pessoa
             ],
             (error, result, field) => {
 
