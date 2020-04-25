@@ -173,6 +173,8 @@ exports.updatePessoa = (req, res, next) => {
 
         if (error) { return res.status(500).send({ error: error }) }
 
+        console.log(req.body.id_pessoa);
+
         conn.query(
             `UPDATE pessoas SET 
             imagem_pessoa = ?, nome = ?, nome_pai = ?, nome_mae = ?, nome_conjuge = ?, nome_responsavel = ?, contato_responsavel = ?,
@@ -195,11 +197,12 @@ exports.updatePessoa = (req, res, next) => {
                 conn.release();
                 if (error) { return res.status(500).send({ error: error }) }
 
+                console.log(result);
+
                 res.status(202).send({
-                    mensagem: 'Igreja alterada com sucesso',
-                    id_igreja: req.body.id_igreja,
+                    mensagem: 'Pessoa alterada com sucesso',
+                    id_pessoa: req.body.id_pessoa,
                     nome: req.body.nome,
-                    pastor: req.body.pastor
                 })
             }
         );

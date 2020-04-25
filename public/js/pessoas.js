@@ -24,32 +24,38 @@ $(".personDataTableShow").click(function () {
 });
 
 $("#memberDataTableShow").click(function () {
-    DAOgetAllPersons('onlyMembros');
+    localStorage.setItem('dataTableShow', 'onlyMembros');
+    DAOgetAllPersons();
     $("#personDataTableTitle").html('Lista de Membros');
 });
 
 $("#congregDataTableShow").click(function () {
-    DAOgetAllPersons('onlyCongregados');
+    localStorage.setItem('dataTableShow', 'onlyCongregados');
+    DAOgetAllPersons();
     $("#personDataTableTitle").html('Lista de Congregados');
 });
 
 $("#obreirosDataTableShow").click(function () {
-    DAOgetAllPersons('onlyObreiros');
+    localStorage.setItem('dataTableShow', 'onlyObreiros');
+    DAOgetAllPersons();
     $("#personDataTableTitle").html('Lista de Obreiros');
 });
 
 $("#anivDataTableShow").click(function () {
-    DAOgetAllPersons('onlyAniversariantes');
+    localStorage.setItem('dataTableShow', 'onlyAniversariantes');
+    DAOgetAllPersons();
     $("#personDataTableTitle").html('Lista de Aniversariantes');
 });
 
 $("#afastDataTableShow").click(function () {
-    DAOgetAllPersons('onlyAfastados');
+    localStorage.setItem('dataTableShow', 'onlyAfastados');
+    DAOgetAllPersons();
     $("#personDataTableTitle").html('Lista de Afastados');
 });
 
 $("#disciplinDataTableShow").click(function () {
-    DAOgetAllPersons('onlyDisciplinados');
+    localStorage.setItem('dataTableShow', 'onlyDisciplinados');
+    DAOgetAllPersons();
     $("#personDataTableTitle").html('Lista de Disciplinados');
 });
 
@@ -77,7 +83,8 @@ $("#disciplinModalShow").click(function () {
     $("#personModalTitle").html('');
 });
 
-function DAOgetAllPersons(spec) {
+function DAOgetAllPersons() {
+    var spec = localStorage.getItem('dataTableShow');
     var response = httpGet('/pessoas/api/' + spec);
     fillPersonTable(personTableBody, response.pessoas);
 }
@@ -104,7 +111,7 @@ function DAOregisterPerson() {
     var igreja = $('#igreja').val();
     var tipo = $('#tipo').val();
     var cargo = $('#cargo').val();
-    var departamento = $('#rg').val();
+    var departamento = $('#departamento').val();
     var situacao = $('#situacao').val();
     var profissao = $('#profissao').val();
     var data_conversao = $('#data_conversao').val();
@@ -126,7 +133,7 @@ function DAOregisterPerson() {
 function DAOupdatePerson() {
 
     var id = $('#id_pessoaUpd').val();
-    var nome = $('#nomeUpd').val();
+    var nome = $('#nome2Upd').val();
     var nome_pai = $('#nome_paiUpd').val();
     var nome_mae = $('#nome_maeUpd').val();
     var nome_conjuge = $('#nome_conjugeUpd').val();
@@ -135,18 +142,18 @@ function DAOupdatePerson() {
     var data_nascimento = $('#data_nascimentoUpd').val();
     var cpf = $('#cpfUpd').val();
     var rg = $('#rgUpd').val();
-    var endereco = $('#enderecoUpd').val();
-    var endereco_numero = $('#endereco_numeroUpd').val();
-    var endereco_complemento = $('#endereco_complementoUpd').val();
-    var endereco_pais = $('#endereco_paisUpd').val();
-    var endereco_estado = $('#endereco_estadoUpd').val();
-    var endereco_cidade = $('#endereco_cidadeUpd').val();
-    var endereco_bairro = $('#endereco_bairroUpd').val();
-    var endereco_telefone = $('#endereco_telefoneUpd').val();
+    var endereco = $('#endereco2Upd').val();
+    var endereco_numero = $('#endereco_numero2Upd').val();
+    var endereco_complemento = $('#endereco_complemento2Upd').val();
+    var endereco_pais = $('#endereco_pais2Upd').val();
+    var endereco_estado = $('#endereco_estado2Upd').val();
+    var endereco_cidade = $('#endereco_cidade2Upd').val();
+    var endereco_bairro = $('#endereco_bairro2Upd').val();
+    var endereco_telefone = $('#endereco_telefone2Upd').val();
     var igreja = $('#igrejaUpd').val();
     var tipo = $('#tipoUpd').val();
     var cargo = $('#cargoUpd').val();
-    var departamento = $('#rgUpd').val();
+    var departamento = $('#departamentoUpd').val();
     var situacao = $('#situacaoUpd').val();
     var profissao = $('#profissaoUpd').val();
     var data_conversao = $('#data_conversaoUpd').val();
@@ -175,11 +182,10 @@ function preUpdatePerson(id) {
     cleanUpdatePersonForm();
     var data = id.getAttribute("dataID");
     var response = httpGet(`/pessoas/api/${data} `);
-    console.log(response);
     response = response.pessoas[0];
 
     $('#id_pessoaUpd').val(response.id_pessoa);
-    $('#nomeUpd').val(response.nome);
+    $('#nome2Upd').val(response.nome);
     $('#nome_paiUpd').val(response.nome_pai);
     $('#nome_maeUpd').val(response.nome_mae);
     $('#nome_conjugeUpd').val(response.nome_conjuge);
@@ -188,18 +194,18 @@ function preUpdatePerson(id) {
     $('#data_nascimentoUpd').val(response.data_nascimento);
     $('#cpfUpd').val(response.cpf);
     $('#rgUpd').val(response.rg);
-    $('#enderecoUpd').val(response.endereco);
-    $('#endereco_numeroUpd').val(response.endereco_numero);
-    $('#endereco_complementoUpd').val(response.endereco_complemento);
-    $('#endereco_paisUpd').val(response.endereco_pais);
-    $('#endereco_estadoUpd').val(response.endereco_estado);
-    $('#endereco_cidadeUpd').val(response.endereco_cidade);
-    $('#endereco_bairroUpd').val(response.endereco_bairro);
-    $('#endereco_telefoneUpd').val(response.endereco_telefone);
+    $('#endereco2Upd').val(response.endereco);
+    $('#endereco_numero2Upd').val(response.endereco_numero);
+    $('#endereco_complemento2Upd').val(response.endereco_complemento);
+    $('#endereco_pais2Upd').val(response.endereco_pais);
+    $('#endereco_estado2Upd').val(response.endereco_estado);
+    $('#endereco_cidade2Upd').val(response.endereco_cidade);
+    $('#endereco_bairro2Upd').val(response.endereco_bairro);
+    $('#endereco_telefone2Upd').val(response.endereco_telefone);
     $('#igrejaUpd').val(response.igreja);
     $('#tipoUpd').val(response.tipo);
     $('#cargoUpd').val(response.cargo);
-    $('#rgUpd').val(response.rg);
+    $('#departamentoUpd').val(response.departamento);
     $('#situacaoUpd').val(response.situacao);
     $('#profissaoUpd').val(response.profissao);
     $('#data_conversaoUpd').val(response.data_conversao);

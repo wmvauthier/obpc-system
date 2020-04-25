@@ -5,7 +5,7 @@ const PessoasController = require('../controllers/pessoas-controller');
 
 router.get('/api/onlyMembros', login.opcional, PessoasController.getOnlyMembros);
 router.get('/api/onlyCongregados', login.opcional, PessoasController.getOnlyCongregados);
-router.get('/api/getOnlyObreiros', login.opcional, PessoasController.getOnlyMembros);
+router.get('/api/getOnlyObreiros', login.opcional, PessoasController.getOnlyObreiros);
 router.get('/api/getOnlyAniv', login.opcional, PessoasController.getOnlyAniv);
 router.get('/api/getOnlyDisciplinados', login.opcional, PessoasController.getOnlyDisciplinados);
 router.get('/api/getOnlyAfastados', login.opcional, PessoasController.getOnlyAfastados);
