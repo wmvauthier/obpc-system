@@ -501,6 +501,186 @@
                 </div>
             </div>
 
+            <!-- Modal para Edição de Pessoas -->
+            <div class="modal fade" id="updatePersonModal" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 id="personUpdateModalTitle" class="modal-title"></h4>
+                        </div>
+                        <div class="modal-body">
+                            <form id="updatePersonForm">
+                                <h5>Dados Pessoais</h5>
+                                <hr>
+                                <div class="form-group">
+                                    <label for="nome" class="col-form-label">Nome</label>
+                                    <input id="nome2Upd" type="text" class="form-control">
+                                </div>
+                                <div class="row">
+                                    <div class="col-4 form-group">
+                                        <label for="cpf" class="col-form-label">CPF</label>
+                                        <input id="cpfUpd" type="number" min="0" class="form-control">
+                                    </div>
+                                    <div class="col-4 form-group">
+                                        <label for="rg" class="col-form-label">RG</label>
+                                        <input id="rgUpd" type="text" class="form-control">
+                                    </div>
+                                    <div class="col-4 form-group">
+                                        <label for="data_nascimento" class="col-form-label">Dt. de Nascimento</label>
+                                        <input id="data_nascimentoUpd" onchange="validate()" type="date" data-date-format="DD MMMM YYYY" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 form-group">
+                                        <label for="profissao" class="col-form-label">Profissão</label>
+                                        <input id="profissaoUpd" type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <h5>Endereço</h5>
+                                <hr>
+                                <div class="form-group">
+                                    <label for="endereco" class="col-form-label">Endereço</label>
+                                    <input id="endereco2Upd" type="text" class="form-control">
+                                </div>
+                                <div class="row">
+                                    <div class="col-4 form-group">
+                                        <label for="endereco_numero" class="col-form-label">Número</label>
+                                        <input id="endereco_numero2Upd" type="number" min="0" class="form-control">
+                                    </div>
+                                    <div class="col-4 form-group">
+                                        <label for="endereco_complemento" class="col-form-label">Complemento</label>
+                                        <input id="endereco_complemento2Upd" type="text" class="form-control">
+                                    </div>
+                                    <div class="col-4 form-group">
+                                        <label for="endereco_pais" class="col-form-label">País</label>
+                                        <select id="endereco_pais2Upd" class="form-control selectCountry">
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-3 form-group">
+                                        <label for="endereco_estado" class="col-form-label">Estado</label>
+                                        <select id="endereco_estado2Upd" class="form-control selectState">
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-6 col-md-3 form-group">
+                                        <label for="endereco_cidade" class="col-form-label">Cidade</label>
+                                        <input id="endereco_cidade2Upd" class="form-control" required>
+                                    </div>
+                                    <div class="col-sm-6 col-md-3 form-group">
+                                        <label for="endereco_bairro" class="col-form-label">Bairro</label>
+                                        <input id="endereco_bairro2Upd" type="text" class="form-control">
+                                    </div>
+                                    <div class="col-sm-6 col-md-3 form-group">
+                                        <label for="endereco_telefone" class="col-form-label">Contato</label>
+                                        <input id="endereco_telefone2Upd" type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <h5>Filiação</h5>
+                                <hr>
+                                <div class="row conjugeArea">
+                                    <div class="col-sm-12 col-md-12 col-12 form-group">
+                                        <label for="nome_conjuge" class="col-form-label">Nome do Cônjuge</label>
+                                        <input id="nome_conjugeUpd" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-6 col-6 form-group">
+                                        <label for="nome_pai" class="col-form-label">Nome do Pai</label>
+                                        <input id="nome_paiUpd" class="form-control" required>
+                                    </div>
+                                    <div class="col-sm-12 col-md-6 col-6 form-group">
+                                        <label for="nome_mae" class="col-form-label">Nome da Mãe</label>
+                                        <input id="nome_maeUpd" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="row responsavelArea">
+                                    <div class="col-sm-6 col-md-6 col-6 form-group">
+                                        <label for="nome_responsavel" class="col-form-label">Nome do Responsável</label>
+                                        <input id="nome_responsavelUpd" class="form-control" required>
+                                    </div>
+                                    <div class="col-sm-6 col-md-6 col-6 form-group">
+                                        <label for="contato_responsavel" class="col-form-label">Contato do
+                                            Responsável</label>
+                                        <input id="contato_responsavelUpd" class="form-control" required>
+                                    </div>
+                                </div>
+                                <h5>Eclesiástica</h5>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12 col-12 form-group">
+                                        <label for="igreja" class="col-form-label">Igreja Participante</label>
+                                        <select id="igrejaUpd" class="form-control selectChurch">
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-6 col-6 form-group">
+                                        <label for="tipo" class="col-form-label">Classificação</label>
+                                        <select id="tipoUpd" class="form-control selectTipoMembro">
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-6 col-md-6 col-6 form-group">
+                                        <label for="situacao" class="col-form-label">Situação</label>
+                                        <select id="situacaoUpd" class="form-control selectSituacao">
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-6 col-6 form-group">
+                                        <label for="cargo" class="col-form-label">Cargo</label>
+                                        <select id="cargoUpd" class="form-control selectCargo">
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-6 col-md-6 col-6 form-group">
+                                        <label for="departamento" class="col-form-label">Departamento</label>
+                                        <select id="departamentoUpd" class="form-control selectDepartamento">
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-6 col-6 form-group">
+                                        <label for="data_conversao" class="col-form-label">Data da Conversão</label>
+                                        <input id="data_conversaoUpd" type="date" data-date-format="DD MMMM YYYY" class="form-control">
+                                    </div>
+                                    <div class="col-sm-6 col-md-6 col-6 form-group">
+                                        <label for="igreja_conversao" class="col-form-label">Igreja de Conversão</label>
+                                        <input id="igreja_conversaoUpd" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-6 col-6 form-group">
+                                        <label for="data_batismo" class="col-form-label">Data de Batismo</label>
+                                        <input id="data_batismoUpd" type="date" data-date-format="DD MMMM YYYY" class="form-control">
+                                    </div>
+                                    <div class="col-sm-6 col-md-6 col-6 form-group">
+                                        <label for="igreja_batismo" class="col-form-label">Igreja de Batismo</label>
+                                        <input id="igreja_batismoUpd" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 form-group">
+                                        <label for="tipo_de_recebimento" class="col-form-label">Tipo de
+                                            Recebimento</label>
+                                        <select id="tipo_de_recebimentoUpd" class="form-control selectTipoRecebimento">
+                                        </select>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button id="btnDAOUpdatePerson" type="button"
+                                class="btn btn-rounded btn-success">Alterar</button>
+                            <button type="button" class="btn btn-rounded btn-danger"
+                                data-dismiss="modal">Cancelar</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
 
         <div id="page-content-wrapper">
@@ -746,9 +926,8 @@
                                         <th>Igreja</th>
                                         <th>Classificação</th>
                                         <th>Cargo</th>
-                                        <th>Situação</th>
                                         <th>Departamento</th>
-                                        <th>Classificação</th>
+                                        <th>Situação</th>
                                         <th>Ações</th>
                                     </tr>
                                 </thead>

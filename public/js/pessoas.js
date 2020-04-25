@@ -85,7 +85,7 @@ function DAOgetAllPersons(spec) {
 
 function DAOregisterPerson() {
 
-    var nome = $('#nome').val();
+    var nome = $('#nome2').val();
     var nome_pai = $('#nome_pai').val();
     var nome_mae = $('#nome_mae').val();
     var nome_conjuge = $('#nome_conjuge').val();
@@ -94,14 +94,14 @@ function DAOregisterPerson() {
     var data_nascimento = $('#data_nascimento').val();
     var cpf = $('#cpf').val();
     var rg = $('#rg').val();
-    var endereco = $('#endereco').val();
-    var endereco_numero = $('#endereco_numero').val();
-    var endereco_complemento = $('#endereco_complemento').val();
-    var endereco_pais = $('#endereco_pais').val();
-    var endereco_estado = $('#endereco_estado').val();
-    var endereco_cidade = $('#endereco_cidade').val();
-    var endereco_bairro = $('#endereco_bairro').val();
-    var endereco_telefone = $('#endereco_telefone').val();
+    var endereco = $('#endereco2').val();
+    var endereco_numero = $('#endereco_numero2').val();
+    var endereco_complemento = $('#endereco_complemento2').val();
+    var endereco_pais = $('#endereco_pais2').val();
+    var endereco_estado = $('#endereco_estado2').val();
+    var endereco_cidade = $('#endereco_cidade2').val();
+    var endereco_bairro = $('#endereco_bairro2').val();
+    var endereco_telefone = $('#endereco_telefone2').val();
     var igreja = $('#igreja').val();
     var tipo = $('#tipo').val();
     var cargo = $('#cargo').val();
@@ -156,7 +156,7 @@ function DAOupdatePerson() {
     var igreja_batismo = $('#igreja_batismoUpd').val();
     var tipo_de_recebimento = $('#tipo_de_recebimentoUpd').val();
 
-    var url = `/ pessoas / api`;
+    var url = `/pessoas/api`;
     var data = `id_pessoa=${id}nome=${nome}&endereco=${endereco}&endereco_numero=${endereco_numero}&endereco_complemento=${endereco_complemento}&endereco_pais=${endereco_pais}&endereco_estado=${endereco_estado}&endereco_cidade=${endereco_cidade}&endereco_bairro=${endereco_bairro}&endereco_telefone=${endereco_telefone}&nome_pai=${nome_pai}&nome_mae=${nome_mae}&nome_conjuge=${nome_conjuge}&nome_responsavel=${nome_responsavel}&contato_responsavel=${contato_responsavel}&data_nascimento=${data_nascimento}&cpf=${cpf}&rg=${rg}&igreja=${igreja}&tipo=${tipo}&cargo=${cargo}&departamento=${departamento}&situacao=${situacao}&profissao=${profissao}&data_conversao=${data_conversao}&igreja_conversao=${igreja_conversao}&data_batismo=${data_batismo}&igreja_batismo=${igreja_batismo}&tipo_de_recebimento=${tipo_de_recebimento}`
 
     httpPut(url, data);
@@ -175,8 +175,9 @@ function preUpdatePerson(id) {
 
     cleanUpdatePersonForm();
     var data = id.getAttribute("dataID");
-    var response = httpGet(`/ pessoas / api / ${data} `);
-    response = response.igrejas[0];
+    var response = httpGet(`/pessoas/api/${data} `);
+    console.log(response);
+    response = response.pessoas[0];
 
     $('#id_pessoaUpd').val(response.id_pessoa);
     $('#nomeUpd').val(response.nome);
@@ -215,7 +216,7 @@ function preDeletePerson(id) {
 
     cleanUpdatePersonForm();
     var data = id.getAttribute("dataID");
-    var response = httpGet(`/ pessoas / api / ${data} `);
+    var response = httpGet(`/pessoas/api/${data} `);
     response = response.igrejas[0];
 
     $('#nomeDel').html(response.nome);
@@ -255,21 +256,19 @@ function createPersonToPersonTable(table, person) {
     var td6 = document.createElement("td");
     var td7 = document.createElement("td");
     var td8 = document.createElement("td");
-    var td9 = document.createElement("td");
 
     td1.innerHTML = person.id_pessoa;
     td2.innerHTML = person.nome;
     td3.innerHTML = person.igreja;
-    td4.innerHTML = person.classificacao;
+    td4.innerHTML = person.tipo;
     td5.innerHTML = person.cargo;
-    td6.innerHTML = person.situacao;
-    td7.innerHTML = person.departamento;
-    td8.innerHTML = person.classificacao;
-    td9.innerHTML = `< button class="btn btn-rounded btn-warning" dataID = "${person.id_igreja}"
-    data - toggle="modal" data - target="#updatePersonModal"
-    data - backdrop="static" onclick = "preUpdatePerson(this)" >
-        Editar</button >
-            <button class="btn btn-rounded btn-danger" dataID="${person.id_igreja}"
+    td6.innerHTML = person.departamento;
+    td7.innerHTML = person.situacao;
+    td8.innerHTML = `<button class="btn btn-rounded btn-warning" dataID="${person.id_pessoa}"
+    data-toggle="modal" data-target="#updatePersonModal"
+    data-backdrop="static" onclick="preUpdatePerson(this)">
+        Editar</button>
+            <button class="btn btn-rounded btn-danger" dataID="${person.id_pessoa}"
                 data-toggle="modal" data-target="#deletePersonModal"
                 data-backdrop="static" onclick="preDeletePerson(this)">
                 Excluir</button>`;
@@ -279,11 +278,10 @@ function createPersonToPersonTable(table, person) {
     td3.setAttribute("data-title", "Igreja");
     td4.setAttribute("data-title", "Classificação");
     td5.setAttribute("data-title", "Cargo");
-    td6.setAttribute("data-title", "Situação");
-    td7.setAttribute("data-title", "Departamento");
-    td8.setAttribute("data-title", "Classificação");
-    td9.setAttribute("data-title", "Ações");
-    td9.style = "text-align: center;"
+    td6.setAttribute("data-title", "Departamento");
+    td7.setAttribute("data-title", "Situação");
+    td8.setAttribute("data-title", "Ações");
+    td8.style = "text-align: center;"
 
     tr.appendChild(td1);
     tr.appendChild(td2);
@@ -293,7 +291,6 @@ function createPersonToPersonTable(table, person) {
     tr.appendChild(td6);
     tr.appendChild(td7);
     tr.appendChild(td8);
-    tr.appendChild(td9);
 
     table.appendChild(tr);
 
