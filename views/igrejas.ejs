@@ -158,7 +158,8 @@
                                     </div>
                                     <div class="col-6 form-group">
                                         <label for="classificacao" class="col-form-label">Classificação</label>
-                                        <select id="classificacao" onchange="validate()" class="form-control selectClassification">
+                                        <select id="classificacao" onchange="validate()"
+                                            class="form-control selectClassification">
                                         </select>
                                     </div>
                                 </div>
@@ -263,8 +264,8 @@
                                     </div>
                                     <div class="col-6 form-group">
                                         <label for="classificacao" class="col-form-label">Classificação</label>
-                                        <select id="classificacaoUpd" onchange="validate()" class="form-control selectClassification"
-                                            required>
+                                        <select id="classificacaoUpd" onchange="validate()"
+                                            class="form-control selectClassification" required>
                                         </select>
                                     </div>
                                 </div>
@@ -349,7 +350,8 @@
                                     </div>
                                     <div class="col-4 form-group">
                                         <label for="data_nascimento" class="col-form-label">Dt. de Nascimento</label>
-                                        <input id="data_nascimento" onchange="validate()" type="date" data-date-format="DD MMMM YYYY" class="form-control">
+                                        <input id="data_nascimento" onchange="validate()" type="date"
+                                            data-date-format="DD MMMM YYYY" class="form-control">
                                     </div>
                                 </div>
                                 <div class="row">
@@ -463,7 +465,8 @@
                                 <div class="row">
                                     <div class="col-sm-6 col-md-6 col-6 form-group">
                                         <label for="data_conversao" class="col-form-label">Data da Conversão</label>
-                                        <input id="data_conversao" type="date" data-date-format="DD MMMM YYYY" class="form-control">
+                                        <input id="data_conversao" type="date" data-date-format="DD MMMM YYYY"
+                                            class="form-control">
                                     </div>
                                     <div class="col-sm-6 col-md-6 col-6 form-group">
                                         <label for="igreja_conversao" class="col-form-label">Igreja de Conversão</label>
@@ -473,7 +476,8 @@
                                 <div class="row">
                                     <div class="col-sm-6 col-md-6 col-6 form-group">
                                         <label for="data_batismo" class="col-form-label">Data de Batismo</label>
-                                        <input id="data_batismo" type="date" data-date-format="DD MMMM YYYY" class="form-control">
+                                        <input id="data_batismo" type="date" data-date-format="DD MMMM YYYY"
+                                            class="form-control">
                                     </div>
                                     <div class="col-sm-6 col-md-6 col-6 form-group">
                                         <label for="igreja_batismo" class="col-form-label">Igreja de Batismo</label>
@@ -533,7 +537,8 @@
                                     </div>
                                     <div class="col-4 form-group">
                                         <label for="data_nascimento" class="col-form-label">Dt. de Nascimento</label>
-                                        <input id="data_nascimentoUpd" onchange="validate()" type="date" data-date-format="DD MMMM YYYY" class="form-control">
+                                        <input id="data_nascimentoUpd" onchange="validate()" type="date"
+                                            data-date-format="DD MMMM YYYY" class="form-control">
                                     </div>
                                 </div>
                                 <div class="row">
@@ -647,7 +652,8 @@
                                 <div class="row">
                                     <div class="col-sm-6 col-md-6 col-6 form-group">
                                         <label for="data_conversao" class="col-form-label">Data da Conversão</label>
-                                        <input id="data_conversaoUpd" type="date" data-date-format="DD MMMM YYYY" class="form-control">
+                                        <input id="data_conversaoUpd" type="date" data-date-format="DD MMMM YYYY"
+                                            class="form-control">
                                     </div>
                                     <div class="col-sm-6 col-md-6 col-6 form-group">
                                         <label for="igreja_conversao" class="col-form-label">Igreja de Conversão</label>
@@ -657,7 +663,8 @@
                                 <div class="row">
                                     <div class="col-sm-6 col-md-6 col-6 form-group">
                                         <label for="data_batismo" class="col-form-label">Data de Batismo</label>
-                                        <input id="data_batismoUpd" type="date" data-date-format="DD MMMM YYYY" class="form-control">
+                                        <input id="data_batismoUpd" type="date" data-date-format="DD MMMM YYYY"
+                                            class="form-control">
                                     </div>
                                     <div class="col-sm-6 col-md-6 col-6 form-group">
                                         <label for="igreja_batismo" class="col-form-label">Igreja de Batismo</label>
@@ -706,6 +713,32 @@
                 </div>
             </div>
 
+            <!-- Modal para Alteração de Obreiros -->
+            <div class="modal fade" id="altObreiroModal" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <h4>Você deseja mesmo excluir esta Pessoa?</h4>
+                            <h5 id="nomePessoaDel" class="centeredX"></h5>
+                            <input id="id_altObreiro" class="invisible" />
+                            <div class="col-4 form-group">
+                                <label for="endereco_pais" class="col-form-label">País</label>
+                                <select id="endereco_pais2Upd" class="form-control selectCountry">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button id="btnDAOAltObreiro" type="button"
+                                class="btn btn-rounded btn-success">Alterar</button>
+                            <button type="button" class="btn btn-rounded btn-danger" data-dismiss="modal">Cancelar</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
 
         <div id="page-content-wrapper">
@@ -729,14 +762,16 @@
                             <div class="back">
                                 <div class="center-me">
                                     <div class="row">
-                                        <button id="memberModalShow" class="btn btnBackCards btn-success" data-toggle="modal"
-                                        data-target="#registerPersonModal" data-backdrop="static">
+                                        <button id="memberModalShow" class="btn btnBackCards btn-success"
+                                            data-toggle="modal" data-target="#registerPersonModal"
+                                            data-backdrop="static">
                                             <i class="fa fa-user"></i>
                                             Novo Membro
                                         </button>
                                     </div>
                                     <div class="row">
-                                        <button id="memberDataTableShow" class="btn btnBackCards btn-info personDataTableShow">
+                                        <button id="memberDataTableShow"
+                                            class="btn btnBackCards btn-info personDataTableShow">
                                             <i class="fa fa-list"></i>
                                             Listar Membros
                                         </button>
@@ -758,14 +793,16 @@
                             <div class="back">
                                 <div class="center-me">
                                     <div class="row">
-                                        <button id="congregModalShow" class="btn btnBackCards btn-success" data-toggle="modal"
-                                        data-target="#registerPersonModal" data-backdrop="static">
+                                        <button id="congregModalShow" class="btn btnBackCards btn-success"
+                                            data-toggle="modal" data-target="#registerPersonModal"
+                                            data-backdrop="static">
                                             <i class="fa fa-users"></i>
                                             Novo Congregado
                                         </button>
                                     </div>
                                     <div class="row">
-                                        <button id="congregDataTableShow" class="btn btnBackCards btn-info personDataTableShow">
+                                        <button id="congregDataTableShow"
+                                            class="btn btnBackCards btn-info personDataTableShow">
                                             <i class="fa fa-list"></i>
                                             Listar Congregados
                                         </button>
@@ -787,14 +824,16 @@
                             <div class="back">
                                 <div class="center-me">
                                     <div class="row">
-                                        <button id="obreirosModalShow" class="btn btnBackCards btn-success" data-toggle="modal"
-                                        data-target="#registerPersonModal" data-backdrop="static">
+                                        <button id="obreirosModalShow" class="btn btnBackCards btn-success"
+                                            data-toggle="modal" data-target="#altObreiroModal"
+                                            data-backdrop="static">
                                             <i class="fa fa-user-circle"></i>
                                             Novo Obreiro
                                         </button>
                                     </div>
                                     <div class="row">
-                                        <button id="obreirosDataTableShow" class="btn btnBackCards btn-info personDataTableShow">
+                                        <button id="obreirosDataTableShow"
+                                            class="btn btnBackCards btn-info personDataTableShow">
                                             <i class="fa fa-list"></i>
                                             Listar Obreiros
                                         </button>
@@ -816,7 +855,8 @@
                             <div class="back">
                                 <div class="center-me">
                                     <div class="row">
-                                        <button id="anivDataTableShow" class="btn btnBackCards btn-info personDataTableShow">
+                                        <button id="anivDataTableShow"
+                                            class="btn btnBackCards btn-info personDataTableShow">
                                             <i class="fa fa-list"></i>
                                             Listar Aniversariantes
                                         </button>
@@ -838,14 +878,16 @@
                             <div class="back">
                                 <div class="center-me">
                                     <div class="row">
-                                        <button id="afastModalShow" class="btn btnBackCards btn-danger" data-toggle="modal"
-                                        data-target="#registerPersonModal" data-backdrop="static">
+                                        <button id="afastModalShow" class="btn btnBackCards btn-danger"
+                                            data-toggle="modal" data-target="#registerPersonModal"
+                                            data-backdrop="static">
                                             <i class="fa fa-street-view"></i>
                                             Novo Afastado
                                         </button>
                                     </div>
                                     <div class="row">
-                                        <button id="afastDataTableShow" class="btn btnBackCards btn-info personDataTableShow">
+                                        <button id="afastDataTableShow"
+                                            class="btn btnBackCards btn-info personDataTableShow">
                                             <i class="fa fa-list"></i>
                                             Listar Afastados
                                         </button>
@@ -867,14 +909,16 @@
                             <div class="back">
                                 <div class="center-me">
                                     <div class="row">
-                                        <button id="disciplinModalShow" class="btn btnBackCards btn-danger" data-toggle="modal"
-                                        data-target="#registerPersonModal" data-backdrop="static">
+                                        <button id="disciplinModalShow" class="btn btnBackCards btn-danger"
+                                            data-toggle="modal" data-target="#registerPersonModal"
+                                            data-backdrop="static">
                                             <i class="fa fa-user-times"></i>
                                             Disciplinar
                                         </button>
                                     </div>
                                     <div class="row">
-                                        <button id="disciplinDataTableShow" class="btn btnBackCards btn-info personDataTableShow">
+                                        <button id="disciplinDataTableShow"
+                                            class="btn btnBackCards btn-info personDataTableShow">
                                             <i class="fa fa-list"></i>
                                             Listar Disciplinados
                                         </button>

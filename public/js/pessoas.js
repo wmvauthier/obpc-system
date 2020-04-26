@@ -25,7 +25,7 @@ $(".personDataTableShow").click(function () {
 });
 
 $("#memberDataTableShow").click(function () {
-    localStorage.setItem('dataTableShow', 'onlyMembros');
+    localStorage.setItem('dataTableShow', 'allMembros');
     DAOgetAllPersons();
     $("#personDataTableTitle").html('Lista de Membros');
 });
@@ -85,7 +85,7 @@ $("#disciplinModalShow").click(function () {
 });
 
 function fillPersonCounters() {
-    var membros = httpGet('/pessoas/api/onlyMembros');
+    var membros = httpGet('/pessoas/api/allMembros');
     var congregados = httpGet('/pessoas/api/onlyCongregados');
     var obreiros = httpGet('/pessoas/api/onlyObreiros');
     // var aniversariantes = httpGet('/pessoas/api/onlyAniversariantes');

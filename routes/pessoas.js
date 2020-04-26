@@ -4,6 +4,7 @@ const login = require('../middleware/login');
 const PessoasController = require('../controllers/pessoas-controller');
 
 router.get('/api/onlyMembros', login.opcional, PessoasController.getOnlyMembros);
+router.get('/api/allMembros', login.opcional, PessoasController.getAllMembros);
 router.get('/api/onlyCongregados', login.opcional, PessoasController.getOnlyCongregados);
 router.get('/api/onlyObreiros', login.opcional, PessoasController.getOnlyObreiros);
 router.get('/api/onlyAniv', login.opcional, PessoasController.getOnlyAniv);

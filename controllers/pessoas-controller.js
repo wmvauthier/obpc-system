@@ -6,7 +6,7 @@ exports.getOnlyMembros = (req, res, next) => {
         if (error) { return res.status(500).send({ error: error }) }
 
         conn.query(
-            `SELECT * FROM pessoas WHERE tipo IN ('Membro', 'Obreiro', 'Pastor', 'Convenção');`,
+            `SELECT * FROM pessoas WHERE tipo IN ('Membro');`,
             (error, result, field) => {
                 conn.release();
                 if (error) { return res.status(500).send({ error: error }) }
@@ -41,7 +41,6 @@ exports.getOnlyObreiros = (req, res, next) => {
             `SELECT * FROM pessoas WHERE tipo = 'Obreiro';`,
             (error, result, field) => {
                 conn.release();
-                console.log(result);
                 if (error) { return res.status(500).send({ error: error }) }
                 res.status(200).send({ pessoas: result })
             }
@@ -88,6 +87,22 @@ exports.getOnlyAfastados = (req, res, next) => {
 
         conn.query(
             `SELECT * FROM pessoas WHERE situacao = 'Afastado';`,
+            (error, result, field) => {
+                conn.release();
+                if (error) { return res.status(500).send({ error: error }) }
+                res.status(200).send({ pessoas: result })
+            }
+        );
+    })
+}
+
+exports.getAllMembros = (req, res, next) => {
+    mysql.getConnection((error, conn) => {
+
+        if (error) { return res.status(500).send({ error: error }) }
+
+        conn.query(
+            `SELECT * FROM pessoas WHERE tipo IN ('Membro', 'Obreiro', 'Pastor', 'Convenção');`,
             (error, result, field) => {
                 conn.release();
                 if (error) { return res.status(500).send({ error: error }) }
