@@ -6,7 +6,7 @@ exports.getOnlyMembros = (req, res, next) => {
         if (error) { return res.status(500).send({ error: error }) }
 
         conn.query(
-            `SELECT * FROM pessoas WHERE tipo = 'Membro';`,
+            `SELECT * FROM pessoas WHERE tipo IN ('Membro', 'Obreiro', 'Pastor', 'Convenção');`,
             (error, result, field) => {
                 conn.release();
                 if (error) { return res.status(500).send({ error: error }) }

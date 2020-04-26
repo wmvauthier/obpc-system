@@ -57,4 +57,6 @@ drop table pessoas;
 select
     *
 from
-    pessoas where tipo = 'Obreiro';
+    pessoas;
+
+SELECT * FROM pessoas WHERE tipo IN ('Membro', 'Obreiro', 'Pastor', 'Convenção');
