@@ -720,12 +720,17 @@
                     <!-- Modal content-->
                     <div class="modal-content">
                         <div class="modal-body">
-                            <h4>Você deseja mesmo excluir esta Pessoa?</h4>
+                            <h4>Selecione o Membro e o Cargo a ser preenchido:</h4>
                             <h5 id="nomePessoaDel" class="centeredX"></h5>
                             <input id="id_altObreiro" class="invisible" />
-                            <div class="col-4 form-group">
-                                <label for="endereco_pais" class="col-form-label">País</label>
-                                <select id="endereco_pais2Upd" class="form-control selectCountry">
+                            <div class="form-group">
+                                <label for="alt_obr_membro" class="col-form-label">Membro</label>
+                                <select id="alt_obr_membro" class="form-control selectMember">
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="alt_obr_cargo" class="col-form-label">Cargo</label>
+                                <select id="alt_obr_cargo" class="form-control selectCargo">
                                 </select>
                             </div>
                         </div>

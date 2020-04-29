@@ -18,4 +18,6 @@ router.post('/api', login.opcional, PessoasController.insertPessoa);
 router.put('/api', login.opcional, PessoasController.updatePessoa);
 router.delete('/api/:id_pessoa', PessoasController.deletePessoa);
 
+router.post('/api/alterToObreiro', login.opcional, PessoasController.alterToObreiro);
+
 module.exports = router;

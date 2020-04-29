@@ -226,6 +226,36 @@ exports.updatePessoa = (req, res, next) => {
     })
 }
 
+exports.alterToObreiro = (req, res, next) => {
+    mysql.getConnection((error, conn) => {
+
+        if (error) { return res.status(500).send({ error: error }) }
+
+        console.log(req.body.id_pessoa);
+
+        conn.query(
+            `UPDATE pessoas SET cargo = ?, tipo = 'Obreiro' WHERE id_pessoa = ?`,
+            [
+                req.body.cargo, req.body.id_pessoa
+            ],
+            (error, result, field) => {
+
+                conn.release();
+                if (error) { return res.status(500).send({ error: error }) }
+
+                console.log(result);
+
+                res.status(202).send({
+                    mensagem: 'Pessoa alterada com sucesso',
+                    id_pessoa: req.body.id_pessoa,
+                    nome: req.body.nome,
+                })
+            }
+        );
+
+    })
+}
+
 exports.deletePessoa = (req, res, next) => {
     mysql.getConnection((error, conn) => {
 

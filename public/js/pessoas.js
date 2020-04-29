@@ -19,6 +19,10 @@ $("#btnDAORegisterPerson").click(function () {
     DAOregisterPerson();
 });
 
+$("#btnDAOAltObreiro").click(function () {
+    DAOAltObreiro();
+});
+
 $(".personDataTableShow").click(function () {
     $('#churchDataTable').hide();
     $('#personDataTable').show();
@@ -105,6 +109,20 @@ function DAOgetAllPersons() {
     var spec = localStorage.getItem('dataTableShow');
     var response = httpGet('/pessoas/api/' + spec);
     fillPersonTable(personTableBody, response.pessoas);
+}
+
+function DAOAltObreiro(){
+
+    var alt_obr_membro = $('#alt_obr_membro').val();
+    var alt_obr_cargo = $('#alt_obr_cargo').val();
+
+    var url = `/pessoas/api/alterToObreiro`;
+    var data = `id_pessoa=${alt_obr_membro}&cargo=${alt_obr_cargo}`
+    var response = httpPost(url, data);
+
+    cleanAltObreiroForm();
+    $('#altObreiroModal').modal('hide');
+
 }
 
 function DAOregisterPerson() {
@@ -316,6 +334,10 @@ function createPersonToPersonTable(table, person) {
 
     table.appendChild(tr);
 
+}
+
+function cleanAltObreiroForm(){
+    $('#altObreiroModal')[0].reset();
 }
 
 function cleanRegisterPersonForm() {

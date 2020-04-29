@@ -1,5 +1,6 @@
 var igrejas = httpGet('/igrejas/api').igrejas;
 var onlyIgrejas = httpGet('/igrejas/api/onlyIgrejas').igrejas;
+var onlyMembros = httpGet('/pessoas/api/onlyMembros').pessoas;
 var onlyCongregacoes = httpGet('/igrejas/api/onlyCongregations').igrejas;
 
 $(document).ready(function () {
@@ -15,6 +16,7 @@ $(document).ready(function () {
     fillSelectTipoRecebimento();
     fillSelectDepartamento();
     fillSelectTipoMembro();
+    fillSelectMember();
 });
 
 function fillSelectCountry() {
@@ -95,6 +97,15 @@ function fillSelectSede() {
         fill += `<option value="${element.nome}">${element.nome}</option>`;
     });
     $(".selectSede").html(fill);
+};
+
+
+function fillSelectMember() {
+    var fill = '<option disabled selected></option>';
+    onlyMembros.forEach(element => {
+        fill += `<option value="${element.id_pessoa}">${element.nome}</option>`;
+    });
+    $(".selectMember").html(fill);
 };
 
 function fillSelectCargo() {
