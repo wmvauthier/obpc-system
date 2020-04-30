@@ -117,6 +117,7 @@ function DAOgetAllPersons() {
     var spec = localStorage.getItem('dataTableShow');
     var response = httpGet('/pessoas/api/' + spec);
     fillPersonTable(personTableBody, response.pessoas);
+    fillPersonCounters();
 }
 
 function DAOAltObreiro() {
