@@ -73,7 +73,7 @@ function fillSelectClassification() {
 function fillSelectChurch() {
     var fill = '<option disabled selected></option>';
     igrejas.forEach(element => {
-        fill += `<option value="${element.nome}">${element.nome}</option>`;
+        fill += `<option value="${element.id_igreja}">${element.nome}</option>`;
     });
     $(".selectChurch").html(fill);
 };
@@ -81,7 +81,7 @@ function fillSelectChurch() {
 function fillSelectPastor() {
     var fill = '<option disabled selected></option>';
     onlyPastores.forEach(element => {
-        fill += `<option value="${element.nome}">${element.nome}</option>`;
+        fill += `<option value="${element.id_pessoa}">${element.nome}</option>`;
     });
     $(".selectPastor").html(fill);
 };
@@ -97,7 +97,7 @@ function fillSelectRegiao() {
 function fillSelectSede() {
     var fill = '<option disabled selected></option>';
     onlyIgrejas.forEach(element => {
-        fill += `<option value="${element.nome}">${element.nome}</option>`;
+        fill += `<option value="${element.id_igreja}">${element.nome}</option>`;
     });
     $(".selectSede").html(fill);
 };

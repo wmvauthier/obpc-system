@@ -119,7 +119,7 @@ function DAOgetAllPersons() {
     fillPersonTable(personTableBody, response.pessoas);
 }
 
-function DAOAltObreiro(){
+function DAOAltObreiro() {
 
     var alt_obr_membro = $('#alt_obr_membro').val();
     var alt_obr_cargo = $('#alt_obr_cargo').val();
@@ -133,7 +133,7 @@ function DAOAltObreiro(){
 
 }
 
-function DAOAltAfastado(){
+function DAOAltAfastado() {
 
     var alt_afast_membro = $('#alt_afast_membro').val();
 
@@ -146,7 +146,7 @@ function DAOAltAfastado(){
 
 }
 
-function DAOAltDisciplinado(){
+function DAOAltDisciplinado() {
 
     var alt_disciplin_membro = $('#alt_disciplin_membro').val();
 
@@ -333,7 +333,7 @@ function createPersonToPersonTable(table, person) {
 
     td1.innerHTML = person.id_pessoa;
     td2.innerHTML = person.nome;
-    td3.innerHTML = person.igreja;
+    td3.innerHTML = httpGet(`/igrejas/api/${person.igreja}`).igrejas[0].nome;
     td4.innerHTML = person.tipo;
     td5.innerHTML = person.cargo;
     td6.innerHTML = person.departamento;
@@ -370,15 +370,15 @@ function createPersonToPersonTable(table, person) {
 
 }
 
-function cleanAltAfastadoForm(){
+function cleanAltAfastadoForm() {
     $('#altAfastadoForm')[0].reset();
 }
 
-function cleanAltDisciplinadoForm(){
+function cleanAltDisciplinadoForm() {
     $('#altDisciplinadoForm')[0].reset();
 }
 
-function cleanAltObreiroForm(){
+function cleanAltObreiroForm() {
     $('#altObreiroForm')[0].reset();
 }
 

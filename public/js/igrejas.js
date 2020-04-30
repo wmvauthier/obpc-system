@@ -167,7 +167,7 @@ function createChurchToChurchTable(table, church) {
     td1.innerHTML = church.id_igreja;
     td2.innerHTML = church.nome;
     td3.innerHTML = church.regiao;
-    td4.innerHTML = church.pastor;
+    td4.innerHTML =  httpGet(`/pessoas/api/${church.pastor}`).pessoas[0].nome;
     td5.innerHTML = church.classificacao;
     td6.innerHTML = `<button class="btn btn-rounded btn-warning" dataID="${church.id_igreja}" 
                         data-toggle="modal" data-target="#updateChurchModal"
