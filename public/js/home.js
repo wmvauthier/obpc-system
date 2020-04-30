@@ -12,12 +12,14 @@ $(document).ready(function () {
 
 function createChurch(igreja) {
 
+    var pastor = httpGet(`/pessoas/api/${igreja.pastor}`).pessoas[0].nome;
+
     $("#resumeMultiCarousel-inner").append($(`
 
     <div class="item">
     <div class="pad15">
         <p class="lead"><b>${igreja.nome}</b></p>
-        <p class="lead">${igreja.pastor}</p>
+        <p class="lead">${pastor}</p>
         <div class="row">
 
             <div class="col">

@@ -126,7 +126,7 @@ function DAOAltObreiro() {
 
     var url = `/pessoas/api/alterToObreiro`;
     var data = `id_pessoa=${alt_obr_membro}&cargo=${alt_obr_cargo}`
-    var response = httpPost(url, data);
+    httpPost(url, data);
 
     cleanAltObreiroForm();
     $('#altObreiroModal').modal('hide');
@@ -139,7 +139,7 @@ function DAOAltAfastado() {
 
     var url = `/pessoas/api/alterToAfastado`;
     var data = `id_pessoa=${alt_afast_membro}`
-    var response = httpPost(url, data);
+    httpPost(url, data);
 
     cleanAltAfastadoForm();
     $('#altAfastadoModal').modal('hide');
@@ -152,7 +152,7 @@ function DAOAltDisciplinado() {
 
     var url = `/pessoas/api/alterToDisciplinado`;
     var data = `id_pessoa=${alt_disciplin_membro}`
-    var response = httpPost(url, data);
+    httpPost(url, data);
 
     cleanAltDisciplinadoForm();
     $('#altDisciplinadoModal').modal('hide');
