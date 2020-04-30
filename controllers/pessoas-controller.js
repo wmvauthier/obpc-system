@@ -16,6 +16,22 @@ exports.getMemberCong = (req, res, next) => {
     })
 }
 
+exports.getPastores = (req, res, next) => {
+    mysql.getConnection((error, conn) => {
+
+        if (error) { return res.status(500).send({ error: error }) }
+
+        conn.query(
+            `SELECT * FROM pessoas WHERE cargo IN ('Pastor', 'Presbítero');`,
+            (error, result, field) => {
+                conn.release();
+                if (error) { return res.status(500).send({ error: error }) }
+                res.status(200).send({ pessoas: result })
+            }
+        );
+    })
+}
+
 exports.getOnlyMembros = (req, res, next) => {
     mysql.getConnection((error, conn) => {
 

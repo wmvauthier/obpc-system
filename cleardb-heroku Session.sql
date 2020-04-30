@@ -53,6 +53,7 @@ CREATE TABLE pessoas (
 );
 
 drop table pessoas;
+drop table igrejas;
 
 select
     *

@@ -11,6 +11,7 @@ router.get('/api/onlyAniv', login.opcional, PessoasController.getOnlyAniv);
 router.get('/api/onlyDisciplinados', login.opcional, PessoasController.getOnlyDisciplinados);
 router.get('/api/onlyAfastados', login.opcional, PessoasController.getOnlyAfastados);
 router.get('/api/memberCong', login.opcional, PessoasController.getMemberCong);
+router.get('/api/onlyPastores', login.opcional, PessoasController.getPastores);
 
 router.get('/api/getPessoasIgreja/:igreja', login.opcional, PessoasController.getPessoasIgreja);
 

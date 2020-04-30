@@ -3,6 +3,7 @@ var onlyIgrejas = httpGet('/igrejas/api/onlyIgrejas').igrejas;
 var onlyMembros = httpGet('/pessoas/api/onlyMembros').pessoas;
 var onlyCongregacoes = httpGet('/igrejas/api/onlyCongregations').igrejas;
 var memberCong = httpGet('/pessoas/api/memberCong').pessoas;
+var onlyPastores = httpGet('/pessoas/api/onlyPastores').pessoas;
 
 $(document).ready(function () {
     fillSelectCountry();
@@ -78,11 +79,11 @@ function fillSelectChurch() {
 };
 
 function fillSelectPastor() {
-    $(".selectPastor").html(`
-        <option disabled selected></option>
-        <option value="Pastor 1">Pastor 1</option>
-        <option value="Pastor 2">Pastor 2</option>
-    `);
+    var fill = '<option disabled selected></option>';
+    onlyPastores.forEach(element => {
+        fill += `<option value="${element.nome}">${element.nome}</option>`;
+    });
+    $(".selectPastor").html(fill);
 };
 
 function fillSelectRegiao() {
