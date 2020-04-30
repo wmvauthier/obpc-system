@@ -117,7 +117,6 @@ function DAOgetAllPersons() {
     var spec = localStorage.getItem('dataTableShow');
     var response = httpGet('/pessoas/api/' + spec);
     fillPersonTable(personTableBody, response.pessoas);
-    fillPersonCounters();
 }
 
 function DAOAltObreiro() {
@@ -129,6 +128,7 @@ function DAOAltObreiro() {
     var data = `id_pessoa=${alt_obr_membro}&cargo=${alt_obr_cargo}`
     httpPost(url, data);
 
+    fillPersonCounters();
     cleanAltObreiroForm();
     $('#altObreiroModal').modal('hide');
 
@@ -142,6 +142,7 @@ function DAOAltAfastado() {
     var data = `id_pessoa=${alt_afast_membro}`
     httpPost(url, data);
 
+    fillPersonCounters();
     cleanAltAfastadoForm();
     $('#altAfastadoModal').modal('hide');
 
@@ -155,6 +156,7 @@ function DAOAltDisciplinado() {
     var data = `id_pessoa=${alt_disciplin_membro}`
     httpPost(url, data);
 
+    fillPersonCounters();
     cleanAltDisciplinadoForm();
     $('#altDisciplinadoModal').modal('hide');
 
@@ -196,6 +198,7 @@ function DAOregisterPerson() {
     var response = httpPost(url, data);
 
     createPersonToPersonTable(personTableBody, response);
+    fillPersonCounters();
     cleanRegisterPersonForm();
     $('#registerPersonModal').modal('hide');
 
@@ -238,6 +241,7 @@ function DAOupdatePerson() {
 
     httpPut(url, data);
 
+    fillPersonCounters();
     DAOgetAllPersons();
     cleanUpdatePersonForm();
     $('#updatePersonModal').modal('hide');
@@ -304,6 +308,7 @@ function DAOdeletePerson() {
 
     var id = $('#id_pessoaDel').val();
     httpDelete(`/pessoas/api/${id}`);
+    fillPersonCounters();
     DAOgetAllPersons();
     $('#deletePersonModal').modal('hide');
 
