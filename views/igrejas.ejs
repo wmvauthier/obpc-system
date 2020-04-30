@@ -441,7 +441,7 @@
                                 <div class="row">
                                     <div class="col-sm-6 col-md-6 col-6 form-group">
                                         <label for="tipo" class="col-form-label">Classificação</label>
-                                        <select id="tipo" class="form-control selectTipoMembro">
+                                        <select id="tipo" onchange="validate()" class="form-control selectTipoMembro">
                                         </select>
                                     </div>
                                     <div class="col-sm-6 col-md-6 col-6 form-group">
@@ -628,7 +628,7 @@
                                 <div class="row">
                                     <div class="col-sm-6 col-md-6 col-6 form-group">
                                         <label for="tipo" class="col-form-label">Classificação</label>
-                                        <select id="tipoUpd" class="form-control selectTipoMembro">
+                                        <select id="tipoUpd" onchange="validate()" class="form-control selectTipoMembro">
                                         </select>
                                     </div>
                                     <div class="col-sm-6 col-md-6 col-6 form-group">
@@ -720,24 +720,79 @@
                     <!-- Modal content-->
                     <div class="modal-content">
                         <div class="modal-body">
-                            <h4>Selecione o Membro e o Cargo a ser preenchido:</h4>
-                            <h5 id="nomePessoaDel" class="centeredX"></h5>
-                            <input id="id_altObreiro" class="invisible" />
-                            <div class="form-group">
-                                <label for="alt_obr_membro" class="col-form-label">Membro</label>
-                                <select id="alt_obr_membro" class="form-control selectMember">
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="alt_obr_cargo" class="col-form-label">Cargo</label>
-                                <select id="alt_obr_cargo" class="form-control selectCargo">
-                                </select>
-                            </div>
+                            <form id="altObreiroForm">
+                                <h4>Selecione o Membro e o Cargo a ser preenchido:</h4>
+                                <div class="form-group">
+                                    <label for="alt_obr_membro" class="col-form-label">Membro</label>
+                                    <select id="alt_obr_membro" class="form-control selectMember">
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="alt_obr_cargo" class="col-form-label">Cargo</label>
+                                    <select id="alt_obr_cargo" class="form-control selectCargo">
+                                    </select>
+                                </div>
+                            </form>
                         </div>
                         <div class="modal-footer">
                             <button id="btnDAOAltObreiro" type="button"
                                 class="btn btn-rounded btn-success">Alterar</button>
-                            <button type="button" class="btn btn-rounded btn-danger" data-dismiss="modal">Cancelar</button>
+                            <button type="button" class="btn btn-rounded btn-danger"
+                                data-dismiss="modal">Cancelar</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Modal para Alteração de Afastados -->
+            <div class="modal fade" id="altAfastadoModal" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <form id="altAfastadoForm">
+                                <h4>Selecione o Membro ou Congregado a ser afastado:</h4>
+                                <div class="form-group">
+                                    <label for="alt_afast_membro" class="col-form-label">Membro / Congregado</label>
+                                    <select id="alt_afast_membro" class="form-control selectMember">
+                                    </select>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button id="btnDAOAltAfastado" type="button"
+                                class="btn btn-rounded btn-success">Alterar</button>
+                            <button type="button" class="btn btn-rounded btn-danger"
+                                data-dismiss="modal">Cancelar</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Modal para Alteração de Disciplinados -->
+            <div class="modal fade" id="altDisciplinadoModal" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <form id="altDisciplinadoForm">
+                                <h4>Selecione o Membro ou Congregado a ser disciplinado:</h4>
+                                <div class="form-group">
+                                    <label for="alt_disciplin_membro" class="col-form-label">Membro / Congregado</label>
+                                    <select id="alt_disciplin_membro" class="form-control selectMember">
+                                    </select>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button id="btnDAOAltAfastado" type="button"
+                                class="btn btn-rounded btn-success">Alterar</button>
+                            <button type="button" class="btn btn-rounded btn-danger"
+                                data-dismiss="modal">Cancelar</button>
                         </div>
                     </div>
 
@@ -830,8 +885,7 @@
                                 <div class="center-me">
                                     <div class="row">
                                         <button id="obreirosModalShow" class="btn btnBackCards btn-success"
-                                            data-toggle="modal" data-target="#altObreiroModal"
-                                            data-backdrop="static">
+                                            data-toggle="modal" data-target="#altObreiroModal" data-backdrop="static">
                                             <i class="fa fa-user-circle"></i>
                                             Novo Obreiro
                                         </button>

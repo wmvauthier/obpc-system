@@ -1,5 +1,21 @@
 const mysql = require('../mysql').pool;
 
+exports.getMemberCong = (req, res, next) => {
+    mysql.getConnection((error, conn) => {
+
+        if (error) { return res.status(500).send({ error: error }) }
+
+        conn.query(
+            `SELECT * FROM pessoas WHERE tipo IN ('Membro', 'Congregado');`,
+            (error, result, field) => {
+                conn.release();
+                if (error) { return res.status(500).send({ error: error }) }
+                res.status(200).send({ pessoas: result })
+            }
+        );
+    })
+}
+
 exports.getOnlyMembros = (req, res, next) => {
     mysql.getConnection((error, conn) => {
 
@@ -129,6 +145,23 @@ exports.getPessoasIgreja = (req, res, next) => {
     })
 }
 
+exports.getPessoasIgreja = (req, res, next) => {
+    mysql.getConnection((error, conn) => {
+
+        if (error) { return res.status(500).send({ error: error }) }
+
+        conn.query(
+            'SELECT * FROM pessoas WHERE igreja = ?;',
+            [req.params.igreja],
+            (error, result, field) => {
+                conn.release();
+                if (error) { return res.status(500).send({ error: error }) }
+                res.status(200).send({ pessoas: result })
+            }
+        );
+    })
+}
+
 exports.getPessoa = (req, res, next) => {
     mysql.getConnection((error, conn) => {
 
@@ -189,8 +222,6 @@ exports.updatePessoa = (req, res, next) => {
 
         if (error) { return res.status(500).send({ error: error }) }
 
-        console.log(req.body.id_pessoa);
-
         conn.query(
             `UPDATE pessoas SET 
             imagem_pessoa = ?, nome = ?, nome_pai = ?, nome_mae = ?, nome_conjuge = ?, nome_responsavel = ?, contato_responsavel = ?,
@@ -231,13 +262,61 @@ exports.alterToObreiro = (req, res, next) => {
 
         if (error) { return res.status(500).send({ error: error }) }
 
-        console.log(req.body.id_pessoa);
-
         conn.query(
             `UPDATE pessoas SET cargo = ?, tipo = 'Obreiro' WHERE id_pessoa = ?`,
-            [
-                req.body.cargo, req.body.id_pessoa
-            ],
+            [ req.body.cargo, req.body.id_pessoa ],
+            (error, result, field) => {
+
+                conn.release();
+                if (error) { return res.status(500).send({ error: error }) }
+
+                console.log(result);
+
+                res.status(202).send({
+                    mensagem: 'Pessoa alterada com sucesso',
+                    id_pessoa: req.body.id_pessoa,
+                    nome: req.body.nome,
+                })
+            }
+        );
+
+    })
+}
+
+exports.alterToAfastado = (req, res, next) => {
+    mysql.getConnection((error, conn) => {
+
+        if (error) { return res.status(500).send({ error: error }) }
+
+        conn.query(
+            `UPDATE pessoas SET situacao = 'Afastado' WHERE id_pessoa = ?`,
+            [ req.body.id_pessoa ],
+            (error, result, field) => {
+
+                conn.release();
+                if (error) { return res.status(500).send({ error: error }) }
+
+                console.log(result);
+
+                res.status(202).send({
+                    mensagem: 'Pessoa alterada com sucesso',
+                    id_pessoa: req.body.id_pessoa,
+                    nome: req.body.nome,
+                })
+            }
+        );
+
+    })
+}
+
+exports.alterToDisciplinado = (req, res, next) => {
+    mysql.getConnection((error, conn) => {
+
+        if (error) { return res.status(500).send({ error: error }) }
+
+        conn.query(
+            `UPDATE pessoas SET situacao = 'Disciplinado' WHERE id_pessoa = ?`,
+            [ req.body.id_pessoa ],
             (error, result, field) => {
 
                 conn.release();

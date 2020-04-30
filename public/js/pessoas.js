@@ -23,6 +23,14 @@ $("#btnDAOAltObreiro").click(function () {
     DAOAltObreiro();
 });
 
+$("#btnDAOAltAfastado").click(function () {
+    DAOAltAfastado();
+});
+
+$("#btnDAOAltDiscilpinado").click(function () {
+    DAOAltDisciplinado();
+});
+
 $(".personDataTableShow").click(function () {
     $('#churchDataTable').hide();
     $('#personDataTable').show();
@@ -122,6 +130,32 @@ function DAOAltObreiro(){
 
     cleanAltObreiroForm();
     $('#altObreiroModal').modal('hide');
+
+}
+
+function DAOAltAfastado(){
+
+    var alt_afast_membro = $('#alt_afast_membro').val();
+
+    var url = `/pessoas/api/alterToAfastado`;
+    var data = `id_pessoa=${alt_afast_membro}`
+    var response = httpPost(url, data);
+
+    cleanAltAfastadoForm();
+    $('#altAfastadoModal').modal('hide');
+
+}
+
+function DAOAltDisciplinado(){
+
+    var alt_disciplin_membro = $('#alt_disciplin_membro').val();
+
+    var url = `/pessoas/api/alterToDisciplinado`;
+    var data = `id_pessoa=${alt_disciplin_membro}`
+    var response = httpPost(url, data);
+
+    cleanAltDisciplinadoForm();
+    $('#altDisciplinadoModal').modal('hide');
 
 }
 
@@ -336,8 +370,16 @@ function createPersonToPersonTable(table, person) {
 
 }
 
+function cleanAltAfastadoForm(){
+    $('#altAfastadoForm')[0].reset();
+}
+
+function cleanAltDisciplinadoForm(){
+    $('#altDisciplinadoForm')[0].reset();
+}
+
 function cleanAltObreiroForm(){
-    $('#altObreiroModal')[0].reset();
+    $('#altObreiroForm')[0].reset();
 }
 
 function cleanRegisterPersonForm() {

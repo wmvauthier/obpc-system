@@ -20,6 +20,14 @@ function validate() {
         $(".sedeAreaUpd").show();
     }
 
+    if ($("#tipo").val() == "Congregado") {
+        $("#cargo").val('Nenhum');
+    }
+
+    if ($("#tipoUpd").val() == "Congregado") {
+        $("#cargoUpd").val('Nenhum');
+    }
+
     if (getAge(data_nascimento) > 18) {
         $(".responsavelArea").hide();
         $(".conjugeArea").show();

@@ -10,6 +10,7 @@ router.get('/api/onlyObreiros', login.opcional, PessoasController.getOnlyObreiro
 router.get('/api/onlyAniv', login.opcional, PessoasController.getOnlyAniv);
 router.get('/api/onlyDisciplinados', login.opcional, PessoasController.getOnlyDisciplinados);
 router.get('/api/onlyAfastados', login.opcional, PessoasController.getOnlyAfastados);
+router.get('/api/memberCong', login.opcional, PessoasController.getMemberCong);
 
 router.get('/api/getPessoasIgreja/:igreja', login.opcional, PessoasController.getPessoasIgreja);
 
@@ -19,5 +20,7 @@ router.put('/api', login.opcional, PessoasController.updatePessoa);
 router.delete('/api/:id_pessoa', PessoasController.deletePessoa);
 
 router.post('/api/alterToObreiro', login.opcional, PessoasController.alterToObreiro);
+router.post('/api/alterToAfastado', login.opcional, PessoasController.alterToAfastado);
+router.post('/api/alterToDisciplinado', login.opcional, PessoasController.alterToDisciplinado);
 
 module.exports = router;
