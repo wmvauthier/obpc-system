@@ -156,6 +156,10 @@ function fillChurchTable(table, data) {
 //Insere Usuário na Lista de Usuários
 function createChurchToChurchTable(table, church) {
 
+    if (!church.pastor) { church = httpGet(`/igrejas/api/${church.id_igreja}`).igrejas[0]; }
+    var pt = httpGet(`/pessoas/api/${church.pastor}`).pessoas;
+    if (pt[0]) { pt = pt[0].nome;}
+
     var tr = document.createElement("tr");
     var td1 = document.createElement("td");
     var td2 = document.createElement("td");
@@ -167,7 +171,7 @@ function createChurchToChurchTable(table, church) {
     td1.innerHTML = church.id_igreja;
     td2.innerHTML = church.nome;
     td3.innerHTML = church.regiao;
-    td4.innerHTML =  httpGet(`/pessoas/api/${church.pastor}`).pessoas[0].nome;
+    td4.innerHTML = pt;
     td5.innerHTML = church.classificacao;
     td6.innerHTML = `<button class="btn btn-rounded btn-warning" dataID="${church.id_igreja}" 
                         data-toggle="modal" data-target="#updateChurchModal"

@@ -321,6 +321,10 @@ function fillPersonTable(table, data) {
 //Insere Usuário na Lista de Usuários
 function createPersonToPersonTable(table, person) {
 
+    if (!person.cargo) { person = httpGet(`/pessoas/api/${person.id_pessoa}`).pessoas[0]; }
+    var ig = httpGet(`/igrejas/api/${person.igreja}`).igrejas;
+    if (ig[0]) { ig = ig[0].nome; }
+
     var tr = document.createElement("tr");
     var td1 = document.createElement("td");
     var td2 = document.createElement("td");
@@ -333,7 +337,7 @@ function createPersonToPersonTable(table, person) {
 
     td1.innerHTML = person.id_pessoa;
     td2.innerHTML = person.nome;
-    td3.innerHTML = httpGet(`/igrejas/api/${person.igreja}`).igrejas[0].nome;
+    td3.innerHTML = ig;
     td4.innerHTML = person.tipo;
     td5.innerHTML = person.cargo;
     td6.innerHTML = person.departamento;

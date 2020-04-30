@@ -55,6 +55,8 @@ CREATE TABLE pessoas (
 drop table pessoas;
 drop table igrejas;
 
+update pessoas set tipo = 'Membro';
+
 select
     *
 from
