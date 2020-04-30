@@ -27,7 +27,7 @@ $("#btnDAOAltAfastado").click(function () {
     DAOAltAfastado();
 });
 
-$("#btnDAOAltDiscilpinado").click(function () {
+$("#btnDAOAltDisciplinado").click(function () {
     DAOAltDisciplinado();
 });
 

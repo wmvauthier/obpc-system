@@ -2,7 +2,7 @@ var igrejas = httpGet('/igrejas/api').igrejas;
 var onlyIgrejas = httpGet('/igrejas/api/onlyIgrejas').igrejas;
 var onlyMembros = httpGet('/pessoas/api/onlyMembros').pessoas;
 var onlyCongregacoes = httpGet('/igrejas/api/onlyCongregations').igrejas;
-var memberCong = httpGet('/pessoas/api/allMemberCong').pessoas;
+var memberCong = httpGet('/pessoas/api/memberCong').pessoas;
 
 $(document).ready(function () {
     fillSelectCountry();
@@ -110,7 +110,7 @@ function fillSelectMember() {
     $(".selectMember").html(fill);
 };
 
-function fillSelectPessoas() {
+function fillSelectMemberCong() {
     var fill = '<option disabled selected></option>';
     memberCong.forEach(element => {
         fill += `<option value="${element.id_pessoa}">${element.nome}</option>`;
