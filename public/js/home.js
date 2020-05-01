@@ -12,9 +12,7 @@ $(document).ready(function () {
 
 function createChurch(igreja) {
 
-    // var pastor = httpGet(`/pessoas/api/${igreja.pastor}`).pessoas[0].nome;
-    var pastor = httpGet(`/pessoas/api/${igreja.pastor}`);
-    console.log(pastor);
+    var pastor = httpGet(`/pessoas/api/${igreja.pastor}`).pessoas[0].nome;
     $("#resumeMultiCarousel-inner").append($(`
 
     <div class="item">
