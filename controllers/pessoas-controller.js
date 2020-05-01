@@ -103,7 +103,7 @@ exports.getPessoasIgreja = async (req, res, next) => {
 exports.getPessoa = async (req, res, next) => {
     try {
         const query = 'SELECT * FROM pessoas WHERE id_pessoa = ?;';
-        const result = await mysql.execute(query);
+        const result = await mysql.execute(query, [req.body.id_pessoa]);
         return res.status(200).send({ pessoas: result });
     } catch (error) {
         return res.status(500).send({ error: error })

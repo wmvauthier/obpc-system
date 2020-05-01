@@ -125,7 +125,7 @@ function activateButtonsCarousel(qtd) {
     if ((bodyWidth >= 1200 && qtd < data[6]) ||
         (bodyWidth >= 992 && qtd < data[4]) ||
         (bodyWidth >= 768 && qtd < data[2]) ||
-            (qtd < data[0])){
+        (qtd < data[0])) {
         $('.leftLst').addClass('hidden');
         $('.rightLst').addClass('hidden');
     } else {
