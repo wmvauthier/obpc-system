@@ -156,10 +156,8 @@ function fillChurchTable(table, data) {
 //Insere Usuário na Lista de Usuários
 function createChurchToChurchTable(table, church) {
 
-    console.log(church);
     if (!church.pastor) { church = httpGet(`/igrejas/api/${church.id_igreja}`).igrejas[0]; }
     var pt = httpGet(`/pessoas/api/${church.pastor}`).pessoas;
-    console.log(pt);
     if (pt[0]) { pt = pt[0].nome;}
 
     var tr = document.createElement("tr");
