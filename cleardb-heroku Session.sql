@@ -52,10 +52,18 @@ CREATE TABLE pessoas (
     tipo_de_recebimento varchar(255)
 );
 
+CREATE TABLE usuarios (
+    id_usuario int not null primary key auto_increment,
+    login varchar(500),
+    senha varchar(100)
+);
+
 drop table pessoas;
 drop table igrejas;
 
 update pessoas set tipo = 'Membro';
+
+describe usuarios;
 
 select
     *
