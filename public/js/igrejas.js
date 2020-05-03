@@ -147,18 +147,25 @@ function fillChurchTable(table, data) {
 
     table.innerHTML = "";
 
+    var pastores = httpGet(`/pessoas/api/onlyPastores`).pessoas;
+
     data.forEach(function (church) {
-        createChurchToChurchTable(table, church);
+        createChurchToChurchTable(table, church, pastores);
     });
 
 }
 
 //Insere Usuário na Lista de Usuários
-function createChurchToChurchTable(table, church) {
+function createChurchToChurchTable(table, church, pastores) {
 
     if (!church.pastor) { church = httpGet(`/igrejas/api/${church.id_igreja}`).igrejas[0]; }
-    var pt = httpGet(`/pessoas/api/${church.pastor}`).pessoas;
-    if (pt[0]) { pt = pt[0].nome;}
+    var pt = '';
+
+    pastores.forEach(function (pastor) {
+        if (pastor.id_pessoa == church.pastor) {
+            pt = pastor.nome;
+        }
+    });
 
     var tr = document.createElement("tr");
     var td1 = document.createElement("td");

@@ -318,18 +318,25 @@ function fillPersonTable(table, data) {
 
     table.innerHTML = "";
 
+    var igrejas = httpGet(`/igrejas/api/`).igrejas;
+
     data.forEach(function (person) {
-        createPersonToPersonTable(table, person);
+        createPersonToPersonTable(table, person, igrejas);
     });
 
 }
 
 //Insere Usuário na Lista de Usuários
-function createPersonToPersonTable(table, person) {
+function createPersonToPersonTable(table, person, igrejas) {
 
     if (!person.cargo) { person = httpGet(`/pessoas/api/${person.id_pessoa}`).pessoas[0]; }
-    var ig = httpGet(`/igrejas/api/${person.igreja}`).igrejas;
-    if (ig[0]) { ig = ig[0].nome; }
+    var ig = '';
+
+    igrejas.forEach(function (igreja) {
+        if (igreja.id_igreja == person.igreja) {
+            ig = igreja.nome;
+        }
+    });
 
     var tr = document.createElement("tr");
     var td1 = document.createElement("td");

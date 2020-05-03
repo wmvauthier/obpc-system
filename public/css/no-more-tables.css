@@ -1,4 +1,10 @@
 
+.no-more-tables{
+	max-height: 500px!important;
+	overflow-x: auto!important;
+	overflow-y: hidden!important;
+}
+
 @media only screen and (max-width: 800px) {
     
     /* Force table to not be like tables anymore */
