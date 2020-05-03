@@ -342,11 +342,11 @@
                                 <div class="row">
                                     <div class="col-4 form-group">
                                         <label for="cpf" class="col-form-label">CPF</label>
-                                        <input id="cpf" type="number" min="0" class="form-control">
+                                        <input id="cpf" type="text" min="0" class="form-control validationInput_CPF">
                                     </div>
                                     <div class="col-4 form-group">
                                         <label for="rg" class="col-form-label">RG</label>
-                                        <input id="rg" type="text" class="form-control">
+                                        <input id="rg" type="text" class="form-control validationInput_RG">
                                     </div>
                                     <div class="col-4 form-group">
                                         <label for="data_nascimento" class="col-form-label">Dt. de Nascimento</label>
@@ -397,7 +397,7 @@
                                     </div>
                                     <div class="col-sm-6 col-md-3 form-group">
                                         <label for="endereco_telefone" class="col-form-label">Contato</label>
-                                        <input id="endereco_telefone2" type="text" class="form-control">
+                                        <input id="endereco_telefone2" type="text" class="form-control validationInput_Cellphone">
                                     </div>
                                 </div>
                                 <h5>Filiação</h5>
@@ -426,7 +426,7 @@
                                     <div class="col-sm-6 col-md-6 col-6 form-group">
                                         <label for="contato_responsavel" class="col-form-label">Contato do
                                             Responsável</label>
-                                        <input id="contato_responsavel" class="form-control" required>
+                                        <input id="contato_responsavel" class="form-control validationInput_Cellphone" required>
                                     </div>
                                 </div>
                                 <h5>Eclesiástica</h5>
@@ -529,11 +529,11 @@
                                 <div class="row">
                                     <div class="col-4 form-group">
                                         <label for="cpf" class="col-form-label">CPF</label>
-                                        <input id="cpfUpd" type="number" min="0" class="form-control">
+                                        <input id="cpfUpd" type="text" min="0" class="form-control validationInput_CPF">
                                     </div>
                                     <div class="col-4 form-group">
                                         <label for="rg" class="col-form-label">RG</label>
-                                        <input id="rgUpd" type="text" class="form-control">
+                                        <input id="rgUpd" type="text" class="form-control validationInput_RG">
                                     </div>
                                     <div class="col-4 form-group">
                                         <label for="data_nascimento" class="col-form-label">Dt. de Nascimento</label>
@@ -584,7 +584,7 @@
                                     </div>
                                     <div class="col-sm-6 col-md-3 form-group">
                                         <label for="endereco_telefone" class="col-form-label">Contato</label>
-                                        <input id="endereco_telefone2Upd" type="text" class="form-control">
+                                        <input id="endereco_telefone2Upd" type="text" class="form-control validationInput_Cellphone">
                                     </div>
                                 </div>
                                 <h5>Filiação</h5>
@@ -611,7 +611,7 @@
                                         <input id="nome_responsavelUpd" class="form-control" required>
                                     </div>
                                     <div class="col-sm-6 col-md-6 col-6 form-group">
-                                        <label for="contato_responsavel" class="col-form-label">Contato do
+                                        <label for="contato_responsavel" class="col-form-label validationInput_Cellphone">Contato do
                                             Responsável</label>
                                         <input id="contato_responsavelUpd" class="form-control" required>
                                     </div>
@@ -1087,5 +1087,7 @@
 <script src="js/system/fillSelects.js"></script>
 <script src="js/system/validations.js"></script>
 <script src="js/system/utilities.js"></script>
+<script src="js/system/validationInput.js"></script>
+<script src="js/system/jquery.mask.js"></script>
 
 </html>

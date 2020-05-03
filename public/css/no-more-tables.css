@@ -1,8 +1,8 @@
 
 .no-more-tables{
 	max-height: 500px!important;
-	overflow-x: auto!important;
-	overflow-y: hidden!important;
+	overflow-y: auto!important;
+	overflow-x: hidden!important;
 }
 
 @media only screen and (max-width: 800px) {
