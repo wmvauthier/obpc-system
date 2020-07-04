@@ -18,6 +18,8 @@ const rotaPages = require('./routes/pages');
 const rotaPessoas = require('./routes/pessoas');
 const rotaIgrejas = require('./routes/igrejas');
 const rotaUsuarios = require('./routes/usuarios');
+const rotaEventos = require('./routes/eventos');
+
 
 app.use((req, res, next) => {
 
@@ -40,6 +42,8 @@ app.use('/pages', rotaPages);
 app.use('/pessoas', rotaPessoas);
 app.use('/igrejas', rotaIgrejas);
 app.use('/usuarios', rotaUsuarios);
+app.use('/eventos', rotaEventos);
+
 
 app.use(function (req, res, next) {
     res.status(404).render('errors/404');
