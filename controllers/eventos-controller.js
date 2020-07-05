@@ -52,7 +52,7 @@ exports.insertTicket = async (req, res, next) => {
         (id_evento, ticket, personaData)
             VALUES (?,?,?)`;
         const result = await mysql.execute(query, [
-            req.body.type, req.body.data, req.body.vagas
+            req.body.id_evento, req.body.ticket, req.body.personaData
         ]);
         res.status(201).send({
             mensagem: 'Evento inserida com Sucesso'
@@ -68,7 +68,7 @@ exports.insertTicketPersona = async (req, res, next) => {
         (id_evento, nome, rg, status)
             VALUES (?,?,?,?)`;
         const result = await mysql.execute(query, [
-            req.body.id_evento, req.body.nome, req.body.rg
+            req.body.id_evento, req.body.nome, req.body.rg, req.body.status
         ]);
         res.status(201).send({
             mensagem: 'Pessoa inserida com Sucesso'
