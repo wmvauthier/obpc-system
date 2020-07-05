@@ -76,8 +76,11 @@ CREATE TABLE eventosListaPersona (
     id_ListaPersona int not null primary key auto_increment,
     id_evento varchar(255),
     nome varchar(255),
-    rg varchar(255)
+    rg varchar(255),
+    status varchar(255)
 );
+
+drop table eventoslistapersona;
 
 drop table pessoas;
 drop table igrejas;

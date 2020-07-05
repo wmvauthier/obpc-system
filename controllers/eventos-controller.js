@@ -47,6 +47,13 @@ exports.insertEvent = async (req, res, next) => {
 }
 
 exports.insertTicket = async (req, res, next) => {
+
+    let personaData = JSON.parse(req.params.personaData);
+
+    personaData.forEach(element => {
+        this.insertTicketPersona(req.params.id_evento, element.nome, element.rg, '1');
+    });
+
     try {
         const query = `INSERT INTO eventosTickets 
         (id_evento, ticket, personaData)
@@ -62,18 +69,15 @@ exports.insertTicket = async (req, res, next) => {
     }
 }
 
-exports.insertTicketPersona = async (req, res, next) => {
+exports.insertTicketPersona = async (id_evento, nome, rg, status) => {
     try {
         const query = `INSERT INTO eventosListaPersona
         (id_evento, nome, rg, status)
             VALUES (?,?,?,?)`;
         const result = await mysql.execute(query, [
-            req.params.id_evento, req.params.nome, req.params.rg, req.params.status
+            id_evento, nome, rg, status
         ]);
-        res.status(201).send({
-            mensagem: 'Pessoa inserida com Sucesso'
-        })
     } catch (error) {
-        return res.status(500).send({ error: error })
+        console.log(error);
     }
 }
