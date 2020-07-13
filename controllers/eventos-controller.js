@@ -1,4 +1,4 @@
-const mysql = require('../mysql');
+ const mysql = require('../mysql');
 
 exports.getAllEventos = async (req, res, next) => {
     try {
@@ -15,6 +15,16 @@ exports.getListaTickets = async (req, res, next) => {
         const query = `SELECT * FROM eventosTickets WHERE id_evento = ?;`;
         const result = await mysql.execute(query, [req.params.idEvento]);
         return res.status(200).send({ eventosTickets: result })
+    } catch (error) {
+        return res.status(500).send({ error: error })
+    }
+}
+
+exports.getTicket = async (ticket) => {
+    try {
+        const query = `SELECT * FROM eventosTickets WHERE ticket = ?;`;
+        const result = await mysql.execute(query, [ticket]);
+        return result;
     } catch (error) {
         return res.status(500).send({ error: error })
     }
@@ -62,7 +72,7 @@ exports.insertTicket = async (req, res, next) => {
             req.params.id_evento, req.params.ticket, req.params.personaData
         ]);
         res.status(201).send({
-            mensagem: 'Evento inserida com Sucesso'
+            mensagem: 'Ticket gerado com Sucesso!'
         })
     } catch (error) {
         return res.status(500).send({ error: error })
@@ -78,6 +88,37 @@ exports.insertTicketPersona = async (id_evento, nome, rg, status) => {
             id_evento, nome, rg, status
         ]);
     } catch (error) {
-        console.log(error);
+        return res.status(500).send({ error: error })
+    }
+}
+
+exports.validateTicket = async (req, res, next) => {
+
+    try {
+        let tic = JSON.parse(req.params.ticket);
+        let ticket = await this.getTicket(tic);
+        let personaData = ticket.personaData;
+
+        personaData.forEach(element => {
+            this.validateTicketPersona(element.id_evento, element.nome, element.rg);
+        });
+
+        res.status(201).send({
+            mensagem: 'Ticket validado com Sucesso!'
+        });
+
+    } catch (error) {
+        return res.status(500).send({ error: error })
+    }
+
+}
+
+exports.validateTicketPersona = async (id_evento, nome) => {
+    try {
+        const query = `UPDATE eventosListaPersona SET
+        status = 0 WHERE id_evento = ? and nome = ? and rg = ?`;
+        const result = await mysql.execute(query, [id_evento, nome, rg]);
+    } catch (error) {
+        return res.status(500).send({ error: error })
     }
 }
