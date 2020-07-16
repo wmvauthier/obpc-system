@@ -97,7 +97,7 @@ exports.getQtdTicketsFromEvento = async (req, res, next) => {
     let id_evento = req.params.id_evento;
 
     try {
-        const query = `SELECT * FROM eventosListaPersona WHERE id_evento = ?`;
+        const query = `SELECT count(*) FROM eventosListaPersona WHERE id_evento = ?`;
         const result = await mysql.execute(query, [
             id_evento
         ]);
