@@ -95,7 +95,7 @@ exports.insertTicketPersona = async (id_evento, nome, rg, status) => {
 exports.getQtdTicketsFromEvento = async (req, res, next) => {
 
     try {
-        const query = `SELECT * FROM eventosTickets WHERE id_evento = ?;`;
+        const query = `SELECT * FROM eventosListaPersona WHERE id_evento = ?;`;
         const result = await mysql.execute(query, [req.params.id_evento]);
         return res.status(200).send({ qtd: result })
     } catch (error) {
