@@ -94,7 +94,7 @@ exports.insertTicketPersona = async (id_evento, nome, rg, status) => {
 
 exports.getQtdTicketsFromEvento = async (req, res, next) => {
 
-    let id_evento = JSON.parse(req.params.id_evento);
+    let id_evento = req.params.id_evento;
 
     try {
         const query = `SELECT * FROM eventosListaPersona WHERE id_evento = ?`;
