@@ -1,4 +1,4 @@
- const mysql = require('../mysql');
+const mysql = require('../mysql');
 
 exports.getAllEventos = async (req, res, next) => {
     try {
@@ -97,7 +97,7 @@ exports.getQtdTicketsFromEvento = async (req, res, next) => {
     try {
         const query = `SELECT * FROM eventosListaPersona WHERE id_evento = ?;`;
         const result = await mysql.execute(query, [req.params.id_evento]);
-        return res.status(200).send({ qtd: result })
+        return res.status(200).send({ id_evento: req.params.id_evento, qtd: result })
     } catch (error) {
         return res.status(500).send({ error: error })
     }
