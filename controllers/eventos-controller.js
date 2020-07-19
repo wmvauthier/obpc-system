@@ -103,7 +103,6 @@ exports.validateTicket = async (req, res, next) => {
 
         let tic = req.params.ticket;
         let ticket;
-
         try {
             const query = `SELECT * FROM eventosTickets WHERE ticket = ?;`;
             ticket = await mysql.execute(query, [tic]);
@@ -111,15 +110,17 @@ exports.validateTicket = async (req, res, next) => {
             return res.status(500).send({ error: error })
         }
 
-        let personaData = ticket.personaData;
+        if (ticket) {
+            let personaData = JSON.parse(ticket[0].personaData);
 
-        personaData.forEach(element => {
-            this.validateTicketPersona(element.id_evento, element.nome, element.rg);
-        });
+            personaData.forEach(element => {
+                this.validateTicketPersona(element.id_evento, element.nome, element.rg);
+            });
 
-        res.status(201).send({
-            mensagem: 'Ticket validado com Sucesso!'
-        });
+            res.status(201).send({
+                mensagem: 'Ticket validado com Sucesso!'
+            });
+        }
 
     } catch (error) {
         return res.status(500).send({ error: error })
@@ -127,7 +128,7 @@ exports.validateTicket = async (req, res, next) => {
 
 }
 
-exports.validateTicketPersona = async (id_evento, nome) => {
+exports.validateTicketPersona = async (id_evento, nome, rg) => {
     try {
         const query = `UPDATE eventosListaPersona SET
         status = 0 WHERE id_evento = ? and nome = ? and rg = ?`;
