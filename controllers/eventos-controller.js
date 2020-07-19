@@ -106,7 +106,7 @@ exports.getQtdTicketsFromEvento = async (req, res, next) => {
 exports.validateTicket = async (req, res, next) => {
 
     try {
-        let tic = JSON.parse(req.params.ticket);
+        let tic = req.params.ticket;
         let ticket = await this.getTicket(tic);
         let personaData = ticket.personaData;
 
