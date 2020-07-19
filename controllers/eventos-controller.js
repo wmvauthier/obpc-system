@@ -21,13 +21,7 @@ exports.getListaTickets = async (req, res, next) => {
 }
 
 exports.getTicket = async (ticket) => {
-    try {
-        const query = `SELECT * FROM eventosTickets WHERE ticket = ?;`;
-        const result = await mysql.execute(query, [ticket]);
-        return result;
-    } catch (error) {
-        return res.status(500).send({ error: error })
-    }
+
 }
 
 exports.getListaPersona = async (req, res, next) => {
@@ -106,8 +100,17 @@ exports.getQtdTicketsFromEvento = async (req, res, next) => {
 exports.validateTicket = async (req, res, next) => {
 
     try {
+
         let tic = req.params.ticket;
-        let ticket = await this.getTicket(tic);
+        let ticket;
+
+        try {
+            const query = `SELECT * FROM eventosTickets WHERE ticket = ?;`;
+            ticket = await mysql.execute(query, [tic]);
+        } catch (error) {
+            return res.status(500).send({ error: error })
+        }
+
         let personaData = ticket.personaData;
 
         personaData.forEach(element => {
