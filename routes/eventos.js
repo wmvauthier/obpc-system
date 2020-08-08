@@ -13,6 +13,6 @@ router.get('/api/insertTicket/:id_evento/:ticket/:personaData', login.opcional, 
 router.get('/api/insertTicketPersona/:id_evento/:nome/:rg/:status', login.opcional, EventosController.insertTicketPersona);
 
 router.get('/api/validateTicket/:ticket', login.opcional, EventosController.validateTicket);
-router.get('/api/validatePersona/:id_evento/:nome/:rg', login.opcional, EventosController.validatePersona);
+router.get('/api/validatePersona/:id_ListaPersona', login.opcional, EventosController.validatePersona);
 
 module.exports = router;

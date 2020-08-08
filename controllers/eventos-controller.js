@@ -140,14 +140,12 @@ exports.validateTicketPersona = async (id_evento, nome, rg) => {
 
 exports.validatePersona = async (req, res, next) => {
 
-    let id_evento = req.params.id_evento;
-    let nome = req.params.nome;
-    let rg = req.params.rg;
+    let id_ListaPersona = req.params.id_ListaPersona
 
     try {
         const query = `UPDATE eventosListaPersona SET
-        status = 0 WHERE id_evento = ? and nome = ? and rg = ?`;
-        const result = await mysql.execute(query, [id_evento, nome, rg]);
+        status = 0 WHERE id_ListaPersona = ?`;
+        const result = await mysql.execute(query, [id_ListaPersona]);
         return res.status(200).send({ mensagem: 'Pessoa validada com Sucesso!' })
     } catch (error) {
         return res.status(500).send({ error: error })
