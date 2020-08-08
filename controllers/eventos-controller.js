@@ -55,7 +55,7 @@ exports.insertTicket = async (req, res, next) => {
     let personaData = JSON.parse(req.params.personaData);
 
     personaData.forEach(element => {
-        this.insertTicketPersona(req.params.id_evento, element.nome, element.rg, '1');
+        this.insertTicketPersona(req.params.id_evento, element.nome, element.cpf, '1');
     });
 
     try {
@@ -133,6 +133,22 @@ exports.validateTicketPersona = async (id_evento, nome, rg) => {
         const query = `UPDATE eventosListaPersona SET
         status = 0 WHERE id_evento = ? and nome = ? and rg = ?`;
         const result = await mysql.execute(query, [id_evento, nome, rg]);
+    } catch (error) {
+        return res.status(500).send({ error: error })
+    }
+}
+
+exports.validatePersona = async (req, res, next) => {
+
+    let id_evento = req.params.id_evento;
+    let nome = req.params.nome;
+    let rg = req.params.rg;
+
+    try {
+        const query = `UPDATE eventosListaPersona SET
+        status = 0 WHERE id_evento = ? and nome = ? and rg = ?`;
+        const result = await mysql.execute(query, [id_evento, nome, rg]);
+        return res.status(200).send({ mensagem: 'Pessoa validada com Sucesso!' })
     } catch (error) {
         return res.status(500).send({ error: error })
     }

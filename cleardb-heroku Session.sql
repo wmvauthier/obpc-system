@@ -58,13 +58,6 @@ CREATE TABLE usuarios (
     senha varchar(100)
 );
 
-CREATE TABLE eventos (
-    id_evento int not null primary key auto_increment,
-    typeEvento varchar(255),
-    dataEvento varchar(255),
-    vagasEvento varchar(255)
-);
-
 CREATE TABLE eventosTickets (
     id_ticket int not null primary key auto_increment,
     id_evento varchar(255),
@@ -80,7 +73,28 @@ CREATE TABLE eventosListaPersona (
     status varchar(255)
 );
 
+CREATE TABLE eventos (
+    id_evento int not null primary key auto_increment,
+    typeEvento varchar(255),
+    dataEvento varchar(255),
+    vagasEvento varchar(255)
+);
+
+INSERT INTO eventos (typeEvento, dataEvento, vagasEvento)
+VALUES ('1','10/08/2020','35');
+
+SELECT * FROM eventosListaPersona;
+SELECT * FROM eventostickets;
+
+select * from eventos;
+
+delete from eventosListaPersona where id_ListaPersona = 1;
+
+DELETE FROM table_name WHERE condition;
+
 drop table eventoslistapersona;
+drop table eventos;
+drop table eventostickets;
 
 drop table pessoas;
 drop table igrejas;
