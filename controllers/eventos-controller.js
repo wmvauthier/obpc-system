@@ -135,7 +135,7 @@ exports.validateTicket = async (req, res, next) => {
             let personaData = JSON.parse(ticket[0].personaData);
 
             personaData.forEach(element => {
-                this.validateTicketPersona(element.id_evento, element.nome, element.rg);
+                this.validateTicketPersona(ticket.id_evento, element.nome, element.rg);
             });
 
             res.status(201).send({
@@ -152,7 +152,7 @@ exports.validateTicket = async (req, res, next) => {
 exports.validateTicketPersona = async (id_evento, nome, rg) => {
     try {
         const query = `UPDATE eventosListaPersona SET
-        status = 0 WHERE nome = ? and rg = ? and status = '1'`;
+        status = 0 WHERE id_evento = ? and nome = ? and rg = ?`;
         const result = await mysql.execute(query, [id_evento, nome, rg]);
     } catch (error) {
         return res.status(500).send({ error: error })
