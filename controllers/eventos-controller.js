@@ -95,7 +95,7 @@ exports.insertIndividualPersona = async (req, res, next) => {
     try {
         const query = `INSERT INTO eventosListaPersona
         (id_evento, nome, rg, status)
-            VALUES (?,?,?,'0')`;
+            VALUES (?,?,?,'1')`;
         const result = await mysql.execute(query, [
             id_evento, nome, rg
         ]);
