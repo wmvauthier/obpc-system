@@ -152,7 +152,7 @@ exports.validateTicket = async (req, res, next) => {
 exports.validateTicketPersona = async (id_evento, nome, rg) => {
     try {
         const query = `UPDATE eventosListaPersona SET
-        status = 0 WHERE id_evento = ? and nome = ? and rg = ?`;
+        status = 0 WHERE nome = ? and rg = ? and status = '1'`;
         const result = await mysql.execute(query, [id_evento, nome, rg]);
     } catch (error) {
         return res.status(500).send({ error: error })
