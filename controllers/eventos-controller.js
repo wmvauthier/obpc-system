@@ -86,6 +86,27 @@ exports.insertTicketPersona = async (id_evento, nome, rg, status) => {
     }
 }
 
+exports.insertIndividualPersona = async (req, res, next) => {
+
+    let id_evento = req.params.id_evento;
+    let nome = req.params.nome;
+    let rg = req.params.rg;
+
+    try {
+        const query = `INSERT INTO eventosListaPersona
+        (id_evento, nome, rg, status)
+            VALUES (?,?,?,'0')`;
+        const result = await mysql.execute(query, [
+            id_evento, nome, rg
+        ]);
+        res.status(201).send({
+            mensagem: 'Pessoa criada com Sucesso!'
+        });
+    } catch (error) {
+        return res.status(500).send({ error: error })
+    }
+}
+
 exports.getQtdTicketsFromEvento = async (req, res, next) => {
 
     try {
