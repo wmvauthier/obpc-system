@@ -172,3 +172,17 @@ exports.validatePersona = async (req, res, next) => {
         return res.status(500).send({ error: error })
     }
 }
+
+exports.cancelPersona = async (req, res, next) => {
+
+    let id_ListaPersona = req.params.id_ListaPersona
+
+    try {
+        const query = `UPDATE eventosListaPersona SET
+        status = 2 WHERE id_ListaPersona = ?`;
+        const result = await mysql.execute(query, [id_ListaPersona]);
+        return res.status(200).send({ mensagem: 'Pessoa cancelada com Sucesso!' })
+    } catch (error) {
+        return res.status(500).send({ error: error })
+    }
+}

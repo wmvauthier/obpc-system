@@ -15,5 +15,6 @@ router.get('/api/insertTicketPersona/:id_evento/:nome/:rg/:status', login.opcion
 router.get('/api/insertIndividualPersona/:id_evento/:nome/:rg', login.opcional, EventosController.insertIndividualPersona);
 router.get('/api/validateTicket/:ticket', login.opcional, EventosController.validateTicket);
 router.get('/api/validatePersona/:id_ListaPersona', login.opcional, EventosController.validatePersona);
+router.get('/api/cancelPersona/:id_ListaPersona', login.opcional, EventosController.cancelPersona);
 
 module.exports = router;

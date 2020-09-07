@@ -81,7 +81,7 @@ CREATE TABLE eventos (
 );
 
 INSERT INTO eventos (typeEvento, dataEvento, vagasEvento)
-VALUES ('1','10/08/2020','35');
+VALUES ('1','13/09/2020','60');
 
 SELECT * FROM eventosListaPersona;
 SELECT * FROM eventostickets;
