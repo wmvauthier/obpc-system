@@ -107,7 +107,7 @@ UPDATE eventos SET dataEvento = "09/05/2021" where id_evento = 358;
 INSERT INTO musics (title, singer, tags, link)
 VALUES ('Santo', 'Fernanda Brum', 'SANTO', 'https://www.youtube.com/watch?v=dODbncqqIKU');
 
-INSERT INTO musics (typeEvento, dataEvento, vagasEvento, horaEvento)
-VALUES ('1', '30/05/2021', '45', '15:00');
+INSERT INTO eventos (typeEvento, dataEvento, vagasEvento, horaEvento)
+VALUES ('1', '20/06/2021', '45', '15:00');
 
 SELECT * FROM pessoas WHERE tipo IN ('Membro', 'Obreiro', 'Pastor', 'Convenção');
