@@ -80,32 +80,34 @@ CREATE TABLE eventos (
     vagasEvento varchar(255)
 );
 
-INSERT INTO eventos (typeEvento, dataEvento, vagasEvento)
-VALUES ('1','13/09/2020','60');
+CREATE TABLE musics (
+    id_music int not null primary key auto_increment,
+    title varchar(255),
+    singer varchar(255),
+    tags varchar(255),
+    link varchar(255)
+);
+
+SELECT * FROM eventos;
+
+SELECT * FROM musics;
+
+ALTER TABLE eventos ADD horaEvento varchar(255);
+
+DELETE FROM eventos where id_evento = '201';
 
 SELECT * FROM eventosListaPersona;
 SELECT * FROM eventostickets;
 
 select * from eventos;
 
-delete from eventosListaPersona where id_ListaPersona = 1;
+UPDATE eventos SET horaEvento = "15:00" where id_evento = 338;
+UPDATE eventos SET dataEvento = "09/05/2021" where id_evento = 358;
 
-DELETE FROM table_name WHERE condition;
+INSERT INTO musics (title, singer, tags, link)
+VALUES ('Santo', 'Fernanda Brum', 'SANTO', 'https://www.youtube.com/watch?v=dODbncqqIKU');
 
-drop table eventoslistapersona;
-drop table eventos;
-drop table eventostickets;
-
-drop table pessoas;
-drop table igrejas;
-
-update pessoas set tipo = 'Membro';
-
-describe usuarios;
-
-select
-    *
-from
-    pessoas;
+INSERT INTO musics (typeEvento, dataEvento, vagasEvento, horaEvento)
+VALUES ('1', '30/05/2021', '45', '15:00');
 
 SELECT * FROM pessoas WHERE tipo IN ('Membro', 'Obreiro', 'Pastor', 'Convenção');
