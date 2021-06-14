@@ -19,6 +19,7 @@ const rotaPessoas = require('./routes/pessoas');
 const rotaIgrejas = require('./routes/igrejas');
 const rotaUsuarios = require('./routes/usuarios');
 const rotaEventos = require('./routes/eventos');
+const rotaMusics = require('./routes/musics');
 
 
 app.use((req, res, next) => {
@@ -43,6 +44,7 @@ app.use('/pessoas', rotaPessoas);
 app.use('/igrejas', rotaIgrejas);
 app.use('/usuarios', rotaUsuarios);
 app.use('/eventos', rotaEventos);
+app.use('/musics', rotaMusics);
 
 
 app.use(function (req, res, next) {
